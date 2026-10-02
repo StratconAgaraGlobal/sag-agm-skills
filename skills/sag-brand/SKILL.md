@@ -103,7 +103,7 @@ Then convert and check: `soffice --headless --convert-to pdf out.docx`. Fonts ar
   - stat cards: a big ExtraBold number in INK on a TINT card, label in BODY
   - case-study layout: photos and stat cards on the left (760 px), then client logo + meta, challenge / what SAG did / outcome on the right
   - PANEL section bands used as org-chart headers
-  - logo wall: a 6-column grid of TINT tiles with logos contained; a client with no logo file gets its name as an ExtraBold INK tile
+  - logo wall: a 6-column grid of TINT tiles with logos contained; a client with no logo file gets its name as an ExtraBold INK tile. When the count doesn't fill the rows, use flex-wrap with centred rows of 224 px tiles (e.g. 7 + 6) rather than leaving an orphan
   - grids of 4 or more cards drop the yellow card rule so yellow stays to a few marks
 - Section dividers must carry real content; a bare number and title reads as empty to SAG. Otherwise drop them and let the eyebrows carry the section.
 - Put a named contact on the contact panel only when the user confirms it.
@@ -114,14 +114,17 @@ Then convert and check: `soffice --headless --convert-to pdf out.docx`. Fonts ar
   - show him only as one of the five equal Consulting Partners
   - where the SAG BOOK names him, keep the book's wording and name him once at most
 - Jagorawi toll-road land clearance (1978) is **"SAG legacy"**, with no names. Don't call land acquisition "eminent domain"; use "land acquisition and clearance for public-interest infrastructure" (Law No. 2 of 2012).
-- Galang Batang (Nanshan Group, Bintan KEK): no photos, for privacy. Describe facility types instead.
+- Galang Batang (Nanshan Group, Bintan KEK): no site photos, for privacy; describe facility types instead. The Nanshan Group logo is approved for the case study and the logo wall.
 - Where sources disagree, the SAG Company Overview figures win (e.g. 46 engagements, IDR 1.5T+, USD 33B, 700K+ m², 10,000+ jobs).
 - Sources (ask the user to attach them when needed; they are not bundled):
   - case studies, key experts, specialist bench and photos: SAG BOOK.pdf (`pdfimages`, then crop the baked-in captions)
   - partners and headshots: SAG_Company_Overview.pdf
   - client logos: the SAGxThryve.pdf ending page (combine each image with its smask)
   - FDE team: SAG_AI_FDE_Team.pdf
-- EV charging partner: Bescore (its agent approached SAG to find customers). Describe it only as charging equipment and the Bescore Charging platform.
+- **Never name or show supplier/partner companies on service pages.** SAG resells their products (EV chargers, cable), and naming them lets clients go direct. Present the offering as SAG's own ("supplied by SAG", "what we supply"), with no partner logos, "through partners" wording or placeholders. Company names and logos are fine in case studies.
+  - internal only, never in client-facing output: EV charging from Bescore; cable from PT Damai Cable Indonesia
+- CECEP is under NDA: never name it. Describe it by its work, e.g. "a Chinese state-owned clean-energy and environmental group".
+- Names carry no academic titles (Dr., S.H., S.E.), for consistency. In "how we work" visuals, SAG sits in the middle, between the client and government.
 - Mark projections as projections (e.g. the Mamuju cooperative figures) and concept visuals as concepts (Jasa Marga fibre image).
 
 ## 6. Verify

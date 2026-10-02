@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 """Reference 16:9 deck in the SAG Graphite & Slate system.
 
-Five layouts, each shown once: cover, section divider, content, two-column,
-and closing. Sample content only -- swap SLIDES and the layouts hold.
+Seven layouts, each shown once: cover, section divider, content, two-column,
+stat cards, case study and closing. Sample content only -- swap the content
+in sample() and the layouts hold.
 """
 import os
+
+from PIL import Image, ImageFont
 
 from pptx import Presentation
 from pptx.util import Mm, Pt, Emu
@@ -83,6 +86,62 @@ def rule(slide, x, y, w, h, color):
     return box(slide, x, y, w, h, color)
 
 
+def picture_fill(slide, path, x, y, w, h):
+    """Picture cropped to fill the box exactly (CSS object-fit: cover)."""
+    iw, ih = Image.open(path).size
+    pic = slide.shapes.add_picture(path, Mm(x), Mm(y), Mm(w), Mm(h))
+    over = (iw / ih) / (w / h)
+    if over > 1:                        # wider than the box: trim the sides
+        pic.crop_left = pic.crop_right = (1 - 1 / over) / 2
+    elif over < 1:                      # taller: trim top and bottom
+        pic.crop_top = pic.crop_bottom = (1 - over) / 2
+    return pic
+
+
+def picture_fit(slide, path, x, y, w, h):
+    """Picture scaled to sit inside the box, left/top aligned (contain)."""
+    iw, ih = Image.open(path).size
+    scale = min(w / iw, h / ih)
+    return slide.shapes.add_picture(path, Mm(x), Mm(y),
+                                    Mm(iw * scale), Mm(ih * scale))
+
+
+def heading(s, eyebrow, title):
+    """Eyebrow + headline block and the accent rule, pinned for every
+    light content slide."""
+    tf = textbox(s, ML, 20, CW, 26)
+    p = line(tf, first=True)
+    txt(p, eyebrow, F800, 9.5, P["META"], 1.6)
+    p = line(tf, space_before=5)
+    txt(p, title, F800, 28, P["INK"], -0.6)
+    rule(s, ML, 54, 34, 1.2, P["ACCENT"])
+
+
+def fit_size(text, width, size, floor=18):
+    """Largest point size, at most `size`, at which `text` set in ExtraBold
+    stays on one line within `width` mm, with a margin for renderer
+    differences. Measured with the bundled TTF."""
+    path = os.path.join(ASSETS, "fonts", "PlusJakartaSans-ExtraBold.ttf")
+    while size > floor:
+        f = ImageFont.truetype(path, 100)
+        if f.getlength(text) * size / 100 * 25.4 / 72 <= width * 0.92:
+            break
+        size -= 1
+    return size
+
+
+def stat_card(s, x, y, w, h, value, label, size=40):
+    """Big ExtraBold number in INK on a TINT card, label in BODY. The number
+    shrinks to stay on one line rather than wrap."""
+    box(s, x, y, w, h, P["TINT"], radius=3.0)
+    size = fit_size(value, w - 18, size)
+    tf = textbox(s, x + 9, y + 8, w - 18, h - 16, MSO_ANCHOR.MIDDLE)
+    p = line(tf, first=True, spacing=0.9)
+    txt(p, value, F800, size, P["INK"], -size * 0.05)
+    p = line(tf, space_before=size * 0.22, spacing=1.2)
+    txt(p, label, F400, 12 if size >= 34 else 10.5, P["BODY"])
+
+
 # ------------------------------------------------------------------ slides --
 def cover(prs, title, subtitle, date):
     s = prs.slides.add_slide(prs.slide_layouts[6])
@@ -124,13 +183,7 @@ def divider(prs, number, title, subtitle):
 def content(prs, eyebrow, title, bullets):
     s = prs.slides.add_slide(prs.slide_layouts[6])
     bg(s, P["PAPER"])
-
-    tf = textbox(s, ML, 20, CW, 26)
-    p = line(tf, first=True)
-    txt(p, eyebrow, F800, 9.5, P["META"], 1.6)
-    p = line(tf, space_before=5)
-    txt(p, title, F800, 28, P["INK"], -0.6)
-    rule(s, ML, 54, 34, 1.2, P["ACCENT"])
+    heading(s, eyebrow, title)
 
     tf = textbox(s, ML, 64, CW * 0.82, 90)
     for i, b in enumerate(bullets):
@@ -145,13 +198,7 @@ def content(prs, eyebrow, title, bullets):
 def two_col(prs, eyebrow, title, cards):
     s = prs.slides.add_slide(prs.slide_layouts[6])
     bg(s, P["PAPER"])
-
-    tf = textbox(s, ML, 20, CW, 26)
-    p = line(tf, first=True)
-    txt(p, eyebrow, F800, 9.5, P["META"], 1.6)
-    p = line(tf, space_before=5)
-    txt(p, title, F800, 28, P["INK"], -0.6)
-    rule(s, ML, 54, 34, 1.2, P["ACCENT"])
+    heading(s, eyebrow, title)
 
     gap, n = 8.0, len(cards)
     cw = (CW - gap * (n - 1)) / n
@@ -164,6 +211,88 @@ def two_col(prs, eyebrow, title, cards):
         p = line(tf, first=True)
         txt(p, head, F800, 15, P["INK"], -0.3)
         p = line(tf, space_before=7, spacing=1.3)
+        txt(p, body, F400, 11, P["BODY"])
+    footer(s, prs)
+    return s
+
+
+def stat_cards(prs, eyebrow, title, stats):
+    """Headline figures as stat cards. `stats` is a list of (value, label),
+    1 to 8 of them, laid out in rows of up to four that share the body area."""
+    if not 1 <= len(stats) <= 8:
+        raise ValueError("stat_cards takes 1 to 8 stats, got %d" % len(stats))
+    s = prs.slides.add_slide(prs.slide_layouts[6])
+    bg(s, P["PAPER"])
+    heading(s, eyebrow, title)
+
+    gap, top, bottom = 8.0, 70.0, 172.0
+    per_row = len(stats) if len(stats) <= 4 else (len(stats) + 1) // 2
+    rows = [stats[i:i + per_row] for i in range(0, len(stats), per_row)]
+    ch = min(56.0, (bottom - top - gap * (len(rows) - 1)) / len(rows))
+    size = 44 if len(rows) == 1 and per_row <= 3 else 34
+    cw = (CW - gap * (per_row - 1)) / per_row
+    for r, row in enumerate(rows):
+        # a short last row is centred rather than left as an orphan
+        x0 = ML + (CW - (len(row) * cw + gap * (len(row) - 1))) / 2
+        for i, (value, label) in enumerate(row):
+            stat_card(s, x0 + i * (cw + gap), top + r * (ch + gap), cw, ch,
+                      value, label, size)
+    footer(s, prs)
+    return s
+
+
+def case_study(prs, eyebrow, title, client, meta, challenge, did, outcome,
+               stats=(), photos=(), logo=None):
+    """Case study: photos and stat cards on the left (134 mm, 760 px on the
+    1920 canvas), then client logo + meta, challenge / what SAG did / outcome
+    on the right. `stats` is up to four (value, label); `photos` up to two
+    image paths, cropped to fill. With no photos the stats fill the column.
+    Without a logo file the client name is set as an ExtraBold INK line."""
+    if len(stats) > 4 or len(photos) > 2:
+        raise ValueError("case_study takes up to 4 stats and 2 photos")
+    s = prs.slides.add_slide(prs.slide_layouts[6])
+    bg(s, P["PAPER"])
+    heading(s, eyebrow, title)
+
+    lw, gap, top, bottom = 134.0, 6.0, 64.0, 172.0
+    y = top
+    if photos:
+        ph = 60.0 if stats else bottom - top
+        pw = (lw - gap * (len(photos) - 1)) / len(photos)
+        for i, path in enumerate(photos):
+            picture_fill(s, path, ML + i * (pw + gap), y, pw, ph)
+        y += ph + gap
+    if stats:
+        cols = 1 if len(stats) == 1 else 2
+        nrows = (len(stats) + cols - 1) // cols
+        sh = (bottom - y - gap * (nrows - 1)) / nrows
+        sw = (lw - gap * (cols - 1)) / cols
+        size = 30 if sh >= 30 else 24
+        for i, (value, label) in enumerate(stats):
+            r, c = divmod(i, cols)
+            stat_card(s, ML + c * (sw + gap), y + r * (sh + gap), sw, sh,
+                      value, label, size)
+
+    rx = ML + lw + 12.0
+    rw = SW - MR - rx
+    if logo:
+        picture_fit(s, logo, rx, top, 60, 12)
+        ty = top + 16
+    else:
+        tf = textbox(s, rx, top, rw, 8)
+        txt(line(tf, first=True), client, F800, 16, P["INK"], -0.3)
+        ty = top + 9
+    tf = textbox(s, rx, ty, rw, 6)
+    txt(line(tf, first=True), meta, F600, 9.5, P["MUTED"])
+    rule(s, rx, ty + 8, rw, 0.35, P["RULE"])
+
+    tf = textbox(s, rx, ty + 13, rw, bottom - ty - 13)
+    for i, (label, body) in enumerate((("CHALLENGE", challenge),
+                                       ("WHAT SAG DID", did),
+                                       ("OUTCOME", outcome))):
+        p = line(tf, first=(i == 0), space_before=0 if i == 0 else 10)
+        txt(p, label, F800, 8.5, P["META"], 1.6)
+        p = line(tf, space_before=3, spacing=1.3)
         txt(p, body, F400, 11, P["BODY"])
     footer(s, prs)
     return s
@@ -206,7 +335,8 @@ def footer(s, prs):
 
 def sample(prs):
     """Reference deck: every layout once. Write your own compose(prs) that
-    calls cover / divider / content / two_col / closing and pass it to build()."""
+    calls cover / divider / content / two_col / stat_cards / case_study /
+    closing and pass it to build()."""
     cover(prs, "Deck Title Goes Here",
           "Subtitle line — what this deck is for and who it is for",
           "24 SEPTEMBER 2026")
@@ -226,6 +356,22 @@ def sample(prs):
         ("Delivery", "Sequence, milestones and the decisions that have to "
                      "be made before each one."),
     ])
+    stat_cards(prs, "SAG IN NUMBERS", "Figures that carry the argument", [
+        ("46", "engagements delivered"),
+        ("IDR 1.5T+", "in project value managed"),
+        ("10,000+", "jobs supported"),
+    ])
+    case_study(prs, "CASE STUDY", "Headline that states the result",
+               "Client Name", "Location  ·  Sector  ·  Years",
+               "What stood in the client's way, in one or two sentences: the "
+               "permit, the land, the deadline or the stakeholder.",
+               "What SAG did about it, in order. Name the approvals secured "
+               "and the parties brought to the table.",
+               "What changed for the client, with a figure where there is one.",
+               stats=[("700K+ m\u00b2", "land cleared"),
+                      ("18 mo", "permit to operation"),
+                      ("3", "ministries aligned"),
+                      ("1,200", "jobs created")])
     closing(prs, "Ahmed Y. S. Khalifa", "Project Strategic Engineer",
             "ahmed.khalifa@stratconagaraglobal.com", "+62 812 10020646")
 

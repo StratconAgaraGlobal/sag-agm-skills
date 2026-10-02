@@ -27,7 +27,7 @@ Then look at `examples/agm-brand-example.html` (open it in a browser or the buil
 | `assets/photos/` | `sea-cucumber-warehouse.jpg` (Seafood band), `harvester-vessel.jpg` (Marine band) |
 | `assets/graphics/` | Ready masthead / closing / deck band images for both editions (the masthead date is baked in, so documents regenerate it) |
 | `assets/fonts/` | Plus Jakarta Sans, 5 weights + OFL licence |
-| `assets/reference/` | Reference `.docx` `.pdf` `.pptx` for both editions, plus a sample MoM |
+| `assets/reference/` | Reference files: Seafood as `.docx`, `.pdf` and `.pptx`; Marine as PDFs only. Plus a sample MoM for each edition |
 | `scripts/palette.py`, `brands.py` | `SEAFOOD` / `MARINE` role tokens; edition objects (wordmark, taglines, photo, emblem) |
 | `scripts/graphics.py` | The AGM device: photo under a flat PANEL veil + tagline + rule with accent dot |
 | `scripts/sagdoc.py`, `components.py` | OOXML helpers and `BrandDoc`: masthead, tiles, callout, band, kv, data_table, item, bullets, roadmap, sign_row, contents, notes box, contact panel, running header/footer |
@@ -76,7 +76,7 @@ d = BrandDoc(b, kind="Proposal", title="Short title", date="30 SEPTEMBER 2026")
 d.masthead(); d.title_block("EYEBROW", "Title", "Prepared for ", "Client")
 d.intro(["Text with **bold** runs."]); d.tiles([("0%", "TRADING FEE", "Free to use")])
 d.callout("HEADLINE", ["**Opportunity.** ..."]); d.band("Section", "Subtitle")
-d.kv([...]); d.data_table(headers, rows, widths, marks=(2,))
+d.kv([...]); d.data_table(headers, rows, widths, marks=(2,))   # widths in mm, must total 170
 d.item("Question", "POSITION GIVEN", "Answer"); d.roadmap(phases); d.sign_row([...])
 d.contact_panel("YOUR CONTACT", "Name", line2=[b.name], line3=[b.contact["email"]])
 d.closing(); d.save("out.docx")     # embeds the fonts

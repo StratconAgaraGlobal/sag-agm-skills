@@ -298,7 +298,7 @@ def case_study(prs, eyebrow, title, client, meta, challenge, did, outcome,
     return s
 
 
-def closing(prs, name, role, mail, tel):
+def closing(prs, name, role, mail, tel, prefix=""):
     s = prs.slides.add_slide(prs.slide_layouts[6])
     bg(s, P["PANEL"])
     s.shapes.add_picture(os.path.join(ASSETS, "graphics", "deck_band_blue.png"),
@@ -310,7 +310,8 @@ def closing(prs, name, role, mail, tel):
     p = line(tf, first=True)
     txt(p, "YOUR CONTACT AT STRATCON AGARA GLOBAL", F800, 9, P["PALE"], 1.8)
     p = line(tf, space_before=9)
-    txt(p, "Eng. ", F500, 18, P["PALE"])
+    if prefix:
+        txt(p, prefix, F500, 18, P["PALE"])
     txt(p, name, F800, 26, P["PAPER"], -0.5)
     p = line(tf, space_before=7)
     txt(p, role, F600, 12.5, P["TINT"])
@@ -372,7 +373,7 @@ def sample(prs):
                       ("18 mo", "permit to operation"),
                       ("3", "ministries aligned"),
                       ("1,200", "jobs created")])
-    closing(prs, "Ahmed Y. S. Khalifa", "Project Strategic Engineer",
+    closing(prs, "Ahmed Y. S. Khalifa", "Technical Manager",
             "ahmed.khalifa@stratconagaraglobal.com", "+62 812 10020646")
 
 

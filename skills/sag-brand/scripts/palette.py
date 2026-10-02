@@ -2,8 +2,8 @@
 """SAG Graphite & Slate ("Blue") palette, by role.
 
 Colours are named for the job they do, not for what they look like, so the
-same build code can be re-skinned. Yellow is an accent only -- it appears on
-the Complexity Line tagline and nowhere else by default.
+same build code can be re-skinned. Yellow is an accent only -- the Complexity
+Line tagline and short rules (three-bar rule, slide accent rules), nothing else.
 """
 
 BLUE = {

@@ -92,7 +92,7 @@ def main():
             r = subprocess.run([sys.executable] + args, cwd=cwd, capture_output=True, text=True)
             out = args[args.index("--out") + 1]
             ok = r.returncode == 0 and os.path.getsize(out) > 5000
-            print("%-4s %s %s" % ("ok" if ok else "FAIL", skill, " ".join(args[:1] + args[1:-1:2][:0])))
+            print("%-4s %s %s" % ("ok" if ok else "FAIL", skill, " ".join(args[:-2])))
             if not ok:
                 fails += 1
                 print(r.stdout[-500:], r.stderr[-1500:])

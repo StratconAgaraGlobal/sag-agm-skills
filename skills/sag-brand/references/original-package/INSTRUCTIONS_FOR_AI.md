@@ -1,3 +1,5 @@
+> **Archived.** This is the original design package as delivered, before it was bundled into this skill. Its paths are out of date: code is now in `scripts/` and reference files are in `assets/reference/`. Follow `SKILL.md` instead.
+
 # Instructions for an AI assistant
 
 Paste the block below into a new conversation, and attach `DESIGN_SPEC.md`

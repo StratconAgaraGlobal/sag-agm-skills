@@ -68,7 +68,7 @@ d = BrandDoc(SAG, kind="Report", title="Short title", date="30 SEPTEMBER 2026")
 d.masthead(); d.title_block("EYEBROW", "Title", "Prepared for ", "Client")
 d.intro(["Text with **bold** runs."]); d.tiles([("46", "ENGAGEMENTS", "Delivered")])
 d.callout("HEADLINE", ["**Opportunity.** ..."]); d.band("Section", "Subtitle")
-d.kv([...]); d.data_table(headers, rows, widths, marks=(2,)); d.item("Question", "POSITION GIVEN", "Answer")
+d.kv([...]); d.data_table(headers, rows, widths, marks=(2,))   # widths in mm, must total 170; d.item("Question", "POSITION GIVEN", "Answer")
 d.roadmap(phases); d.sign_row([...]); d.contact_panel(...); d.closing(); d.save("out.docx")
 ```
 
@@ -111,7 +111,7 @@ Then convert and check: `soffice --headless --convert-to pdf out.docx`. Fonts ar
 ## 5. SAG content rules
 - Andi Prasetyo prefers a background, supporting role:
   - frame the work as SAG's
-  - show him only as one of the five equal Consulting Partners
+  - where a title is needed, use his business-card title, Chairman (confirmed by the user, 2 Oct 2026); otherwise don't single him out
   - where the SAG BOOK names him, keep the book's wording and name him once at most
 - Jagorawi toll-road land clearance (1978) is **"SAG legacy"**, with no names. Don't call land acquisition "eminent domain"; use "land acquisition and clearance for public-interest infrastructure" (Law No. 2 of 2012).
 - Galang Batang (Nanshan Group, Bintan KEK): no site photos, for privacy; describe facility types instead. The Nanshan Group logo is approved for the case study and the logo wall.

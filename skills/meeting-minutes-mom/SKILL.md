@@ -58,7 +58,7 @@ Let sections flow. Force page breaks only after page 1, when a section would oth
 
 ## 5. Build and verify
 - Build with the brand skill's `scripts/build_mom.py`, the worked example of exactly this structure (fictional sample content). Copy it, replace `CONTENT` with the real minutes, and run it from that skill's `scripts/` folder: `python build_mom.py --brand seafood --out minutes.docx` (`--brand seafood|marine` for AGM, `--brand sag` for SAG). Then `soffice --headless --convert-to pdf minutes.docx`. A rendered sample is in the brand skill's `assets/reference/`.
-- Component helpers you will use: `masthead`, `title_block`, `intro`, `tiles`, `callout`, `band`, `kv`, `data_table` (status marks: TBC, TO DO, OPEN, PENDING, DONE, HIGH, MEDIUM, LOW), `item`, `bullets`, `numbered`, `roadmap`, `sign_row`, `contact_panel`, `closing`.
+- Component helpers you will use: `masthead`, `title_block`, `intro`, `tiles`, `callout`, `band`, `kv`, `data_table` (status marks: TBC, TO DO, OPEN, PENDING, IN PROGRESS, DONE, CLOSED, HIGH, MEDIUM, LOW, YES, NO), `item`, `bullets`, `numbered`, `roadmap`, `sign_row`, `contact_panel`, `closing`.
 - Render all pages (`pdftoppm -r 40`) into a contact sheet and view it. Check for:
   - clipped callouts or tiles (shapes don't grow);
   - tiles wrapping to a second line;

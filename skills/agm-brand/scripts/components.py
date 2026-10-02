@@ -6,7 +6,7 @@ component sizes are identical, only the `brand` object differs (palette,
 wordmark, logo files, banner images, footer tagline). Everything is laid out
 to DESIGN_SPEC.md: A4, 20/20/14/16 mm margins, 170 mm measure, 2.5 mm radius.
 
-    from brands import SAG            # or SEAFOOD / MARINE in agm-brand
+    from brands import SAG            # or BRANDS["seafood"] / BRANDS["marine"] in agm-brand
     from components import BrandDoc
 
     d = BrandDoc(SAG, kind="Minutes of Meeting", title="Short title",

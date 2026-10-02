@@ -13,7 +13,7 @@ Each brand skill is **self-contained**: fonts, logos, photos, graphics, build co
 
 ## Install
 
-**Claude desktop / Cowork (easiest).** Get the `.skill` files (run `python tools/package_skills.py`, or take them from a release), then in Claude open *Settings → Capabilities → Skills → Upload skill* and add each file.
+**Claude desktop / Cowork (easiest).** Build the `.skill` files with `python tools/package_skills.py` (they land in `dist/`), then in Claude open *Settings → Capabilities → Skills → Upload skill* and add each file.
 
 **Claude Code.** Copy the folders into your skills directory:
 
@@ -67,12 +67,14 @@ tests/smoke_test.py     builds every document, deck and example for both brands
 
 - Edit a skill in `skills/<name>/`, run `python tests/smoke_test.py`, then `python tools/package_skills.py`.
 - If you change `example_template.html` or the assets, rebuild the example with `python scripts/build_example_html.py` inside that skill.
-- Both brand skills share `components.py` (`BrandDoc`); keep the two copies in step.
+- Both brand skills carry identical copies of `components.py` (`BrandDoc`), `sagdoc.py` and `install_fonts.py`, and near-identical `build_mom.py`; keep the copies in step.
 
 ## Known limits
 
 - The AGM emblem files are PNG recovered from AGM's finished documents. If the vector artwork arrives, replace the files in `assets/logo` under the same names.
 - Only two AGM photographs are bundled. Add more via an `Edition` subclass in `brands.py`.
 - The SAG stat-card and case-study layouts are in the `.pptx` builder but not yet in `examples/sag-brand-example.html` or the bundled reference deck in `assets/reference/`.
+- The logo wall and the PANEL org-chart bands described in the sag-brand `SKILL.md` are not coded in `build_deck.py` yet.
+- The bundled reference `.docx` / `.pdf` files still show the earlier 35.5 mm contact panel; rebuild them with LibreOffice when convenient.
 
 See `LICENSE-NOTES.md` for licensing.

@@ -73,6 +73,6 @@ tests/smoke_test.py     builds every document, deck and example for both brands
 
 - The AGM emblem files are PNG recovered from AGM's finished documents. If the vector artwork arrives, replace the files in `assets/logo` under the same names.
 - Only two AGM photographs are bundled. Add more via an `Edition` subclass in `brands.py`.
-- The SAG deck stat-card and case-study layouts are described in `SKILL.md` but not yet coded in `build_deck.py`.
+- The SAG stat-card and case-study layouts are in the `.pptx` builder but not yet in `examples/sag-brand-example.html` or the bundled reference deck in `assets/reference/`.
 
 See `LICENSE-NOTES.md` for licensing.

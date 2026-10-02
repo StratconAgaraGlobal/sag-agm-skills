@@ -1,6 +1,7 @@
 # Changelog
 
 ## 2026-10-02
+- **sag-brand**: `build_deck.py` now builds the stat-card (`stat_cards`) and case-study (`case_study`) layouts; the reference deck shows both. The smoke test covers every stat count, photo and logo combination.
 - Added **sag-graphify** (SAG knowledge and Graphify workflow, compiled 1 Oct 2026).
 - **sag-brand**: synced the latest content rules (logo-wall layout, no supplier or partner names on service pages, CECEP under NDA, no academic titles in names).
 - README: shared SAG / AGM graph section.

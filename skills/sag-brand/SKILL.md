@@ -31,7 +31,7 @@ Then look at `examples/sag-brand-example.html` (open it in a browser or the buil
 | `scripts/cline.py`, `graphics.py` | Complexity Line generator; masthead / closing / deck band images (masthead takes the date) |
 | `scripts/sagdoc.py` | OOXML helpers: rounded panels, tables, `picture()`, `table(lmar=)`, font embedding |
 | `scripts/components.py`, `brands.py` | `BrandDoc`: masthead, tiles, callout, band, kv, data_table, item, bullets, roadmap, sign_row, contact panel, running header/footer |
-| `scripts/build_doc.py`, `build_mom.py`, `build_deck.py` | Reference A4 document, worked MoM, five-layout deck |
+| `scripts/build_doc.py`, `build_mom.py`, `build_deck.py` | Reference A4 document, worked MoM, seven-layout deck |
 | `scripts/build_example_html.py` | Rebuilds the HTML example |
 
 ## 2. Non-negotiables
@@ -83,7 +83,7 @@ Then convert and check: `soffice --headless --convert-to pdf out.docx`. Fonts ar
 - Rows of shapes (tiles, roadmap) total 169.6 mm with the gaps as noFill shapes, so they never wrap.
 
 ## 4. Building decks
-- **.pptx:** `build_deck.py` has the five layouts (`cover`, `divider`, `content`, `two_col`, `closing`). Write a `compose(prs)` that calls them and pass it to `build(out, compose)`. Tell the user to install the fonts (or run `install_fonts.py`) before opening the .pptx, since PowerPoint cannot embed them the way Word does.
+- **.pptx:** `build_deck.py` has seven layouts (`cover`, `divider`, `content`, `two_col`, `stat_cards`, `case_study`, `closing`). `stat_cards` takes 1 to 8 `(value, label)` pairs in rows of up to four, and numbers shrink to stay on one line. `case_study` takes the client, a meta line, challenge / what SAG did / outcome, and optionally up to 4 stats, up to 2 photos (cropped to fill) and a client logo file (without one the client name is set in ExtraBold INK). Write a `compose(prs)` that calls them and pass it to `build(out, compose)`. Tell the user to install the fonts (or run `install_fonts.py`) before opening the .pptx, since PowerPoint cannot embed them the way Word does.
 - **Claude Slides artifact (1920 × 1080 canvas):** map the spec exactly with **1 mm = 5.669 px, 1 pt = 2 px**. `examples/sag-brand-example.html` contains all five slides in this mapping, ready to lift.
   - Font: Google Fonts `Plus+Jakarta+Sans:wght@400;500;600;700;800`; stack `'Plus Jakarta Sans', Arial, sans-serif`.
   - Every section uses `padding:0px` with pinned blocks:

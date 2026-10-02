@@ -1,6 +1,7 @@
 # Changelog
 
 ## 2026-10-02
+- Docs audit fixes: contact panel is 38.5 mm everywhere (spec, HTML examples, sag reference builder); `components.py` import hint for AGM; AGM reference-file list; stale `code/` paths; archived-package notes; Andi Prasetyo shown by his card title, Chairman; sample contact is Ahmed Khalifa, Technical Manager, with no prefix; README install, shared-file and known-limits notes; smoke test log shows the edition.
 - **sag-brand**: `build_deck.py` now builds the stat-card (`stat_cards`) and case-study (`case_study`) layouts; the reference deck shows both. The smoke test covers every stat count, photo and logo combination.
 - Added **sag-graphify** (SAG knowledge and Graphify workflow, compiled 1 Oct 2026).
 - **sag-brand**: synced the latest content rules (logo-wall layout, no supplier or partner names on service pages, CECEP under NDA, no academic titles in names).

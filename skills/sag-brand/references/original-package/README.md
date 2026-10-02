@@ -1,3 +1,5 @@
+> **Archived.** This is the original design package as delivered, before it was bundled into this skill. Its paths are out of date: code is now in `scripts/` and reference files are in `assets/reference/`. Follow `SKILL.md` instead.
+
 # SAG Design Package — Graphite & Slate
 
 Everything another designer or AI assistant needs to produce Word documents

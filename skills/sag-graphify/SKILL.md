@@ -30,7 +30,7 @@ Newest and most official wins. Tag the older claim as superseded; do not average
 | 1 | Business Cards.zip (8 cards, Downloads/Business-Docs) | 30 Sep 2026 | Names, honorifics, titles, work email, phone | Anything beyond contact and title |
 | 2 | Company Overview, FDE Team one-pager, recent MoMs | Sep 2026 | Headline stats, team description, current deals | Titles (see rank 1) |
 | 3 | SAG BOOK (Corporate Profile, Complete Edition, 2026; also in project as `SAG BOOK.pdf` and `Pre-Company profile.docx`) | compiled June 2026 | History, services, track record, case studies, bios, methodology | Current titles; headline stats where the Overview differs |
-| 4 | SAG working files (`sag/PROJECT.md`, `README.md`, `docs/`, older SAG-app docs) | Feb to Mar 2026 | How the internal operating model and Document Control were first designed | Names and roles (several differ from today) |
+| 4 | SAG working files (`sag/PROJECT.md`, `README.md`, `docs/`, older SAG-app docs; `PROJECT.md`, `docs/` and `meeting-mind/` are in the local `sag` folder, not in the diovandi/sag Git repo) | Feb to Mar 2026 | How the internal operating model and Document Control were first designed | Names and roles (several differ from today) |
 | 4a | Current SAG-app Document Control docs (`SAG-app/docs/document-control/PRODUCT_OBJECTIVES.md` for the current target; `SHARED_WORKSPACE_SETUP.md` for the dated implementation status, 15 Sep 2026, local-tested, not cloud-accepted) | Sep 2026 | What Document Control should do now and what has been built | Older SAG OS plans are historical designs only |
 | 5 | Raw transcripts (Fireflies, Otter) | per meeting | Raw material for MoMs | Names or terms until corrected (section 4) |
 

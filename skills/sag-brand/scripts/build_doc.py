@@ -70,9 +70,9 @@ CONTENT = dict(
     notes_sub="Context, constraints or corrections that the questions above "
               "do not reach.",
     contact_label="YOUR CONTACT AT STRATCON AGARA GLOBAL",
-    contact_prefix="Eng. ",
+    contact_prefix="",
     contact_name="Ahmed Y. S. Khalifa",
-    contact_role="Project Strategic Engineer",
+    contact_role="Technical Manager",
     contact_org="PT Stratcon Agara Global",
     contact_mail="ahmed.khalifa@stratconagaraglobal.com",
     contact_tel="+62 812 10020646",
@@ -245,7 +245,7 @@ def build(out, embed=True, C=CONTENT):
                xrun("   ·   ", F400, 8.8, P["PALE"]),
                xrun(C["contact_tel"], F400, 8.8, P["PALE"])]),
     ]
-    emit(doc, [shape(W, 35.5, P["PANEL"], "".join(cbody), RADIUS,
+    emit(doc, [shape(W, 38.5, P["PANEL"], "".join(cbody), RADIUS,
                      pad=(7, 6.5, 7, 7))])
 
     spacer(doc, 6)

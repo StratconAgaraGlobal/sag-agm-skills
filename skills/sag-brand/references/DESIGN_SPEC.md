@@ -148,7 +148,7 @@ Different first page header/footer is **on**: page 1 has no running header
 | Item — label row | 15 + 155 mm | — | body 0 / 3.2 / 0 / 1.4 | |
 | Item — response box | 155 mm, `trHeight` 14 mm | `TINT` | 5 / 2.5 / 5 / 2.5 | Renders 19 mm; 1 pt `RULE` top border only |
 | Notes box | 155 mm, `trHeight` 27 mm | `TINT` | 5 / 2.5 / 5 / 2.5 | Renders 32 mm |
-| Contact panel | 170 × 35.5 mm | `PANEL` | 7 / 6.5 / 7 / 7 | |
+| Contact panel | 170 × 38.5 mm | `PANEL` | 7 / 6.5 / 7 / 7 | |
 | Closing band | 170 × 30.9 mm image | — | — | Radius baked in |
 
 Vertical rhythm, as point-sized empty paragraphs: 13 pt before the title
@@ -196,7 +196,7 @@ vertical form.** It always carries the tagline; it is never used as bare
 decoration.
 
 Generated, not drawn, from a seeded PRNG so every render is identical.
-`code/cline.py` is the reference implementation. Parameters:
+`scripts/cline.py` is the reference implementation. Parameters:
 
 ```
 viewBox      1600 × cross        cross = 300 for the document bands

@@ -22,17 +22,17 @@ The brand constants are the same 11 roles as `scripts/palette.py`. Light is the 
 
 | Token | Light | Dark | Use |
 |---|---|---|---|
-| `--sag-app` | `#F3F5F5` | `#0E171B` | App ground: sidebar, around the panel, group headers |
-| `--sag-surface` | `#FFFFFF` | `#142127` | The work panel, dialogs, menus, inputs |
-| `--sag-hover` | `#F5F7F7` | `#18272E` | Row and item hover |
-| `--sag-selected` | `#EDF1F2` | `#1E3139` | Selected row, active nav, pressed segment |
-| `--sag-text` | `INK #16181A` | `#F1F4F5` | Titles, row text, values |
-| `--sag-text-2` | `BODY #2C4550` | `PALE` | Body and secondary text |
-| `--sag-text-3` | `MUTED #63696C` | `RULE` | Labels, meta, refs, dates (the lightest grey allowed for text) |
-| `--sag-icon` | `#8A9196` | `#6F858E` | Icons only, never text |
-| `--sag-line` | `#E5E9EA` | `#22343B` | Hairlines |
-| `--sag-line-strong` | `#84969E` | `#5B747F` | Text-input borders (≥ 3:1) |
-| `--sag-primary` | `PANEL #1B3038` | `#F1F4F5` | The primary button |
+| `--sag-app` | `#F3F5F3` | `#0E1B15` | App ground: sidebar, around the panel, group headers |
+| `--sag-surface` | `#FFFFFF` | `#14271f` | The work panel, dialogs, menus, inputs |
+| `--sag-hover` | `#F5F7F6` | `#182E25` | Row and item hover |
+| `--sag-selected` | `#EDF2EF` | `#1E392D` | Selected row, active nav, pressed segment |
+| `--sag-text` | `INK #161A19` | `#F1F5F3` | Titles, row text, values |
+| `--sag-text-2` | `BODY #2C5040` | `PALE` | Body and secondary text |
+| `--sag-text-3` | `MUTED #636C68` | `RULE` | Labels, meta, refs, dates (the lightest grey allowed for text) |
+| `--sag-icon` | `#8A9692` | `#6F8E80` | Icons only, never text |
+| `--sag-line` | `#E5EAE7` | `#223B2F` | Hairlines |
+| `--sag-line-strong` | `#849E92` | `#5B7F6F` | Text-input borders (≥ 3:1) |
+| `--sag-primary` | `PANEL #1B382A` | `#F1F5F3` | The primary button |
 | `--sag-shadow-1` | 1 px hairline ring + 1 px soft drop | hairline ring | Panel, cards, secondary buttons, pressed segment |
 | `--sag-shadow-2` | 32 px soft drop + ring | deeper drop + ring | Dialogs, palette, menus, sign-in card |
 
@@ -44,7 +44,7 @@ Radius: 12 px panel and dialogs, 8 px buttons and inputs, 6 px pills, segment bu
 
 | State | Glyph | Icon colour | Chip fg / bg (light) |
 |---|---|---|---|
-| Not started | dashed ring | `#8A9196` | `#5C6366` / `#EEF0F0` |
+| Not started | dashed ring | `#8A9692` | `#5C6662` / `#EEF0EE` |
 | In process | ring + half fill | `#B7861B` | `#6B510C` / `#FDF3D3` |
 | Issued / done | filled ✓ | `#1F7A53` | `#14563B` / `#E7F3ED` |
 | At risk / error | filled ! | `#B4472A` | `#8A331C` / `#F9E7E1` |
@@ -125,7 +125,7 @@ Use [Lucide](https://lucide.dev), outline, 16 px (14 px in pills and breadcrumbs
 
 - **Sign-in:** `app` ground, a centred white card with `shadow-2` (shield + wordmark, "Sign in to <app>", Google as secondary, an "or" divider, email, primary Continue), and the Complexity Line band (`deck_band_blue.png`) as a 150 px slate strip along the foot. This is the only screen that carries the Complexity Line.
 - **Favicon:** the shield on a solid `#F9C939` tile at 16/32/48 px.
-- **PWA icon:** the plated logo on `PANEL`, 20 % safe padding, maskable. **Manifest:** `theme_color` and `background_color` `#F3F5F5`.
+- **PWA icon:** the plated logo on `PANEL`, 20 % safe padding, maskable. **Manifest:** `theme_color` and `background_color` `#F3F5F3`.
 
 ## 10. Words on screen
 
@@ -148,7 +148,7 @@ Use [Lucide](https://lucide.dev), outline, 16 px (14 px in pills and breadcrumbs
 
 | App | Today | Change to |
 |---|---|---|
-| SAG Email Generator / Admin (`SAG_Codes/site`) | Inter / Arial / Georgia; navy manifest `#0C1E38` | `sag-app.css`, app frame + list/detail; manifest `#F3F5F5` |
+| SAG Email Generator / Admin (`SAG_Codes/site`) | Inter / Arial / Georgia; navy manifest `#0C1E38` | `sag-app.css`, app frame + list/detail; manifest `#F3F5F3` |
 | SAG Business Card Generator | navy `#0C1E38`, gold `#C8960A`, Inter + Playfair Display | `sag-app.css` for the tool; the card itself per `BRAND_SYSTEM.md` §7 |
 | Printed business cards (2026 batch) | Playfair serif name, navy ground | Reprint per `BRAND_SYSTEM.md` §7 at the next order |
 

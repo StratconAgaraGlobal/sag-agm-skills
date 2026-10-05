@@ -116,11 +116,10 @@ Then convert and check: `soffice --headless --convert-to pdf out.docx`. Fonts ar
 
 ## 5. Apps and web UI
 For any app, internal tool, dashboard, admin page or PWA, read `references/APP_DESIGN.md` first and start from `assets/app/sag-app.css` (copy it in, or inline it in single-file apps). `examples/sag-app-example.html` shows the result.
-- Light by default: white top bar with `sag-logo.png` (≥ 28 px) and the name *Stratcon Agara Global*, white cards with hairlines, no filled table headers, Plus Jakarta Sans 400–800. Dark only as an opt-in theme.
-- Slate (`PANEL`) for text and the one primary button. Yellow: the active-nav mark, critical-path bars and one accent rule. Never a button fill, never text on light, never a status.
-- Status chips (pills) use the status set (issued / in process / at risk / not started), always with a word.
-- No gradients, shadows, emoji or decorative icons; Lucide outline icons only where they help a control.
-- Manifest and `theme-color` `#FFFFFF`; favicon is the shield on a solid `#F9C939` tile.
+- The bar is modern product software (Linear, Stripe): crisp, dense, keyboard-friendly. A light grey app ground (`#F3F5F5`) with the work on one inset white panel; a sidebar with the shield in the workspace switcher; 52 px header bars with breadcrumb, view switcher and one primary action; 42 px rows grouped by status; a detail panel with properties and an activity history; a ⌘K palette; a create dialog with property pills.
+- SAG yellow means **critical path**: the ◆ marker on rows and the bars on the timeline. Never a button, never text on light, never a status, never chrome decoration.
+- Status uses its own glyphs and colours (not started ◌, in process ◐, issued ✓, at risk !), always with a word somewhere.
+- Plus Jakarta Sans 400–800, 13–14 px UI type, tabular figures. Lucide outline icons in grey. Two soft elevation levels, no gradients or emoji. Light by default; dark only as an opt-in theme.
 - The Complexity Line appears only on the sign-in screen, as a slate strip along the foot (`deck_band_blue.png`).
 - Check 390 px wide (and the dark theme, if offered) before showing the user.
 

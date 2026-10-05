@@ -2,9 +2,9 @@
    SAG app stylesheet — Graphite & Slate for screens
    PT Stratcon Agara Global. Spec: references/APP_DESIGN.md
 
-   Drop this file into any SAG web app, internal tool or dashboard, then use
-   the tokens (var(--sag-*)) and the .sag-* components. Brand constants never
-   change between themes; only surfaces and text do.
+   Light by default: white surfaces, hairlines, slate for text and the one
+   primary action, yellow as a single mark. Dark is opt-in with
+   <html data-theme="dark">. Brand constants never change between themes.
 
    Fonts: load Plus Jakarta Sans 400–800 first, e.g.
    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
@@ -24,69 +24,49 @@
   --sag-accent: #F9C939;   /* SAG Yellow: marks only, never text on light, never a large fill */
   --sag-gold:   #C9A227;
 
-  /* Screen roles — light theme */
-  --sag-bg:          var(--sag-paper);   /* page ground */
-  --sag-surface:     #FFFFFF;            /* cards, tables, inputs (screens only) */
-  --sag-surface-2:   var(--sag-tint);    /* hover rows, secondary panels, chips */
+  /* Screen roles — light (default) */
+  --sag-bg:          #FFFFFF;            /* page and app ground */
+  --sag-surface:     #FFFFFF;            /* cards, tables, inputs */
+  --sag-subtle:      #F6F8F8;            /* hover rows, quiet panels, search well */
+  --sag-selected:    var(--sag-paper);   /* active nav, selected rows, avatar */
   --sag-text:        var(--sag-ink);     /* headings, values */
   --sag-text-2:      var(--sag-body);    /* body copy */
   --sag-text-3:      var(--sag-muted);   /* labels, captions, placeholders */
   --sag-eyebrow:     var(--sag-meta);
-  --sag-line:        var(--sag-tint);    /* dividers between rows */
-  --sag-line-strong: #7A8F98;            /* input borders: 3.4:1 on white */
-  --sag-focus:       var(--sag-ink);     /* yellow fails on white, so focus is ink */
-  --sag-primary:     var(--sag-panel);   /* primary button fill */
-  --sag-on-primary:  var(--sag-paper);
+  --sag-line:        #E6EAEB;            /* hairlines between rows and around cards */
+  --sag-line-strong: #84969E;            /* input borders: 3.1:1 on white */
+  --sag-focus:       var(--sag-panel);   /* yellow fails on white, so focus is slate */
+  --sag-primary:     var(--sag-panel);   /* the one primary button */
+  --sag-on-primary:  #FFFFFF;
 
-  /* Status — deliberately outside the brand palette, so brand colour never
-     reads as a state and a state never reads as decoration */
-  --sag-ok-fg:   #14563B; --sag-ok-bg:   #E1EFE8;   /* Issued / done      7.3:1 */
-  --sag-wait-fg: #6B510C; --sag-wait-bg: #FCEFC4;   /* In process         6.5:1 */
-  --sag-risk-fg: #8A331C; --sag-risk-bg: #F6E0D9;   /* At risk / error    6.5:1 */
-  --sag-idle-fg: #63676A; --sag-idle-bg: #EDEDEA;   /* Not started        4.9:1 */
+  /* Status — outside the brand palette, so brand colour never reads as a state */
+  --sag-ok-fg:   #14563B; --sag-ok-bg:   #E7F3ED;   /* Issued / done    7.6:1 */
+  --sag-wait-fg: #6B510C; --sag-wait-bg: #FDF3D3;   /* In process       6.8:1 */
+  --sag-risk-fg: #8A331C; --sag-risk-bg: #F9E7E1;   /* At risk / error  6.8:1 */
+  --sag-idle-fg: #5C6366; --sag-idle-bg: #EEF0F0;   /* Not started      5.4:1 */
 
-  /* Type */
   --sag-font: "Plus Jakarta Sans", Aptos, "Segoe UI", system-ui, sans-serif;
 
-  /* Shape and rhythm */
-  --sag-radius:    8px;    /* cards, inputs, buttons */
-  --sag-radius-sm: 4px;    /* chips, tags */
-  --sag-space:     8px;    /* everything is a multiple of 8 (4 allowed inside controls) */
-  --sag-topbar:    56px;
-  --sag-sidebar:   240px;
+  --sag-radius:    10px;   /* cards */
+  --sag-radius-md: 8px;    /* inputs, buttons */
+  --sag-space:     8px;    /* spacing is a multiple of 8 (4 inside controls) */
+  --sag-topbar:    64px;
+  --sag-sidebar:   232px;
   --sag-max:       1200px;
   --sag-ease:      cubic-bezier(.2, 0, 0, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --sag-bg:          #111C21;
-    --sag-surface:     var(--sag-panel);
-    --sag-surface-2:   #22404A;
-    --sag-text:        var(--sag-paper);
-    --sag-text-2:      var(--sag-pale);
-    --sag-text-3:      var(--sag-rule);
-    --sag-eyebrow:     var(--sag-rule);
-    --sag-line:        #2C4550;
-    --sag-line-strong: #6A8591;
-    --sag-focus:       var(--sag-accent);
-    --sag-primary:     var(--sag-paper);
-    --sag-on-primary:  var(--sag-ink);
-    --sag-ok-fg:   #8FD3B0; --sag-ok-bg:   #173A2E;
-    --sag-wait-fg: #F2CF6B; --sag-wait-bg: #3B3214;
-    --sag-risk-fg: #F0A58E; --sag-risk-bg: #4A2219;
-    --sag-idle-fg: #B8C6CC; --sag-idle-bg: #26353B;
-  }
-}
+/* Dark is opt-in only */
 :root[data-theme="dark"] {
-  --sag-bg:          #111C21;
-  --sag-surface:     var(--sag-panel);
-  --sag-surface-2:   #22404A;
+  --sag-bg:          #101A1F;
+  --sag-surface:     #16252B;
+  --sag-subtle:      #1B2D34;
+  --sag-selected:    #22404A;
   --sag-text:        var(--sag-paper);
   --sag-text-2:      var(--sag-pale);
   --sag-text-3:      var(--sag-rule);
   --sag-eyebrow:     var(--sag-rule);
-  --sag-line:        #2C4550;
+  --sag-line:        #26383F;
   --sag-line-strong: #6A8591;
   --sag-focus:       var(--sag-accent);
   --sag-primary:     var(--sag-paper);
@@ -104,7 +84,7 @@ body {
   margin: 0;
   background: var(--sag-bg);
   color: var(--sag-text-2);
-  font: 400 15px/1.5 var(--sag-font);
+  font: 400 15px/1.55 var(--sag-font);
   -webkit-font-smoothing: antialiased;
 }
 :focus-visible { outline: 2px solid var(--sag-focus); outline-offset: 2px; }
@@ -113,113 +93,152 @@ body {
 }
 
 /* ---------------------------------------------------------------- type -- */
-.sag-eyebrow { font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--sag-eyebrow); margin: 0; }
-.sag-h1      { font-size: 28px; font-weight: 800; letter-spacing: -.02em; line-height: 1.15; color: var(--sag-text); margin: 4px 0 0; }
-.sag-h2      { font-size: 20px; font-weight: 800; letter-spacing: -.01em; line-height: 1.25; color: var(--sag-text); margin: 0; }
-.sag-h3      { font-size: 16px; font-weight: 700; line-height: 1.35; color: var(--sag-text); margin: 0; }
+.sag-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--sag-eyebrow); margin: 0; }
+.sag-h1      { font-size: 28px; font-weight: 800; letter-spacing: -.025em; line-height: 1.15; color: var(--sag-text); margin: 6px 0 0; }
+.sag-h2      { font-size: 18px; font-weight: 700; letter-spacing: -.01em; line-height: 1.3; color: var(--sag-text); margin: 0; }
+.sag-h3      { font-size: 15px; font-weight: 700; line-height: 1.4; color: var(--sag-text); margin: 0; }
+.sag-lede    { font-size: 15px; color: var(--sag-text-3); margin: 6px 0 0; }
 .sag-small   { font-size: 13px; color: var(--sag-text-3); }
 .sag-num, .sag-table { font-variant-numeric: tabular-nums; }
-.sag-accent-rule { width: 32px; height: 4px; background: var(--sag-accent); border: 0; margin: 12px 0 0; }
+.sag-accent-rule { width: 28px; height: 3px; border-radius: 2px; background: var(--sag-accent); border: 0; margin: 14px 0 0; }
 
 /* ------------------------------------------------------------- shell -- */
 .sag-topbar {
   position: sticky; top: 0; z-index: 10;
-  height: var(--sag-topbar); display: flex; align-items: center; gap: 16px;
-  padding: 0 24px; background: var(--sag-panel); color: var(--sag-paper);
+  height: var(--sag-topbar); display: flex; align-items: center; gap: 20px;
+  padding: 0 24px; background: var(--sag-surface); border-bottom: 1px solid var(--sag-line);
 }
-.sag-topbar .sag-logo { height: 32px; width: auto; display: block; }   /* plated logo; 28px is the floor */
-.sag-wordmark { white-space: nowrap; font-weight: 800; font-size: 15px; letter-spacing: -.01em; color: var(--sag-paper); }
-.sag-appname  { font-weight: 500; font-size: 14px; color: var(--sag-pale); padding-left: 16px; border-left: 1px solid #2C4550; }
-.sag-topbar .sag-spacer { flex: 1; }
-.sag-topbar .sag-btn { white-space: nowrap; }
+.sag-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.sag-brand img { height: 30px; width: auto; display: block; }   /* sag-logo.png on white; plated in dark */
+.sag-wordmark { white-space: nowrap; font-weight: 800; font-size: 15px; letter-spacing: -.015em; color: var(--sag-text); }
+.sag-appname  { white-space: nowrap; font-weight: 500; font-size: 14px; color: var(--sag-text-3); padding-left: 20px; border-left: 1px solid var(--sag-line); }
+.sag-spacer   { flex: 1; }
+.sag-search {
+  display: flex; align-items: center; gap: 8px; width: 280px; height: 38px; padding: 0 12px;
+  background: var(--sag-subtle); border: 1px solid var(--sag-line); border-radius: var(--sag-radius-md);
+  color: var(--sag-text-3); font-size: 14px;
+}
+.sag-search input { border: 0; background: none; outline: none; font: inherit; color: var(--sag-text); width: 100%; }
+.sag-search:focus-within { border-color: var(--sag-line-strong); background: var(--sag-surface); }
+.sag-avatar {
+  width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; flex: none;
+  background: var(--sag-selected); color: var(--sag-text); font-size: 12px; font-weight: 700;
+}
+.sag-icon { width: 18px; height: 18px; flex: none; stroke: currentColor; stroke-width: 1.75; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 
 .sag-layout  { display: grid; grid-template-columns: var(--sag-sidebar) minmax(0, 1fr); min-height: calc(100vh - var(--sag-topbar)); }
-.sag-sidebar { background: var(--sag-surface); border-right: 1px solid var(--sag-line); padding: 16px 12px; }
+.sag-sidebar { border-right: 1px solid var(--sag-line); padding: 20px 12px; }
+.sag-nav-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--sag-text-3); padding: 0 12px; margin: 20px 0 6px; }
+.sag-nav-label:first-child { margin-top: 0; }
 .sag-nav a {
-  position: relative; display: flex; align-items: center; gap: 12px;
-  min-height: 40px; padding: 0 12px; border-radius: var(--sag-radius);
-  color: var(--sag-text-2); font-weight: 600; font-size: 14px; text-decoration: none;
+  position: relative; display: flex; align-items: center; gap: 10px;
+  min-height: 38px; padding: 0 12px; border-radius: var(--sag-radius-md);
+  color: var(--sag-text-2); font-weight: 500; font-size: 14px; text-decoration: none;
+  transition: background .15s var(--sag-ease);
 }
-.sag-nav a:hover { background: var(--sag-surface-2); }
-.sag-nav a[aria-current="page"] { background: var(--sag-surface-2); color: var(--sag-text); }
+.sag-nav a:hover { background: var(--sag-subtle); }
+.sag-nav a[aria-current="page"] { background: var(--sag-selected); color: var(--sag-text); font-weight: 600; }
 .sag-nav a[aria-current="page"]::before {               /* the one yellow mark in the chrome */
-  content: ""; position: absolute; left: -12px; top: 8px; bottom: 8px; width: 4px;
-  border-radius: 0 2px 2px 0; background: var(--sag-accent);
+  content: ""; position: absolute; left: 0; top: 10px; bottom: 10px; width: 3px;
+  border-radius: 0 3px 3px 0; background: var(--sag-accent);
 }
-.sag-main { padding: 32px 32px 48px; max-width: calc(var(--sag-max) + 64px); width: 100%; }
-.sag-pagehead { display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+.sag-nav .sag-count { margin-left: auto; font-size: 12px; color: var(--sag-text-3); font-variant-numeric: tabular-nums; }
+
+.sag-main { padding: 36px 40px 56px; max-width: calc(var(--sag-max) + 80px); width: 100%; }
+.sag-pagehead { display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
 .sag-pagehead > :first-child { flex: 1; min-width: 240px; }
 
+@media (max-width: 960px) { .sag-search { display: none; } }
 @media (max-width: 860px) {
-  .sag-layout { grid-template-columns: 1fr; }
+  .sag-layout  { grid-template-columns: minmax(0, 1fr); }
   .sag-sidebar { border-right: 0; border-bottom: 1px solid var(--sag-line); padding: 8px 16px; overflow-x: auto; }
+  .sag-nav-label { display: none; }
   .sag-nav { display: flex; gap: 4px; }
   .sag-nav a { white-space: nowrap; }
-  .sag-nav a[aria-current="page"]::before { left: 12px; right: 12px; top: auto; bottom: 0; width: auto; height: 3px; border-radius: 2px 2px 0 0; }
+  .sag-nav .sag-count { display: none; }
+  .sag-nav a[aria-current="page"]::before { left: 12px; right: 12px; top: auto; bottom: 0; width: auto; height: 3px; border-radius: 3px 3px 0 0; }
   .sag-main { padding: 24px 16px 40px; }
   .sag-appname { display: none; }
-  .sag-topbar { padding: 0 16px; gap: 8px; }
+  .sag-topbar { padding: 0 16px; gap: 12px; }
 }
-@media (max-width: 480px) {
-  .sag-topbar .sag-wordmark { display: none; }   /* the shield alone carries the bar on phones */
-}
+@media (max-width: 480px) { .sag-topbar .sag-wordmark { display: none; } }
 
 /* -------------------------------------------------------------- cards -- */
 .sag-card { background: var(--sag-surface); border: 1px solid var(--sag-line); border-radius: var(--sag-radius); padding: 24px; }
-.sag-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-.sag-kpi .sag-kpi-value { font-size: 36px; font-weight: 800; letter-spacing: -.03em; line-height: 1.1; color: var(--sag-text); font-variant-numeric: tabular-nums; }
-.sag-kpi .sag-kpi-label { font-size: 13px; color: var(--sag-text-2); margin-top: 4px; }
+.sag-card-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 20px; }
+.sag-card-head > :first-child { flex: 1; }
+
+/* KPI strip: one card split by hairlines, lighter than a row of boxes */
+.sag-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--sag-surface); border: 1px solid var(--sag-line); border-radius: var(--sag-radius); }
+.sag-kpi  { padding: 20px 24px; }
+.sag-kpi + .sag-kpi { border-left: 1px solid var(--sag-line); }
+.sag-kpi-label { font-size: 13px; font-weight: 500; color: var(--sag-text-3); }
+.sag-kpi-value { font-size: 32px; font-weight: 800; letter-spacing: -.03em; line-height: 1.15; color: var(--sag-text); font-variant-numeric: tabular-nums; margin-top: 6px; }
+.sag-kpi-note  { font-size: 12px; color: var(--sag-text-3); margin-top: 4px; }
+@media (max-width: 760px) {
+  .sag-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sag-kpi:nth-child(3) { border-left: 0; }
+  .sag-kpi:nth-child(n+3) { border-top: 1px solid var(--sag-line); }
+}
 
 /* ------------------------------------------------------------ buttons -- */
 .sag-btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  min-height: 40px; padding: 0 16px; border-radius: var(--sag-radius);
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap;
+  min-height: 38px; padding: 0 16px; border-radius: var(--sag-radius-md);
   font: 600 14px/1 var(--sag-font); cursor: pointer; text-decoration: none;
   border: 1px solid transparent; transition: background .15s var(--sag-ease), border-color .15s var(--sag-ease);
 }
 .sag-btn-primary   { background: var(--sag-primary); color: var(--sag-on-primary); }
-.sag-btn-primary:hover { filter: brightness(1.15); }
+.sag-btn-primary:hover { background: #24404A; }
+:root[data-theme="dark"] .sag-btn-primary:hover { background: #FFFFFF; }
 .sag-btn-secondary { background: var(--sag-surface); color: var(--sag-text); border-color: var(--sag-line-strong); }
-.sag-btn-secondary:hover { background: var(--sag-surface-2); }
+.sag-btn-secondary:hover { background: var(--sag-subtle); }
 .sag-btn-ghost     { background: transparent; color: var(--sag-text-2); }
-.sag-btn-ghost:hover { background: var(--sag-surface-2); }
+.sag-btn-ghost:hover { background: var(--sag-subtle); }
 .sag-btn-danger    { background: var(--sag-risk-bg); color: var(--sag-risk-fg); }
 .sag-btn[disabled] { opacity: .45; cursor: not-allowed; }
-.sag-topbar .sag-btn-ghost { color: var(--sag-pale); }
-.sag-topbar .sag-btn-ghost:hover { background: #22404A; color: var(--sag-paper); }
 
 /* -------------------------------------------------------------- forms -- */
-.sag-field { display: grid; gap: 6px; }
+.sag-field { display: grid; gap: 6px; align-content: start; }
 .sag-label { font-size: 13px; font-weight: 600; color: var(--sag-text); }
 .sag-hint  { font-size: 12px; color: var(--sag-text-3); }
 .sag-input, .sag-select, .sag-textarea {
   width: 100%; min-height: 40px; padding: 8px 12px;
   background: var(--sag-surface); color: var(--sag-text);
-  border: 1px solid var(--sag-line-strong); border-radius: var(--sag-radius);
+  border: 1px solid var(--sag-line-strong); border-radius: var(--sag-radius-md);
   font: 400 15px/1.4 var(--sag-font);
+  transition: border-color .15s var(--sag-ease), box-shadow .15s var(--sag-ease);
 }
 .sag-textarea { min-height: 96px; resize: vertical; }
 .sag-input::placeholder, .sag-textarea::placeholder { color: var(--sag-text-3); }
-.sag-input:focus-visible, .sag-select:focus-visible, .sag-textarea:focus-visible { outline: 2px solid var(--sag-focus); outline-offset: 0; border-color: transparent; }
+.sag-input:hover, .sag-select:hover, .sag-textarea:hover { border-color: var(--sag-text-3); }
+.sag-input:focus-visible, .sag-select:focus-visible, .sag-textarea:focus-visible {
+  outline: none; border-color: var(--sag-focus); box-shadow: 0 0 0 3px rgba(27, 48, 56, .12);
+}
+:root[data-theme="dark"] .sag-input:focus-visible, :root[data-theme="dark"] .sag-select:focus-visible, :root[data-theme="dark"] .sag-textarea:focus-visible { box-shadow: 0 0 0 3px rgba(249, 201, 57, .25); }
 .sag-field[data-invalid] .sag-input { border-color: var(--sag-risk-fg); }
 .sag-field[data-invalid] .sag-hint  { color: var(--sag-risk-fg); }
 
 /* -------------------------------------------------------------- table -- */
-.sag-table-wrap { overflow-x: auto; background: var(--sag-surface); border: 1px solid var(--sag-line); border-radius: var(--sag-radius); }
+.sag-table-wrap { overflow-x: auto; }
 .sag-table { width: 100%; border-collapse: collapse; font-size: 14px; }
 .sag-table th {
-  text-align: left; padding: 12px 16px; white-space: nowrap;
-  background: var(--sag-panel); color: var(--sag-paper);
-  font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  text-align: left; padding: 0 16px 10px; white-space: nowrap;
+  color: var(--sag-text-3); font-size: 12px; font-weight: 600;
+  border-bottom: 1px solid var(--sag-line);
 }
-.sag-table td { padding: 12px 16px; border-top: 1px solid var(--sag-line); color: var(--sag-text-2); vertical-align: top; }
+.sag-table td { padding: 14px 16px; border-bottom: 1px solid var(--sag-line); color: var(--sag-text-2); vertical-align: middle; }
+.sag-table tr:last-child td { border-bottom: 0; }
+.sag-table th:first-child, .sag-table td:first-child { padding-left: 0; }
+.sag-table th:last-child,  .sag-table td:last-child  { padding-right: 0; }
 .sag-table td.sag-strong { color: var(--sag-text); font-weight: 600; }
-.sag-table tbody tr:hover td { background: var(--sag-surface-2); }
+.sag-table td .sag-sub { display: block; font-size: 12px; color: var(--sag-text-3); font-weight: 400; margin-top: 2px; }
 .sag-table .sag-r { text-align: right; }
 .sag-table .sag-nowrap { white-space: nowrap; }   /* dates, codes, amounts */
+@media (max-width: 600px) { .sag-table .sag-hide-sm { display: none; } .sag-card { padding: 20px; } }   /* drop secondary columns on phones */
 
 /* ------------------------------------------------------- status chips -- */
-.sag-chip { display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px; border-radius: var(--sag-radius-sm); font-size: 12px; font-weight: 700; white-space: nowrap; }
+.sag-chip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px 3px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap; }
 .sag-chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 .sag-chip-ok   { color: var(--sag-ok-fg);   background: var(--sag-ok-bg); }
 .sag-chip-wait { color: var(--sag-wait-fg); background: var(--sag-wait-bg); }
@@ -227,22 +246,31 @@ body {
 .sag-chip-idle { color: var(--sag-idle-fg); background: var(--sag-idle-bg); }
 
 /* ------------------------------------------------------ notice / toast -- */
-.sag-notice { display: flex; gap: 12px; padding: 12px 16px; border-radius: var(--sag-radius); background: var(--sag-surface-2); color: var(--sag-text-2); font-size: 14px; }
-.sag-notice-risk { background: var(--sag-risk-bg); color: var(--sag-risk-fg); }
-.sag-notice-ok   { background: var(--sag-ok-bg);   color: var(--sag-ok-fg); }
+.sag-notice { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: var(--sag-radius-md); background: var(--sag-subtle); border: 1px solid var(--sag-line); color: var(--sag-text-2); font-size: 14px; }
+.sag-notice .sag-icon { margin-top: 2px; color: var(--sag-text-3); }
+.sag-notice-risk { background: var(--sag-risk-bg); border-color: transparent; color: var(--sag-risk-fg); }
+.sag-notice-ok   { background: var(--sag-ok-bg);   border-color: transparent; color: var(--sag-ok-fg); }
 
 /* --------------------------------------------- schedule (critical path) -- */
-/* Same three meanings as the decks: yellow = critical path, slate = parallel, grey = monitoring */
-.sag-bar      { height: 12px; border-radius: 3px; }
+/* Same meanings as the decks: yellow = critical path, slate = parallel, grey = monitoring */
+.sag-bar      { height: 8px; border-radius: 999px; }
 .sag-bar-crit { background: var(--sag-accent); }
 .sag-bar-par  { background: var(--sag-panel); }
-.sag-bar-mon  { background: var(--sag-pale); }
+.sag-bar-mon  { background: var(--sag-tint); }
 :root[data-theme="dark"] .sag-bar-par { background: var(--sag-rule); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .sag-bar-par { background: var(--sag-rule); } }
+:root[data-theme="dark"] .sag-bar-mon { background: #2C4550; }
 
 /* ------------------------------------------------------- sign-in screen -- */
-/* PANEL ground, plated logo, and the Complexity Line band along the foot:
-   set background-image to assets/graphics/deck_band_blue.png on the element */
-.sag-signin { min-height: 100vh; display: grid; place-items: center; padding: 24px 16px 200px; color: var(--sag-paper);
-  background-color: var(--sag-panel); background-position: bottom center; background-size: 100% auto; background-repeat: no-repeat; }
-.sag-signin-card { width: 100%; max-width: 400px; background: var(--sag-surface); color: var(--sag-text-2); border: 1px solid var(--sag-line); border-radius: var(--sag-radius); padding: 32px; }
+/* White page; the Complexity Line band (assets/graphics/deck_band_blue.png) as a
+   slate strip along the foot: set it as background-image on .sag-signin-band */
+.sag-signin { min-height: 100vh; display: grid; grid-template-rows: 1fr auto; background: var(--sag-bg); }
+.sag-signin-body { display: grid; place-items: center; padding: 48px 16px; }
+.sag-signin-card { width: 100%; max-width: 380px; }
+.sag-signin-band { height: 180px; background-color: var(--sag-panel); background-position: center; background-size: cover; background-repeat: no-repeat; }
+@media (max-width: 600px) { .sag-signin-band { height: 120px; background-size: auto 100%; background-position: 60% center; } }
+
+/* Logo builds: sag-logo.png on light grounds, sag-logo-plated.png on dark.
+   Put both <img> in the markup and let the theme pick. */
+.sag-on-dark { display: none !important; }
+:root[data-theme="dark"] .sag-on-light { display: none !important; }
+:root[data-theme="dark"] .sag-on-dark  { display: block !important; }

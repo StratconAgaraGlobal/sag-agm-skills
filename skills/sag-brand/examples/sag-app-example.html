@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#1B3038">
+<meta name="theme-color" content="#FFFFFF">
 <title>SAG App Reference</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,114 +11,159 @@
 <link rel="stylesheet" href="../assets/app/sag-app.css">
 <style>
   /* Page furniture for this reference only — not part of the app system */
-  .ref-head { background: var(--sag-panel); color: var(--sag-pale); padding: 40px 24px 32px; }
-  .ref-head .wrap, .ref-section .wrap { max-width: 1280px; margin: 0 auto; }
-  .ref-head h1 { color: var(--sag-paper); font-size: 32px; font-weight: 800; letter-spacing: -.02em; margin: 8px 0; }
-  .ref-head p { margin: 0; max-width: 720px; }
-  .ref-head .sag-eyebrow { color: var(--sag-rule); }
-  .ref-head .row { display: flex; gap: 12px; align-items: center; margin-top: 20px; flex-wrap: wrap; }
-  .ref-section { padding: 40px 24px 0; }
-  .ref-section > .wrap > .sag-eyebrow { margin-bottom: 4px; }
-  .ref-section > .wrap > p { margin: 4px 0 16px; max-width: 760px; }
-  .frame { border: 1px solid var(--sag-line); border-radius: 12px; overflow: hidden; background: var(--sag-bg); }
+  body { background: var(--sag-subtle); }
+  .ref { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
+  .ref-head { padding: 56px 0 8px; display: flex; gap: 24px; align-items: flex-end; flex-wrap: wrap; }
+  .ref-head > div { flex: 1; min-width: 280px; }
+  .ref-head h1 { font-size: 40px; font-weight: 800; letter-spacing: -.03em; line-height: 1.1; color: var(--sag-text); margin: 10px 0 12px; }
+  .ref-head p { margin: 0; max-width: 640px; color: var(--sag-text-3); font-size: 16px; }
+  .ref-head code { font-size: 13px; background: var(--sag-surface); border: 1px solid var(--sag-line); border-radius: 6px; padding: 1px 6px; color: var(--sag-text-2); }
+  .ref-section { padding-top: 56px; }
+  .ref-section > header { display: flex; gap: 16px; align-items: baseline; margin-bottom: 16px; flex-wrap: wrap; }
+  .ref-section > header .sag-h2 { font-size: 20px; }
+  .ref-section > header p { margin: 0; color: var(--sag-text-3); font-size: 14px; flex: 1; min-width: 260px; }
+  .frame { background: var(--sag-bg); border: 1px solid var(--sag-line); border-radius: 16px; overflow: hidden; }
+  .frame .sag-topbar { position: static; }
   .frame .sag-layout { min-height: 0; }
-  .two { display: grid; gap: 16px; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
-  .sched { display: grid; grid-template-columns: 120px 1fr; gap: 10px 12px; align-items: center; font-size: 13px; }
-  .sched .track { position: relative; height: 12px; }
-  .sched .sag-bar { position: absolute; top: 0; }
-  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; font-size: 12px; color: var(--sag-text-3); }
+  .two { display: grid; gap: 20px; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); margin-top: 20px; }
+  .link { font-size: 13px; font-weight: 600; color: var(--sag-text-2); text-decoration: none; }
+  .link:hover { color: var(--sag-text); text-decoration: underline; }
+  /* schedule */
+  .sched { display: grid; grid-template-columns: 96px 1fr; column-gap: 12px; font-size: 13px; }
+  .sched .row { display: contents; }
+  .sched .name { padding: 9px 0; color: var(--sag-text-2); white-space: nowrap; }
+  .sched .track { position: relative; height: 100%; min-height: 36px;
+    background-image: repeating-linear-gradient(to right, var(--sag-line) 0 1px, transparent 1px calc(100% / 8)); }
+  .sched .sag-bar { position: absolute; top: 14px; }
+  .sched .axis { display: grid; grid-template-columns: repeat(8, 1fr); font-size: 11px; color: var(--sag-text-3); padding-top: 8px; }
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--sag-line); font-size: 12px; color: var(--sag-text-3); }
   .legend span { display: inline-flex; align-items: center; gap: 6px; }
-  .legend i { width: 16px; height: 8px; border-radius: 2px; display: inline-block; }
-  .form-grid { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+  .legend i { width: 14px; height: 6px; border-radius: 3px; display: inline-block; }
+  /* form */
+  .form-wrap { padding: 48px 24px; }
+  .form-card { max-width: 720px; margin: 0 auto; }
+  .form-grid { display: grid; gap: 20px; grid-template-columns: 1fr 1fr; }
   .form-grid .full { grid-column: 1 / -1; }
-  .actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 24px; flex-wrap: wrap; }
-  .signin-frame { height: 640px; overflow: hidden; }
-  .signin-frame .sag-signin { min-height: 640px; }
-  .signin-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; justify-content: center; }
-  .signin-brand img { height: 40px; }
-  .signin-brand b { font-size: 18px; font-weight: 800; color: var(--sag-paper); }
-  .foot { padding: 48px 24px; text-align: center; font-size: 13px; color: var(--sag-text-3); }
-  @media (max-width: 860px) { .two, .form-grid { grid-template-columns: 1fr; } }
+  .form-foot { display: flex; gap: 8px; justify-content: flex-end; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--sag-line); flex-wrap: wrap; }
+  .form-foot .sag-spacer { flex: 1; }
+  /* sign-in */
+  .signin-frame .sag-signin { min-height: 680px; }
+  .signin-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 40px; }
+  .signin-logo img { height: 36px; }
+  .signin-logo b { font-size: 16px; font-weight: 800; letter-spacing: -.015em; color: var(--sag-text); }
+  .or { display: flex; align-items: center; gap: 12px; margin: 20px 0; font-size: 12px; color: var(--sag-text-3); }
+  .or::before, .or::after { content: ""; flex: 1; height: 1px; background: var(--sag-line); }
+  .foot { padding: 56px 24px; text-align: center; font-size: 13px; color: var(--sag-text-3); }
+  @media (max-width: 960px) { .two { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 600px) { .sched .axis span:nth-child(even) { visibility: hidden; } }
+  @media (max-width: 680px) { .form-grid { grid-template-columns: 1fr; } .form-foot .sag-spacer { display: none; } .form-foot .sag-btn { flex: 1; } .ref-head h1 { font-size: 32px; } }
 </style>
 </head>
 <body>
 
-<header class="ref-head">
-  <div class="wrap">
-    <p class="sag-eyebrow">sag-brand · App reference</p>
-    <h1>How SAG apps look</h1>
-    <p>Three screens built only from <code>assets/app/sag-app.css</code>: a working dashboard, a form and the sign-in screen. Rules and measurements are in <code>references/APP_DESIGN.md</code>. All content is specimen.</p>
-    <div class="row">
-      <button class="sag-btn sag-btn-secondary" id="theme" type="button">Switch light / dark</button>
+<div class="ref">
+  <header class="ref-head">
+    <div>
+      <p class="sag-eyebrow">sag-brand · App reference</p>
+      <h1>How SAG apps look</h1>
+      <p>Light, quiet and exact. Three screens built only from <code>assets/app/sag-app.css</code>. The rules are in <code>references/APP_DESIGN.md</code>, and all content is specimen.</p>
     </div>
-  </div>
-</header>
+    <button class="sag-btn sag-btn-secondary" id="theme" type="button">
+      <svg class="sag-icon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      <span>Dark theme</span>
+    </button>
+  </header>
 
-<!-- 1. Dashboard ----------------------------------------------------------->
-<section class="ref-section">
-  <div class="wrap">
-    <p class="sag-eyebrow">Screen 1</p>
-    <h2 class="sag-h2">Dashboard: app shell, KPIs, tracker, schedule</h2>
-    <p>PANEL top bar with the plated logo and the app name. One yellow mark in the chrome (the active nav item). Status uses its own colours, never brand yellow.</p>
+  <!-- 1. Dashboard ------------------------------------------------------>
+  <section class="ref-section">
+    <header>
+      <h2 class="sag-h2">Dashboard</h2>
+      <p>White top bar with the on-white logo. Hairlines instead of boxes. Slate for text and the one primary action, and a single yellow mark on the active menu item.</p>
+    </header>
     <div class="frame">
       <div class="sag-topbar">
-        <img class="sag-logo" src="../assets/logo/sag-logo-plated.png" alt="">
-        <span class="sag-wordmark">Stratcon Agara Global</span>
+        <a class="sag-brand" href="#">
+          <img class="sag-on-light" src="../assets/logo/sag-logo.png" alt="">
+          <img class="sag-on-dark" src="../assets/logo/sag-logo-plated.png" alt="">
+          <span class="sag-wordmark">Stratcon Agara Global</span>
+        </a>
         <span class="sag-appname">Permit Tracker</span>
         <span class="sag-spacer"></span>
-        <button class="sag-btn sag-btn-ghost" type="button">Help</button>
-        <button class="sag-btn sag-btn-ghost" type="button">A. Khalifa</button>
+        <label class="sag-search">
+          <svg class="sag-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input placeholder="Search approvals, clients…" aria-label="Search">
+        </label>
+        <span class="sag-avatar" aria-label="Ahmed Khalifa">AK</span>
       </div>
       <div class="sag-layout">
         <nav class="sag-sidebar" aria-label="Main">
           <div class="sag-nav">
+            <p class="sag-nav-label">Workspace</p>
             <a href="#" aria-current="page">Overview</a>
-            <a href="#">Approvals</a>
+            <a href="#">Approvals <span class="sag-count">22</span></a>
             <a href="#">Schedule</a>
-            <a href="#">Documents</a>
+            <a href="#">Documents <span class="sag-count">48</span></a>
+            <p class="sag-nav-label">Manage</p>
             <a href="#">Clients</a>
+            <a href="#">Authorities</a>
+            <a href="#">Settings</a>
           </div>
         </nav>
         <main class="sag-main">
           <div class="sag-pagehead">
             <div>
-              <p class="sag-eyebrow">Regulatory roadmap · Specimen project</p>
+              <p class="sag-eyebrow">Regulatory roadmap</p>
               <h1 class="sag-h1">Approvals overview</h1>
+              <p class="sag-lede">Specimen project · updated 05 Oct 2026</p>
             </div>
-            <button class="sag-btn sag-btn-secondary" type="button">Export PDF</button>
-            <button class="sag-btn sag-btn-primary" type="button">New filing</button>
+            <button class="sag-btn sag-btn-secondary" type="button">
+              <svg class="sag-icon" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>Export
+            </button>
+            <button class="sag-btn sag-btn-primary" type="button">
+              <svg class="sag-icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>New filing
+            </button>
           </div>
 
-          <div class="sag-grid" style="margin-bottom:16px">
-            <div class="sag-card sag-kpi"><div class="sag-kpi-value">22</div><div class="sag-kpi-label">Approvals on the path</div></div>
-            <div class="sag-card sag-kpi"><div class="sag-kpi-value">9</div><div class="sag-kpi-label">On the critical path</div></div>
-            <div class="sag-card sag-kpi"><div class="sag-kpi-value">3</div><div class="sag-kpi-label">Issued this quarter</div></div>
-            <div class="sag-card sag-kpi"><div class="sag-kpi-value">1</div><div class="sag-kpi-label">At risk</div></div>
+          <div class="sag-kpis">
+            <div class="sag-kpi"><div class="sag-kpi-label">Approvals</div><div class="sag-kpi-value">22</div><div class="sag-kpi-note">across 7 authorities</div></div>
+            <div class="sag-kpi"><div class="sag-kpi-label">On the critical path</div><div class="sag-kpi-value">9</div><div class="sag-kpi-note">they set the end date</div></div>
+            <div class="sag-kpi"><div class="sag-kpi-label">Issued</div><div class="sag-kpi-value">3</div><div class="sag-kpi-note">this quarter</div></div>
+            <div class="sag-kpi"><div class="sag-kpi-label">At risk</div><div class="sag-kpi-value">1</div><div class="sag-kpi-note">PERTEK B3, round 2</div></div>
           </div>
 
           <div class="two">
-            <div class="sag-table-wrap">
-              <table class="sag-table">
-                <thead><tr><th>#</th><th>Approval</th><th>Authority</th><th>Target</th><th>Status</th></tr></thead>
-                <tbody>
-                  <tr><td>01</td><td class="sag-strong">PKKPR</td><td>ATR/BPN</td><td class="sag-nowrap">12 Mar 2026</td><td><span class="sag-chip sag-chip-ok">Issued</span></td></tr>
-                  <tr><td>02</td><td class="sag-strong">NIB (OSS)</td><td>BKPM / OSS</td><td class="sag-nowrap">19 Mar 2026</td><td><span class="sag-chip sag-chip-ok">Issued</span></td></tr>
-                  <tr><td>03</td><td class="sag-strong">ANDAL + RKL-RPL</td><td>KLHK</td><td class="sag-nowrap">28 Jun 2026</td><td><span class="sag-chip sag-chip-wait">In hearing</span></td></tr>
-                  <tr><td>04</td><td class="sag-strong">PERTEK B3</td><td>KLHK PSLB3</td><td class="sag-nowrap">09 Aug 2026</td><td><span class="sag-chip sag-chip-risk">Corrections R2</span></td></tr>
-                  <tr><td>05</td><td class="sag-strong">PBG</td><td>Dinas PUPR</td><td class="sag-nowrap">30 Sep 2026</td><td><span class="sag-chip sag-chip-idle">Not started</span></td></tr>
-                </tbody>
-              </table>
+            <div class="sag-card">
+              <div class="sag-card-head">
+                <h2 class="sag-h2">Approvals</h2>
+                <a class="link" href="#">View all 22</a>
+              </div>
+              <div class="sag-table-wrap">
+                <table class="sag-table">
+                  <thead><tr><th>Approval</th><th class="sag-hide-sm">Target</th><th>Status</th></tr></thead>
+                  <tbody>
+                    <tr><td class="sag-strong">PKKPR<span class="sag-sub">ATR/BPN</span></td><td class="sag-nowrap sag-hide-sm">12 Mar 2026</td><td><span class="sag-chip sag-chip-ok">Issued</span></td></tr>
+                    <tr><td class="sag-strong">NIB (OSS)<span class="sag-sub">BKPM / OSS</span></td><td class="sag-nowrap sag-hide-sm">19 Mar 2026</td><td><span class="sag-chip sag-chip-ok">Issued</span></td></tr>
+                    <tr><td class="sag-strong">ANDAL + RKL-RPL<span class="sag-sub">KLHK commission</span></td><td class="sag-nowrap sag-hide-sm">28 Jun 2026</td><td><span class="sag-chip sag-chip-wait">In hearing</span></td></tr>
+                    <tr><td class="sag-strong">PERTEK B3<span class="sag-sub">KLHK Ditjen PSLB3</span></td><td class="sag-nowrap sag-hide-sm">09 Aug 2026</td><td><span class="sag-chip sag-chip-risk">Corrections R2</span></td></tr>
+                    <tr><td class="sag-strong">PBG<span class="sag-sub">Dinas PUPR</span></td><td class="sag-nowrap sag-hide-sm">30 Sep 2026</td><td><span class="sag-chip sag-chip-idle">Not started</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
             <div class="sag-card">
-              <h3 class="sag-h3">Critical path vs. parallel</h3>
-              <p class="sag-small" style="margin:4px 0 16px">Mar to Oct · illustrative</p>
+              <div class="sag-card-head">
+                <h2 class="sag-h2">Critical path</h2>
+                <span class="sag-small">Mar – Oct</span>
+              </div>
               <div class="sched">
-                <span>PKKPR</span><div class="track"><div class="sag-bar sag-bar-crit" style="left:0;width:18%"></div></div>
-                <span>NIB / OSS</span><div class="track"><div class="sag-bar sag-bar-par" style="left:12%;width:10%"></div></div>
-                <span>AMDAL</span><div class="track"><div class="sag-bar sag-bar-crit" style="left:18%;width:44%"></div></div>
-                <span>PERTEK B3</span><div class="track"><div class="sag-bar sag-bar-par" style="left:40%;width:30%"></div></div>
-                <span>PBG → SLF</span><div class="track"><div class="sag-bar sag-bar-crit" style="left:62%;width:38%"></div></div>
-                <span>Monitoring</span><div class="track"><div class="sag-bar sag-bar-mon" style="left:0;width:100%"></div></div>
+                <div class="row"><span class="name">PKKPR</span><div class="track"><div class="sag-bar sag-bar-crit" style="left:0;width:17%"></div></div></div>
+                <div class="row"><span class="name">NIB / OSS</span><div class="track"><div class="sag-bar sag-bar-par" style="left:10%;width:10%"></div></div></div>
+                <div class="row"><span class="name">AMDAL</span><div class="track"><div class="sag-bar sag-bar-crit" style="left:17%;width:44%"></div></div></div>
+                <div class="row"><span class="name">PERTEK B3</span><div class="track"><div class="sag-bar sag-bar-par" style="left:38%;width:30%"></div></div></div>
+                <div class="row"><span class="name">PBG → SLF</span><div class="track"><div class="sag-bar sag-bar-crit" style="left:61%;width:39%"></div></div></div>
+                <div class="row"><span class="name">Monitoring</span><div class="track"><div class="sag-bar sag-bar-mon" style="left:0;width:100%"></div></div></div>
+                <span></span>
+                <div class="axis sag-num"><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span></div>
               </div>
               <div class="legend">
                 <span><i class="sag-bar-crit"></i>Critical path</span>
@@ -130,67 +175,79 @@
         </main>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 2. Form ---------------------------------------------------------------->
-<section class="ref-section">
-  <div class="wrap">
-    <p class="sag-eyebrow">Screen 2</p>
-    <h2 class="sag-h2">Form: labels above, one primary action</h2>
-    <p>Labels sit above fields in 600. Hints in MUTED. Errors use the risk colour plus words, never colour alone. The primary button sits last, on the right.</p>
-    <div class="frame" style="padding:32px 24px">
-      <div class="sag-card" style="max-width:760px;margin:0 auto">
+  <!-- 2. Form ----------------------------------------------------------->
+  <section class="ref-section">
+    <header>
+      <h2 class="sag-h2">Form</h2>
+      <p>Labels above the fields and hints below. Errors are in words as well as red. One primary button, last on the right.</p>
+    </header>
+    <div class="frame form-wrap">
+      <div class="form-card">
         <p class="sag-eyebrow">New filing</p>
-        <h2 class="sag-h2" style="margin-top:4px">Register an approval</h2>
+        <h1 class="sag-h1">Register an approval</h1>
+        <p class="sag-lede">It goes on the roadmap and into the weekly report.</p>
         <hr class="sag-accent-rule">
-        <div class="sag-notice" style="margin:24px 0">Check the OSS record before filing. Prerequisites are verified against it automatically.</div>
+        <div class="sag-notice" style="margin:28px 0">
+          <svg class="sag-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+          <span>Prerequisites are checked against the OSS record when you register.</span>
+        </div>
         <div class="form-grid">
           <div class="sag-field"><label class="sag-label" for="f1">Approval</label><input class="sag-input" id="f1" value="PERTEK wastewater"></div>
           <div class="sag-field"><label class="sag-label" for="f2">Authority</label><select class="sag-select" id="f2"><option>KLHK Ditjen PPKL</option><option>Dinas PUPR</option></select></div>
           <div class="sag-field"><label class="sag-label" for="f3">Target date</label><input class="sag-input sag-num" id="f3" value="21 Jul 2026"><span class="sag-hint">DD Mon YYYY</span></div>
-          <div class="sag-field" data-invalid><label class="sag-label" for="f4">Reference code</label><input class="sag-input sag-num" id="f4" value="SAG/RR/2026" aria-describedby="f4h"><span class="sag-hint" id="f4h">Reference codes end in a four-digit number, e.g. SAG/RR/2026-0011</span></div>
-          <div class="sag-field full"><label class="sag-label" for="f5">Notes</label><textarea class="sag-textarea" id="f5" placeholder="Anything the next person needs to know"></textarea></div>
+          <div class="sag-field" data-invalid><label class="sag-label" for="f4">Reference code</label><input class="sag-input sag-num" id="f4" value="SAG/RR/2026" aria-describedby="f4h"><span class="sag-hint" id="f4h">Add the four-digit number, e.g. SAG/RR/2026-0011</span></div>
+          <div class="sag-field full"><label class="sag-label" for="f5">Notes <span class="sag-small" style="font-weight:400">optional</span></label><textarea class="sag-textarea" id="f5" placeholder="Anything the next person needs to know"></textarea></div>
         </div>
-        <div class="actions">
+        <div class="form-foot">
           <button class="sag-btn sag-btn-ghost" type="button">Cancel</button>
+          <span class="sag-spacer"></span>
           <button class="sag-btn sag-btn-secondary" type="button">Save draft</button>
           <button class="sag-btn sag-btn-primary" type="button">Register</button>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 3. Sign-in ------------------------------------------------------------->
-<section class="ref-section">
-  <div class="wrap">
-    <p class="sag-eyebrow">Screen 3</p>
-    <h2 class="sag-h2">Sign-in: the one brand moment</h2>
-    <p>PANEL ground, plated logo, and the Complexity Line band along the foot. Every other screen stays quiet.</p>
+  <!-- 3. Sign-in -------------------------------------------------------->
+  <section class="ref-section">
+    <header>
+      <h2 class="sag-h2">Sign-in</h2>
+      <p>A white page with one brand moment: the Complexity Line as a slate strip along the bottom. No other screen uses it.</p>
+    </header>
     <div class="frame signin-frame">
-      <div class="sag-signin" style="background-image:url('../assets/graphics/deck_band_blue.png')">
-        <div style="width:100%;max-width:400px">
-          <div class="signin-brand"><img src="../assets/logo/sag-logo-plated.png" alt=""><b>Stratcon Agara Global</b></div>
+      <div class="sag-signin">
+        <div class="sag-signin-body">
           <div class="sag-signin-card">
-            <h2 class="sag-h2">Sign in</h2>
-            <p class="sag-small" style="margin:4px 0 24px">Permit Tracker · internal</p>
+            <div class="signin-logo">
+              <img class="sag-on-light" src="../assets/logo/sag-logo.png" alt="">
+              <img class="sag-on-dark" src="../assets/logo/sag-logo-plated.png" alt="">
+              <b>Stratcon Agara Global</b>
+            </div>
+            <h1 class="sag-h1" style="margin:0">Sign in</h1>
+            <p class="sag-lede" style="margin-bottom:28px">to Permit Tracker</p>
+            <button class="sag-btn sag-btn-secondary" style="width:100%;min-height:42px" type="button">Continue with Google</button>
+            <div class="or">or</div>
             <div class="sag-field" style="margin-bottom:16px"><label class="sag-label" for="s1">Work email</label><input class="sag-input" id="s1" placeholder="name@stratconagaraglobal.com"></div>
-            <button class="sag-btn sag-btn-primary" style="width:100%" type="button">Continue with Google</button>
+            <button class="sag-btn sag-btn-primary" style="width:100%;min-height:42px" type="button">Continue</button>
+            <p class="sag-small" style="margin-top:20px">Internal tool. Ask IT if you need access.</p>
           </div>
         </div>
+        <div class="sag-signin-band" style="background-image:url('../assets/graphics/deck_band_blue.png')" role="img" aria-label="Navigating complexity, delivering simplicity"></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <p class="foot">Navigating complexity, delivering simplicity · PT Stratcon Agara Global</p>
 
 <script>
-  document.getElementById('theme').addEventListener('click', function () {
-    var r = document.documentElement;
-    var dark = r.dataset.theme ? r.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-    r.dataset.theme = dark ? 'light' : 'dark';
+  var btn = document.getElementById('theme');
+  btn.addEventListener('click', function () {
+    var r = document.documentElement, dark = r.dataset.theme !== 'dark';
+    if (dark) r.dataset.theme = 'dark'; else delete r.dataset.theme;
+    btn.querySelector('span').textContent = dark ? 'Light theme' : 'Dark theme';
   });
 </script>
 </body>

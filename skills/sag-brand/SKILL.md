@@ -116,13 +116,13 @@ Then convert and check: `soffice --headless --convert-to pdf out.docx`. Fonts ar
 
 ## 5. Apps and web UI
 For any app, internal tool, dashboard, admin page or PWA, read `references/APP_DESIGN.md` first and start from `assets/app/sag-app.css` (copy it in, or inline it in single-file apps). `examples/sag-app-example.html` shows the result.
-- PANEL top bar with the plated logo (≥ 28 px) and the name *Stratcon Agara Global*; white surfaces on PAPER; Plus Jakarta Sans 400–800; light and dark themes.
-- Yellow: the active-nav mark, critical-path bars and the dark-theme focus ring. Never a button fill, never text on light, never a status.
-- Status chips use the status set (issued / in process / at risk / not started), always with a word.
-- No gradients, shadows, emoji or decorative icons; Lucide outline icons only where the icon is the control.
-- Manifest and `theme-color` `#1B3038`; favicon is the shield on a solid `#F9C939` tile.
-- The Complexity Line appears only on the sign-in or splash screen (`deck_band_blue.png`).
-- Check 390 px wide and both themes before showing the user.
+- Light by default: white top bar with `sag-logo.png` (≥ 28 px) and the name *Stratcon Agara Global*, white cards with hairlines, no filled table headers, Plus Jakarta Sans 400–800. Dark only as an opt-in theme.
+- Slate (`PANEL`) for text and the one primary button. Yellow: the active-nav mark, critical-path bars and one accent rule. Never a button fill, never text on light, never a status.
+- Status chips (pills) use the status set (issued / in process / at risk / not started), always with a word.
+- No gradients, shadows, emoji or decorative icons; Lucide outline icons only where they help a control.
+- Manifest and `theme-color` `#FFFFFF`; favicon is the shield on a solid `#F9C939` tile.
+- The Complexity Line appears only on the sign-in screen, as a slate strip along the foot (`deck_band_blue.png`).
+- Check 390 px wide (and the dark theme, if offered) before showing the user.
 
 For logo builds, naming, the Office theme, schedules, business cards, letterhead and the stamp, see `references/BRAND_SYSTEM.md`.
 

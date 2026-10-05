@@ -1,6 +1,6 @@
 ---
 name: sag-brand
-description: "Apply the PT Stratcon Agara Global (SAG) Graphite & Slate brand to any Word document, PDF, PowerPoint deck, Claude Slides deck, HTML page or Minutes of Meeting. Fully self-contained (fonts, logos, graphics, build code and an HTML example are bundled; Plus Jakarta Sans installs itself). Use whenever output is for or from SAG, or the user mentions SAG, Stratcon Agara, Graphite & Slate, the Complexity Line or the SAG logo, even if they don't say 'brand'."
+description: "Apply the PT Stratcon Agara Global (SAG) Graphite & Slate brand to any Word document, PDF, PowerPoint deck, Claude Slides deck, HTML page, web app, internal tool, dashboard, PWA, business card, letterhead or Minutes of Meeting. Fully self-contained (fonts, logos, graphics, build code and an HTML example are bundled; Plus Jakarta Sans installs itself). Use whenever output is for or from SAG, or the user mentions SAG, Stratcon Agara, Graphite & Slate, the Complexity Line or the SAG logo, even if they don't say 'brand'. Also use when building or restyling any SAG app or UI."
 ---
 
 # SAG brand — Graphite & Slate
@@ -23,6 +23,10 @@ Then look at `examples/sag-brand-example.html` (open it in a browser or the buil
 | Path | What it is |
 |---|---|
 | `references/DESIGN_SPEC.md` | The full specification (colour, type, geometry, component sizes, Word implementation notes) |
+| `references/BRAND_SYSTEM.md` | Identity rules around the spec: logo builds, clear space and misuse, naming, print colour values, Office theme, schedule colours, business card, letterhead, stamp |
+| `references/APP_DESIGN.md` | How SAG apps look: screen tokens (light and dark), type, layout, components, status colours, charts, sign-in, PWA |
+| `assets/app/sag-app.css` | Drop-in stylesheet for any SAG web app (tokens + components) |
+| `examples/sag-app-example.html` | Reference app screens: dashboard, form, sign-in, light and dark |
 | `assets/logo/` | `sag-logo.png` (light grounds), `sag-logo-plated.png` (any ground) |
 | `assets/graphics/` | `masthead_blue.png`, `closing_blue.png`, `deck_band_blue.png` |
 | `assets/fonts/` | Plus Jakarta Sans, 5 weights + OFL licence |
@@ -54,6 +58,8 @@ Then look at `examples/sag-brand-example.html` (open it in a browser or the buil
 6. **Geometry:** A4 margins 20/20/14/16 mm with a **170 mm measure** (edges at 20 and 190 mm). Slides 338.667 × 190.5 mm with 18 mm margins.
 7. **Corner radius:** 2.5 mm on documents, 3 mm on slide cards.
 8. **No decoration:** no stripes, shadows, gradients, icons or clip art, and no borders other than the named hairlines.
+9. **Logo builds and clear space:** never `sag-logo.png` on a colour; keep half the shield's height clear; minimum 14 mm print, 28 px screen. Never stretch, recolour, redraw or merge it with a partner mark (`references/BRAND_SYSTEM.md` §1).
+10. **Name:** spell *Stratcon Agara Global* for clients and ministries; "SAG" is internal; "PT" only in footers, signatures, contracts and the stamp.
 
 ## 3. Building Word documents
 Two routes, both in `scripts/` (imports resolve when you run from that folder or put it on `sys.path`):
@@ -108,7 +114,19 @@ Then convert and check: `soffice --headless --convert-to pdf out.docx`. Fonts ar
 - Section dividers must carry real content; a bare number and title reads as empty to SAG. Otherwise drop them and let the eyebrows carry the section.
 - Put a named contact on the contact panel only when the user confirms it.
 
-## 5. SAG content rules
+## 5. Apps and web UI
+For any app, internal tool, dashboard, admin page or PWA, read `references/APP_DESIGN.md` first and start from `assets/app/sag-app.css` (copy it in, or inline it in single-file apps). `examples/sag-app-example.html` shows the result.
+- PANEL top bar with the plated logo (≥ 28 px) and the name *Stratcon Agara Global*; white surfaces on PAPER; Plus Jakarta Sans 400–800; light and dark themes.
+- Yellow: the active-nav mark, critical-path bars and the dark-theme focus ring. Never a button fill, never text on light, never a status.
+- Status chips use the status set (issued / in process / at risk / not started), always with a word.
+- No gradients, shadows, emoji or decorative icons; Lucide outline icons only where the icon is the control.
+- Manifest and `theme-color` `#1B3038`; favicon is the shield on a solid `#F9C939` tile.
+- The Complexity Line appears only on the sign-in or splash screen (`deck_band_blue.png`).
+- Check 390 px wide and both themes before showing the user.
+
+For logo builds, naming, the Office theme, schedules, business cards, letterhead and the stamp, see `references/BRAND_SYSTEM.md`.
+
+## 6. SAG content rules
 - Andi Prasetyo prefers a background, supporting role:
   - frame the work as SAG's
   - where a title is needed, use his business-card title, Chairman (confirmed by the user, 2 Oct 2026); otherwise don't single him out
@@ -127,7 +145,7 @@ Then convert and check: `soffice --headless --convert-to pdf out.docx`. Fonts ar
 - Names carry no academic titles (Dr., S.H., S.E.), for consistency. In "how we work" visuals, SAG sits in the middle, between the client and government.
 - Mark projections as projections (e.g. the Mamuju cooperative figures) and concept visuals as concepts (Jasa Marga fibre image).
 
-## 6. Verify
+## 7. Verify
 - Render every page (`pdftoppm -r 60`) and look at them; build a contact sheet for long documents.
 - Measure edges with pdfplumber (20.0 / 190.0 mm).
 - Check nothing is clipped, no band is orphaned at a page foot, no question is separated from its box, yellow is used with restraint, and `pdffonts` lists only Plus Jakarta Sans.

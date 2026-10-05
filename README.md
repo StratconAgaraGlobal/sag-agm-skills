@@ -13,7 +13,7 @@ Each brand skill is **self-contained**: fonts, logos, photos, graphics, build co
 
 ## Install, and stay up to date automatically
 
-The repo is a plugin marketplace (`.claude-plugin/marketplace.json`) holding one plugin, `sag`, with all four skills. No version is pinned, so **every commit to `main` is a new version**. Pick the route that matches how your team uses Claude.
+The repo is a plugin marketplace (`.claude-plugin/marketplace.json`). The `sag` plugin bundles all four skills, and each skill is also its own plugin. No version is pinned, so **every commit to `main` is a new version**. Pick the route that matches how your team uses Claude.
 
 ### A. Whole organization, every Claude surface (recommended, Team or Enterprise plan)
 
@@ -35,6 +35,8 @@ gh auth login && gh auth setup-git            # once per machine
 claude plugin marketplace add StratconAgaraGlobal/sag-agm-skills
 claude plugin install sag@sag-agm-skills
 ```
+
+To install only some skills, install them one by one instead of the `sag` bundle, e.g. `claude plugin install sag-brand@sag-agm-skills`. The plugins are `sag-brand`, `agm-brand`, `meeting-minutes-mom` and `sag-graphify`. Don't install the bundle and a single skill in the same profile, or that skill loads twice.
 
 Then turn on auto-update: in a session run `/plugin` → **Marketplaces** → `sag-agm-skills` → **Enable auto-update**. Claude Code then pulls new commits in the background after each start. Without it, `claude plugin update sag@sag-agm-skills` updates by hand. Skills show up as `sag:sag-brand`, `sag:agm-brand` and so on, and trigger on their own as before.
 

@@ -9,13 +9,49 @@
   "plugins": [
     {
       "name": "sag",
-      "description": "SAG and AGM brand skills (documents, decks, apps), meeting minutes, and the SAG knowledge graph workflow.",
+      "description": "All four SAG and AGM skills in one plugin: sag-brand, agm-brand, meeting-minutes-mom, sag-graphify.",
       "source": "./",
       "strict": false,
       "skills": [
         "./skills/sag-brand",
         "./skills/agm-brand",
         "./skills/meeting-minutes-mom",
+        "./skills/sag-graphify"
+      ]
+    },
+    {
+      "name": "sag-brand",
+      "description": "SAG Graphite & Slate brand: Word, PDF, PowerPoint, Claude Slides, HTML and app design.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/sag-brand"
+      ]
+    },
+    {
+      "name": "agm-brand",
+      "description": "AGM brand (Seafood and Marine editions): documents, decks and minutes.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/agm-brand"
+      ]
+    },
+    {
+      "name": "meeting-minutes-mom",
+      "description": "Minutes of Meeting structure and content, styled by the SAG or AGM brand skill.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/meeting-minutes-mom"
+      ]
+    },
+    {
+      "name": "sag-graphify",
+      "description": "SAG knowledge with source-authority rules and the shared SAG knowledge graph.",
+      "source": "./",
+      "strict": false,
+      "skills": [
         "./skills/sag-graphify"
       ]
     }

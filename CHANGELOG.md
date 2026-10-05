@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-10-05 (plugins)
+- Each skill is now also its own plugin (`sag-brand`, `agm-brand`, `meeting-minutes-mom`, `sag-graphify`), so a profile can install just one. The `sag` bundle is unchanged.
+
 ## 2026-10-05 (graph)
 - **sag-graphify: graph merged and bundled.** Ahmed's company-profile graph (SAG BOOK, visual profile, 23 profile sections, two peer-firm profiles) is merged with this skill's curated facts and now ships in `skills/sag-graphify/graph/`. That means current card titles (book titles kept as superseded), the alias table (CCP → CECEP, Uncle Johnson → Jhonshan …), the 46-engagement ruling, Diovandi, Yandra, the three Consulting Partners, the FDE team, and the SEECON, Kadin and Bitera meetings. The result is 1,030 nodes, 2,391 edges and 54 named communities, and every section 15 check passes. The curated facts are also in `graph/curated/`. The skill's query instructions now use `--graph` and `--undirected`. Added the MI / Masagena expert-overlap finding to section 3b.
 

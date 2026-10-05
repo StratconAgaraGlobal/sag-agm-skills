@@ -105,6 +105,12 @@ def check_repo():
     if missing:
         fails += 1
         print("  missing:", missing)
+    gp = os.path.join(SK, "sag-graphify", "graph", "graph.json")
+    g = json.load(open(gp, encoding="utf-8"))
+    ids = {n["id"] for n in g["nodes"]}
+    ok = len(ids) > 500 and all(e["source"] in ids and e["target"] in ids for e in g["links"])         and any(n["label"].startswith("Andi Prasetyo (Chairman") for n in g["nodes"])
+    print("%-4s %s" % ("ok" if ok else "FAIL", "sag-graphify bundled graph loads, edges resolve, titles current"))
+    fails += 0 if ok else 1
     return fails
 
 

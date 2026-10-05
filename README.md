@@ -86,9 +86,7 @@ Requirements for building files: Python 3.9+, `python-docx`, `python-pptx`, `Pil
 
 `sag-graphify` holds the facts and the rules for resolving conflicts (business cards beat the SAG BOOK for titles, and so on); Graphify turns SAG's and AGM's documents into a graph that Claude queries before answering.
 
-1. Install `sag-graphify` and install Graphify as described in its SKILL.md (section 15).
-2. Build the graph from the shared Drive folders, then commit the `graphify-out/` folder to this repo (or a sibling repo) so everyone queries the same graph instead of rebuilding it.
-3. When documents change, update the graph with Graphify's update command and commit the new `graphify-out/`.
+The graph ships inside the skill at `skills/sag-graphify/graph/`, so everyone queries the same one and receives updates with the plugin. It holds 1,030 nodes and 2,391 edges and merges Ahmed's company-profile graph with Diovandi's curated facts (current titles, aliases, rulings, Sep 2026 meetings). Install Graphify (`pip install graphifyy`) to query it; see the skill's "The bundled graph" section. To extend it, follow sections 15 and 17 of `sag-graphify/SKILL.md` and open a PR with the new `graph/` files.
 
 **Keep this repository private.** `sag-graphify` contains staff phone numbers and emails, unresolved board-title questions and client details that are not for the public, and a built graph will contain more.
 
@@ -101,7 +99,7 @@ skills/
                         (DESIGN_SPEC, BRAND_SYSTEM, APP_DESIGN)
   agm-brand/            same layout, plus both editions
   meeting-minutes-mom/  SKILL.md
-  sag-graphify/         SKILL.md
+  sag-graphify/         SKILL.md, graph/ (shared graph.json, report, html, curated facts)
 tools/package_skills.py zips each skill to dist/<name>.skill
 tests/smoke_test.py     builds every document, deck and example for both brands
 .github/workflows/      smoke test on every push; release-skills publishes .skill files on every push to main

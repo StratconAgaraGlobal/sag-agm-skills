@@ -7,12 +7,42 @@ description: "Build, update and query a Graphify knowledge graph of everything a
 
 A Graphify (github.com/Graphify-Labs/graphify) workflow for PT Stratcon Agara Global, with SAG's knowledge built in. It does two jobs:
 
-1. **Answer** questions about SAG. Query `graphify-out/` first if it exists. If it does not, answer from sections 3 to 12 below and say which source each fact came from.
+1. **Answer** questions about SAG. Query the **bundled graph** first (below). If a local `graphify-out/` is newer, use that. If neither answers it, use sections 3 to 12 below and say which source each fact came from.
 2. **Build or update the graph** over SAG's documents (section 14 onward), using the authority rules in section 2 so stale titles and numbers never win.
 
 Facts were compiled on 1 Oct 2026 from the SAG BOOK (June 2026), the Business Cards zip (30 Sep 2026), the Company Overview and FDE Team one-pager (Sep 2026), meeting records of 15 and 30 Sep 2026, the other Business-Docs files (old company profile PDF, Thryve deck, whiteboard photo, Taikai reference list) and the working notes in the SAG project. Re-verify anything that looks old.
 
 The graph is a navigation aid, not proof that a claim is true. Check consequential claims against the original source.
+
+## The bundled graph
+
+`graph/` in this skill's folder (the folder containing this SKILL.md) holds the shared SAG graph, so nobody has to build their own:
+
+| File | What it is |
+|---|---|
+| `graph/graph.json` | 1,030 nodes, 2,391 edges, 54 named communities |
+| `graph/GRAPH_REPORT.md` | God nodes, communities, surprising links |
+| `graph/graph.html` | Interactive view (open in a browser) |
+| `graph/curated/` | This skill's sections 2, 3, 4 and 10 as corpus files: the facts that outrank the SAG BOOK |
+
+It merges two pieces of work (5 Oct 2026):
+- **Ahmed Khalifa's company-profile graph** (built 1 Sep 2026): the 161-page SAG BOOK, the 11-page visual profile, 23 `.docx` profile sections and two peer-firm profiles (MI, Justo), with page attribution.
+- **This skill's curated facts** (Diovandi, compiled 1 Oct 2026):
+  - current card titles, with the book titles kept as `held_title` and `supersedes` edges
+  - the alias table, the 46-engagement ruling, the FDE team, and the Sep 2026 SEECON, Kadin and Bitera meetings
+
+Every curated node and edge is EXTRACTED and sourced to `SAG-Curated/<file>.md`. The post-build checks in section 15 all pass on it.
+
+Query it from anywhere by passing the path:
+
+```bash
+G="<this skill's folder>/graph/graph.json"
+graphify query "<question>" --graph "$G"           # add --budget 5000 if the answer looks truncated
+graphify explain "<thing>" --graph "$G"
+graphify path "<A>" "<B>" --undirected --graph "$G"
+```
+
+It does not yet cover the Business-Docs corpus (MoM full texts, transcripts, Thryve deck, FDE profiles). Its facts reach the graph only through `curated/`. Extending it is section 15 plus section 17.
 
 ## 1. Quick answers
 
@@ -82,6 +112,7 @@ Notes:
 | Jamal Mukaddas | SAG BOOK | Environmental, GIS and forestry expert; AMDAL team leader (KTPA/ATPA); 80+ UKL-UPL and AMDAL documents in the Riau Islands |
 | "Uncle Johnson" = Jhonshan Jusli | PROJECT.md; user confirmation 1 Oct 2026 | Same person as Jhonshan Jusli (card title Deputy Chairman). The Feb 2026 operating model gave him a field due diligence role; that is a historical design role, not a card title |
 | Parga / Pargata | PROJECT.md (AVG sea cucumber deal); 30 Sep Kadin attendee list | Same person (confirmed by the user, 2 Oct 2026). Link the two names with `alias_of` |
+| Ir. Sulbi; Jamal Mukaddas | SAG BOOK specialist bench; `Buklet Company Profile MI 2026.pdf` | Both also appear on the expert roster of CV. Masagena Ininnawa Konsultan (MI), so MI looks like an associated firm rather than a competitor. Sulbi also appears in MI's organisational structure. Jamal Mukaddas directs PT Iwoi Lasolo Medale, a SAG technical subcontractor. Found by the graph's community detection (1 Sep 2026). Not yet discussed with the team, so don't state the relationship in client-facing material |
 
 Do not include HR records (probation, contracts, BPJS, internship paperwork) in the graph. They live in the Drive `Employee` folder and are excluded in section 14.
 
@@ -307,8 +338,8 @@ Requirements: Python 3.10+, `pip install graphifyy` (double y) or `uv tool insta
 - `graphify explain "Andi Prasetyo"` shows Chairman as current and "President Director" as superseded.
 - `graphify explain "Ahmed Khalifa"` and `"Monzer"` show Technical Manager and Strategic Project Manager.
 - `graphify explain "Jhonshan Jusli"` lists "Uncle Johnson" as an alias and Deputy Chairman as his only current title.
-- `graphify path "Diovandi Basheera Putra" "SEECON"` finds the 30 Sep meeting.
-- `graphify path "Andi Prasetyo" "CATL"` finds the advisor role and the Kadin link, with no duplicate Andi node.
+- `graphify path "Diovandi Basheera Putra" "SEECON" --undirected` finds the 30 Sep meeting.
+- `graphify path "Andi Prasetyo" "Contemporary Amperex Technology Limited" --undirected` finds the advisor role and the Kadin link, with no duplicate Andi node.
 - `graphify query "CCP"` lands on CECEP, not on a separate organisation.
 - Engagement count nodes say 46, and CECEP is a client but not one of the 46.
 - No node sourced from an excluded path (Employee, Contracts, Legal Documents).
@@ -316,11 +347,20 @@ Requirements: Python 3.10+, `pip install graphifyy` (double y) or `uv tool insta
 ## 16. Answering from the graph
 
 - Broad questions: `graphify query "<question>"`. Tracing a specific chain: add `--dfs`. Cap long answers with `--budget N`.
-- "How are X and Y connected": `graphify path "X" "Y"`. "What is X": `graphify explain "X"`.
+- "How are X and Y connected": `graphify path "X" "Y" --undirected` (`path` follows edge direction by default, which misses most "connected" questions; if a short name like "CATL" resolves to the wrong node, use the fuller label). "What is X": `graphify explain "X"`.
 - Always cite the source file and its date, and when a fact comes from the SAG BOOK say it is the June 2026 book, because titles and some numbers there are out of date.
 - If the graph and section 3a disagree on a title, section 3a wins; report the mismatch and offer to rebuild.
 
 ## 17. Keeping this skill current
+
+**The bundled graph.** To add documents, work on a copy whose corpus root holds the source folders plus `SAG-Curated/` (= `graph/curated/`). Then:
+1. Archive `graph.json` (section 15, step 7).
+2. Run `/graphify <corpus> --update`.
+3. Run the section 15 checks.
+4. Copy `graph.json`, `GRAPH_REPORT.md` and `graph.html` back into `graph/` and open a PR.
+
+Re-clustering renames communities after their hub node when the membership changes, so carry the old names over by member overlap before committing. When a fact here changes (a new card, a new ruling), edit both this file and `graph/curated/`.
+
 
 - When a new card batch, MoM or profile arrives, update sections 3, 10 and 2 (conflicts), then propose the full updated SKILL.md so the saved skill replaces the old one.
 - Open items to resolve: the legal board titles for Andi Prasetyo and Jhonshan Jusli (no source located; the RUPS deed in Downloads/Business-Docs is PT Andalan Travel Nusantara's, not SAG's; the user will look for SAG's own deed later). Resolved 2 Oct 2026: Parga = Pargata; Bitera site area = 8,200 m² (per the MoM); cable partner = PT Damai Cable Indonesia (internal only); the ship logo is AGM's. Resolved 1 Oct 2026: Seecons Engineering = SEECON; Jordy = Corporate Development Manager; other Consulting Partners keep the title Consulting Partner; Uncle Johnson = Jhonshan Jusli.

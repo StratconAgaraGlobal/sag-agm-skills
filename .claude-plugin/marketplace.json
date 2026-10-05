@@ -1,0 +1,23 @@
+{
+  "name": "sag-agm-skills",
+  "owner": {
+    "name": "PT Stratcon Agara Global"
+  },
+  "metadata": {
+    "description": "Brand, minutes and knowledge skills for SAG and AGM. Installed once, updated from GitHub on every start."
+  },
+  "plugins": [
+    {
+      "name": "sag",
+      "description": "SAG and AGM brand skills (documents, decks, apps), meeting minutes, and the SAG knowledge graph workflow.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/sag-brand",
+        "./skills/agm-brand",
+        "./skills/meeting-minutes-mom",
+        "./skills/sag-graphify"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F3F5F5">
+<title>SAG Product Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="../assets/app/sag-app.css">
+<style>
+  /* Reference-page furniture only — not part of the app system */
+  .ref { max-width: 1440px; margin: 0 auto; padding: 0 24px 72px; }
+  .ref-head { display: flex; align-items: flex-end; gap: 24px; flex-wrap: wrap; padding: 56px 0 8px; }
+  .ref-head > div { flex: 1; min-width: 280px; }
+  .ref-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--sag-text-3); }
+  .ref-eyebrow img { width: 16px; }
+  .ref-head h1 { font-size: 44px; line-height: 1.05; letter-spacing: -.035em; font-weight: 800; color: var(--sag-text); margin: 14px 0 12px; }
+  .ref-head p { margin: 0; max-width: 620px; font-size: 16px; color: var(--sag-text-3); }
+  .ref-head code { font-size: 13px; padding: 1px 6px; border-radius: 5px; background: var(--sag-surface); box-shadow: var(--sag-shadow-1); color: var(--sag-text-2); }
+  .ref-sec { margin-top: 56px; }
+  .ref-sec > header { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 16px; }
+  .ref-sec > header b { font-size: 12px; color: var(--sag-text-3); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .ref-sec > header h2 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -.015em; color: var(--sag-text); }
+  .ref-sec > header p { margin: 0; flex: 1; min-width: 260px; font-size: 14px; color: var(--sag-text-3); }
+  .shot { border-radius: 16px; overflow: hidden; box-shadow: var(--sag-shadow-2); background: var(--sag-app); }
+  .shot .sag-app { min-height: 0; height: 760px; }
+  .shot-panel { background: var(--sag-surface); }
+  .pair { display: grid; gap: 24px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pair .shot { height: 520px; }
+  .pair .shot { position: relative; }
+  .pair .shot::before { content: ""; position: absolute; inset: 8px 8px 8px 120px; border-radius: 12px; background: var(--sag-surface) repeating-linear-gradient(to bottom, transparent 0 41px, var(--sag-line) 41px 42px) 0 52px / 100% 100% no-repeat; box-shadow: var(--sag-shadow-1); }
+  .pair .shot::after { content: ""; position: absolute; left: 16px; top: 20px; width: 88px; height: 220px; background: repeating-linear-gradient(to bottom, var(--sag-line) 0 10px, transparent 10px 30px); border-radius: 4px; }
+  .pair .sag-backdrop { position: relative; z-index: 1; height: 100%; padding: 56px 20px; }
+  .toolbar { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 10px 20px; border-bottom: 1px solid var(--sag-line); font-size: 12px; color: var(--sag-text-3); }
+  .toolbar span { display: inline-flex; align-items: center; gap: 6px; }
+  .toolbar i { display: inline-block; width: 14px; height: 8px; border-radius: 3px; }
+  .signin-shot .sag-signin { min-height: 640px; }
+  .brandline { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+  .brandline img { width: 26px; }
+  .brandline b { font-size: 15px; font-weight: 700; letter-spacing: -.01em; color: var(--sag-text); }
+  .or { display: flex; align-items: center; gap: 12px; margin: 18px 0; font-size: 12px; color: var(--sag-text-3); }
+  .or::before, .or::after { content: ""; flex: 1; height: 1px; background: var(--sag-line); }
+  @media (max-width: 1000px) { .pair { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 860px) { .shot .sag-app { height: 720px; } .ref-head h1 { font-size: 34px; } .ref { padding: 0 12px 56px; } }
+</style>
+</head>
+<body>
+
+<!-- Icon sprite: Lucide outline icons + SAG status glyphs -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7.5"/><path d="m20.5 20.5-4-4"/></symbol>
+  <symbol id="i-inbox" viewBox="0 0 24 24"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-file-check" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></symbol>
+  <symbol id="i-gantt" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 7h8"/><path d="M10 12h8"/><path d="M8 17h6"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></symbol>
+  <symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 22h18"/><path d="M6 18v-7M10 18v-7M14 18v-7M18 18v-7"/><path d="M12 2 20 7H4z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-chev-d" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-filter" viewBox="0 0 24 24"><path d="M3 6h18M7 12h10M10 18h4"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M2 14h4M10 8h4M18 16h4"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="m18 9-6-6-6 6M12 3v13M5 21h14"/></symbol>
+  <symbol id="i-undo" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-git" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M6 9v3a6 6 0 0 0 6 6h3"/></symbol>
+  <!-- status glyphs: not started / in process / issued / at risk -->
+  <symbol id="st-idle" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2.3 1.8"/></symbol>
+  <symbol id="st-wait" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 3.4a3.6 3.6 0 0 1 0 7.2Z" fill="currentColor"/></symbol>
+  <symbol id="st-ok" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6.4" fill="currentColor"/><path d="m4.4 7.2 1.8 1.8 3.4-3.6" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="st-risk" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6.4" fill="currentColor"/><path d="M7 3.9v3.7" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><circle cx="7" cy="10" r=".95" fill="#fff"/></symbol>
+</svg>
+
+<div class="ref">
+  <header class="ref-head">
+    <div>
+      <span class="ref-eyebrow">
+        <img class="sag-on-light" src="../assets/logo/sag-logo.png" alt=""><img class="sag-on-dark" src="../assets/logo/sag-logo-plated.png" alt="">
+        sag-brand · Product design
+      </span>
+      <h1>How SAG apps look</h1>
+      <p>Crisp, dense and quiet, so the work is the loudest thing on screen. Everything here is <code>assets/app/sag-app.css</code>; the rules are in <code>references/APP_DESIGN.md</code>. Content is specimen.</p>
+    </div>
+    <button class="sag-btn sag-btn-secondary" id="theme" type="button"><svg class="sag-icon"><use href="#i-moon"/></svg><span>Dark theme</span></button>
+  </header>
+
+  <!-- 01 List + detail ======================================================= -->
+  <section class="ref-sec">
+    <header><b>01</b><h2>Approvals</h2><p>The work sits on an inset panel. Filings are grouped by status, with SAG yellow ◆ marking the critical path, and the detail panel carries the history.</p></header>
+    <div class="shot">
+      <div class="sag-app">
+        <aside class="sag-side">
+          <button class="sag-workspace" type="button">
+            <img class="sag-on-light" src="../assets/logo/sag-logo.png" alt=""><img class="sag-on-dark" src="../assets/logo/sag-logo-plated.png" alt="">
+            <b>Stratcon Agara Global</b>
+            <svg class="sag-icon" style="width:14px;height:14px;color:var(--sag-icon)"><use href="#i-chev-d"/></svg>
+          </button>
+          <button class="sag-side-search" type="button"><svg class="sag-icon"><use href="#i-search"/></svg>Search<span class="sag-kbd">⌘K</span></button>
+          <nav class="sag-nav" aria-label="Main">
+            <a href="#"><svg class="sag-icon"><use href="#i-inbox"/></svg>Inbox<span class="sag-count">3</span></a>
+            <a href="#"><svg class="sag-icon"><use href="#i-user"/></svg>My filings</a>
+            <p class="sag-nav-label">Specimen project</p>
+            <a href="#" aria-current="page"><svg class="sag-icon"><use href="#i-file-check"/></svg>Approvals<span class="sag-count">22</span></a>
+            <a href="#"><svg class="sag-icon"><use href="#i-gantt"/></svg>Timeline</a>
+            <a href="#"><svg class="sag-icon"><use href="#i-folder"/></svg>Documents</a>
+            <a href="#"><svg class="sag-icon"><use href="#i-landmark"/></svg>Authorities</a>
+            <p class="sag-nav-label">Clients</p>
+            <a href="#"><span class="sag-tile">SP</span>Specimen project</a>
+            <a href="#"><span class="sag-tile" style="background:#7A8B92">IE</span>Industrial estate</a>
+            <a href="#"><span class="sag-tile" style="background:#9C8A55">PF</span>Port facility</a>
+          </nav>
+          <div class="sag-side-foot"><span class="sag-avatar sag-avatar-lg">AK</span><div><b>Ahmed K.</b><span>Strategic Project Engineer</span></div></div>
+        </aside>
+
+        <main class="sag-panel">
+          <div class="sag-mobilebar">
+            <button class="sag-btn sag-btn-ghost sag-icon-btn" type="button" aria-label="Menu"><svg class="sag-icon"><use href="#i-menu"/></svg></button>
+            <img class="sag-on-light" src="../assets/logo/sag-logo.png" alt=""><img class="sag-on-dark" src="../assets/logo/sag-logo-plated.png" alt="">
+            <b>Approvals</b><span class="sag-spacer"></span>
+            <span class="sag-avatar">AK</span>
+          </div>
+          <div class="sag-bar">
+            <div class="sag-crumbs"><span>Specimen project</span><svg class="sag-icon"><use href="#i-chev-r"/></svg><b>Approvals</b></div>
+            <div class="sag-seg" role="group" aria-label="View">
+              <button type="button" aria-pressed="true">List</button>
+              <button type="button" aria-pressed="false">Timeline</button>
+              <button type="button" aria-pressed="false">Board</button>
+            </div>
+            <span class="sag-spacer"></span>
+            <button class="sag-btn sag-btn-ghost" type="button"><svg class="sag-icon"><use href="#i-filter"/></svg>Filter</button>
+            <button class="sag-btn sag-btn-ghost" type="button"><svg class="sag-icon"><use href="#i-sliders"/></svg>Display</button>
+            <button class="sag-btn sag-btn-primary" type="button"><svg class="sag-icon"><use href="#i-plus"/></svg>New filing<span class="sag-kbd">C</span></button>
+          </div>
+
+          <div class="sag-split">
+            <div class="sag-pane">
+              <section class="sag-summary">
+                <div>
+                  <div class="sag-stat-label">Roadmap progress</div>
+                  <div class="sag-stat-value">3<small>of 22 issued</small></div>
+                  <div class="sag-progress" aria-hidden="true">
+                    <i style="flex:3;background:var(--sag-ok)"></i><i style="flex:3;background:var(--sag-wait)"></i><i style="flex:1;background:var(--sag-risk)"></i><i style="flex:15;background:var(--sag-tint)"></i>
+                  </div>
+                  <div class="sag-legend"><span><i style="background:var(--sag-ok)"></i>3 issued</span><span><i style="background:var(--sag-wait)"></i>3 in process</span><span><i style="background:var(--sag-risk)"></i>1 at risk</span><span><i style="background:var(--sag-tint)"></i>15 not started</span></div>
+                </div>
+                <div><div class="sag-stat-label">Next deadline</div><div class="sag-stat-value">28 Oct</div><div class="sag-stat-note">ANDAL hearing</div></div>
+                <div><div class="sag-stat-label">Projected completion</div><div class="sag-stat-value">10 Mar<small>2027</small></div><div class="sag-stat-note">If R2 clears by 15 Oct</div></div>
+                <div><div class="sag-stat-label"><span class="sag-crit"></span>Critical path</div><div class="sag-stat-value">9<small>filings</small></div><div class="sag-stat-note">2 issued · 1 at risk</div></div>
+              </section>
+
+              <div class="sag-group"><svg class="sag-st sag-st-risk"><use href="#st-risk"/></svg>At risk<span class="sag-count">1</span></div>
+              <a class="sag-row" href="#" aria-selected="true"><svg class="sag-st sag-st-risk"><use href="#st-risk"/></svg><span class="sag-ref">SAG-014</span><span class="sag-title">PERTEK B3 — hazardous waste storage</span><span class="sag-crit"><span class="sag-crit-label">Critical</span></span><span class="sag-spacer"></span><span class="sag-tag">KLHK · PSLB3</span><span class="sag-date">14 Nov</span><span class="sag-avatar">AK</span></a>
+
+              <div class="sag-group"><svg class="sag-st sag-st-wait"><use href="#st-wait"/></svg>In process<span class="sag-count">3</span></div>
+              <a class="sag-row" href="#"><svg class="sag-st sag-st-wait"><use href="#st-wait"/></svg><span class="sag-ref">SAG-011</span><span class="sag-title">ANDAL + RKL-RPL — commission hearing</span><span class="sag-crit"><span class="sag-crit-label">Critical</span></span><span class="sag-spacer"></span><span class="sag-tag">KLHK</span><span class="sag-date">28 Oct</span><span class="sag-avatar sag-avatar-b">NS</span></a>
+              <a class="sag-row" href="#"><svg class="sag-st sag-st-wait"><use href="#st-wait"/></svg><span class="sag-ref">SAG-012</span><span class="sag-title">PERTEK — wastewater discharge</span><span class="sag-spacer"></span><span class="sag-tag">KLHK · PPKL</span><span class="sag-date">21 Nov</span><span class="sag-avatar">AK</span></a>
+              <a class="sag-row" href="#"><svg class="sag-st sag-st-wait"><use href="#st-wait"/></svg><span class="sag-ref">SAG-015</span><span class="sag-title">PERTEK — air emissions</span><span class="sag-spacer"></span><span class="sag-tag">KLHK · PPKL</span><span class="sag-date">05 Dec</span><span class="sag-avatar sag-avatar-c">RD</span></a>
+
+              <div class="sag-group"><svg class="sag-st sag-st-idle"><use href="#st-idle"/></svg>Not started<span class="sag-count">15</span></div>
+              <a class="sag-row" href="#"><svg class="sag-st sag-st-idle"><use href="#st-idle"/></svg><span class="sag-ref">SAG-016</span><span class="sag-title">PBG — building approval</span><span class="sag-crit"><span class="sag-crit-label">Critical</span></span><span class="sag-spacer"></span><span class="sag-tag">Dinas PUPR</span><span class="sag-date">20 Jan</span><span class="sag-avatar sag-avatar-d">MF</span></a>
+              <a class="sag-row" href="#"><svg class="sag-st sag-st-idle"><use href="#st-idle"/></svg><span class="sag-ref">SAG-017</span><span class="sag-title">SLF — certificate of worthiness</span><span class="sag-crit"><span class="sag-crit-label">Critical</span></span><span class="sag-spacer"></span><span class="sag-tag">Dinas PUPR</span><span class="sag-date">10 Mar</span><span class="sag-avatar sag-avatar-d">MF</span></a>
+              <a class="sag-row sag-row-more" href="#"><svg class="sag-icon" style="width:14px;height:14px"><use href="#i-chev-d"/></svg>13 more</a>
+
+              <div class="sag-group"><svg class="sag-st sag-st-ok"><use href="#st-ok"/></svg>Issued<span class="sag-count">3</span></div>
+              <a class="sag-row" href="#"><svg class="sag-st sag-st-ok"><use href="#st-ok"/></svg><span class="sag-ref">SAG-003</span><span class="sag-title">KA-ANDAL — terms of reference</span><span class="sag-crit"><span class="sag-crit-label">Critical</span></span><span class="sag-spacer"></span><span class="sag-tag">Provincial commission</span><span class="sag-date">22 Sep</span><span class="sag-avatar sag-avatar-b">NS</span></a>
+              <a class="sag-row" href="#"><svg class="sag-st sag-st-ok"><use href="#st-ok"/></svg><span class="sag-ref">SAG-002</span><span class="sag-title">NIB — business identification</span><span class="sag-spacer"></span><span class="sag-tag">BKPM · OSS</span><span class="sag-date">19 Aug</span><span class="sag-avatar">AK</span></a>
+              <a class="sag-row" href="#"><svg class="sag-st sag-st-ok"><use href="#st-ok"/></svg><span class="sag-ref">SAG-001</span><span class="sag-title">PKKPR — spatial suitability</span><span class="sag-crit"><span class="sag-crit-label">Critical</span></span><span class="sag-spacer"></span><span class="sag-tag">ATR/BPN</span><span class="sag-date">12 Aug</span><span class="sag-avatar">AK</span></a>
+            </div>
+
+            <aside class="sag-detail" aria-label="Filing detail">
+              <div class="sag-detail-head">SAG-014<span class="sag-spacer"></span>
+                <button class="sag-btn sag-btn-ghost sag-icon-btn" type="button" aria-label="Copy link"><svg class="sag-icon"><use href="#i-link"/></svg></button>
+                <button class="sag-btn sag-btn-ghost sag-icon-btn" type="button" aria-label="More"><svg class="sag-icon"><use href="#i-more"/></svg></button>
+                <button class="sag-btn sag-btn-ghost sag-icon-btn" type="button" aria-label="Close"><svg class="sag-icon"><use href="#i-x"/></svg></button>
+              </div>
+              <div class="sag-detail-body">
+                <h2>PERTEK B3 — hazardous waste storage</h2>
+                <p>Technical approval for B3 waste storage and handling. The Directorate returned a second round of corrections.</p>
+                <dl class="sag-props">
+                  <dt>Status</dt><dd><svg class="sag-st sag-st-risk"><use href="#st-risk"/></svg>At risk · R2</dd>
+                  <dt>Path</dt><dd><span class="sag-crit">Critical path</span></dd>
+                  <dt>Authority</dt><dd><span class="sag-tag">KLHK · Ditjen PSLB3</span></dd>
+                  <dt>Owner</dt><dd><span class="sag-avatar">AK</span>Ahmed K.</dd>
+                  <dt>Target</dt><dd class="sag-num"><svg class="sag-icon" style="color:var(--sag-icon)"><use href="#i-calendar"/></svg>14 Nov 2026</dd>
+                  <dt>Blocks</dt><dd><svg class="sag-icon" style="color:var(--sag-icon)"><use href="#i-git"/></svg>PBG — building approval</dd>
+                </dl>
+                <p class="sag-section-label">Activity</p>
+                <ol class="sag-activity">
+                  <li><span><svg class="sag-icon" style="width:14px;height:14px;color:var(--sag-icon)"><use href="#i-upload"/></svg></span><div><b>Filed</b> with Ditjen PSLB3<time>12 Aug</time></div></li>
+                  <li><span><svg class="sag-icon" style="width:14px;height:14px;color:var(--sag-icon)"><use href="#i-undo"/></svg></span><div><b>Corrections R1</b> returned, 4 items<time>03 Sep</time></div></li>
+                  <li><span><svg class="sag-icon" style="width:14px;height:14px;color:var(--sag-icon)"><use href="#i-upload"/></svg></span><div><b>Resubmitted</b> by Ahmed K.<time>17 Sep</time></div></li>
+                  <li><span><svg class="sag-st sag-st-risk"><use href="#st-risk"/></svg></span><div><b>Corrections R2</b> returned, 2 items<time>01 Oct</time>
+                    <div class="sag-comment">Storage capacity to be recalculated against the revised layout. Due back 15 Oct.</div></div></li>
+                </ol>
+              </div>
+            </aside>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 Timeline ============================================================ -->
+  <section class="ref-sec">
+    <header><b>02</b><h2>Timeline</h2><p>The deck's meanings, live: yellow is the critical path, slate is parallel filings, grey is monitoring. A ring marks risk, and the ink line is today.</p></header>
+    <div class="shot shot-panel">
+      <div class="sag-bar">
+        <div class="sag-crumbs"><span>Specimen project</span><svg class="sag-icon"><use href="#i-chev-r"/></svg><b>Timeline</b></div>
+        <div class="sag-seg" role="group" aria-label="View">
+          <button type="button" aria-pressed="false">List</button>
+          <button type="button" aria-pressed="true">Timeline</button>
+          <button type="button" aria-pressed="false">Board</button>
+        </div>
+        <span class="sag-spacer"></span>
+        <button class="sag-btn sag-btn-ghost" type="button">Months<svg class="sag-icon"><use href="#i-chev-d"/></svg></button>
+        <button class="sag-btn sag-btn-secondary" type="button"><svg class="sag-icon"><use href="#i-download"/></svg>Export</button>
+      </div>
+      <div class="toolbar">
+        <span><i style="background:var(--sag-accent)"></i>Critical path</span>
+        <span><i style="background:var(--sag-panel)"></i>Parallel</span>
+        <span><i style="background:var(--sag-tint);height:5px"></i>Monitoring</span>
+        <span><i style="background:none;box-shadow:0 0 0 1.5px var(--sag-risk)"></i>At risk</span>
+        <span class="sag-spacer"></span>
+        <span>Jul 2026 – Mar 2027</span>
+      </div>
+      <div class="sag-gantt-wrap">
+      <div class="sag-gantt" style="--n:9">
+        <div class="sag-gantt-head"><div>Filing</div><div class="sag-gantt-months sag-num"><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan '27</span><span>Feb</span><span>Mar</span></div></div>
+        <div class="sag-gantt-row"><div><svg class="sag-st sag-st-ok"><use href="#st-ok"/></svg>PKKPR</div><div class="sag-gantt-track"><div class="sag-gbar sag-gbar-crit sag-gbar-done" style="--s:0;--e:1.4"><svg class="sag-icon"><use href="#i-check"/></svg>PKKPR</div></div></div>
+        <div class="sag-gantt-row"><div><svg class="sag-st sag-st-ok"><use href="#st-ok"/></svg>NIB (OSS)</div><div class="sag-gantt-track"><div class="sag-gbar sag-gbar-par sag-gbar-done" style="--s:.62;--e:1.6"><svg class="sag-icon"><use href="#i-check"/></svg>NIB</div></div></div>
+        <div class="sag-gantt-row"><div><svg class="sag-st sag-st-ok"><use href="#st-ok"/></svg>KA-ANDAL</div><div class="sag-gantt-track"><div class="sag-gbar sag-gbar-crit sag-gbar-done" style="--s:1.4;--e:2.7"><svg class="sag-icon"><use href="#i-check"/></svg>KA-ANDAL</div></div></div>
+        <div class="sag-gantt-row"><div><svg class="sag-st sag-st-wait"><use href="#st-wait"/></svg>ANDAL + RKL-RPL</div><div class="sag-gantt-track"><div class="sag-gbar sag-gbar-crit" style="--s:2.7;--e:3.9">Hearing 28 Oct</div></div></div>
+        <div class="sag-gantt-row"><div><svg class="sag-st sag-st-risk"><use href="#st-risk"/></svg>PERTEK B3</div><div class="sag-gantt-track"><div class="sag-gbar sag-gbar-crit sag-gbar-risk" style="--s:1.47;--e:4.45">Corrections R2</div></div></div>
+        <div class="sag-gantt-row"><div><svg class="sag-st sag-st-wait"><use href="#st-wait"/></svg>PERTEK wastewater</div><div class="sag-gantt-track"><div class="sag-gbar sag-gbar-par" style="--s:2;--e:4.7">In review</div></div></div>
+        <div class="sag-gantt-row"><div><svg class="sag-st sag-st-wait"><use href="#st-wait"/></svg>PERTEK emissions</div><div class="sag-gantt-track"><div class="sag-gbar sag-gbar-par" style="--s:2.6;--e:5.15">Drafting</div></div></div>
+        <div class="sag-gantt-row"><div><svg class="sag-st sag-st-idle"><use href="#st-idle"/></svg>PBG</div><div class="sag-gantt-track"><div class="sag-gbar sag-gbar-crit" style="--s:4.45;--e:6.65">PBG</div></div></div>
+        <div class="sag-gantt-row"><div><svg class="sag-st sag-st-idle"><use href="#st-idle"/></svg>SLF</div><div class="sag-gantt-track"><div class="sag-gbar sag-gbar-crit" style="--s:6.65;--e:8.3">SLF</div></div></div>
+        <div class="sag-gantt-row"><div><svg class="sag-st sag-st-wait"><use href="#st-wait"/></svg>Rule monitoring</div><div class="sag-gantt-track"><div class="sag-gbar sag-gbar-mon" style="--s:0;--e:9"></div></div></div>
+        <div class="sag-today" style="--t:3.13"><span>Today</span></div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 Create + command ==================================================== -->
+  <section class="ref-sec">
+    <header><b>03</b><h2>Create and command</h2><p>New filings open in a compact dialog with property pills instead of a long form. ⌘K reaches anything from anywhere.</p></header>
+    <div class="pair">
+      <div class="shot">
+        <div class="sag-backdrop">
+          <div class="sag-modal" role="dialog" aria-label="New filing">
+            <div class="sag-modal-head"><span class="sag-tile">SP</span>Specimen project<svg class="sag-icon" style="width:13px;height:13px"><use href="#i-chev-r"/></svg>New filing<span class="sag-spacer"></span>
+              <button class="sag-btn sag-btn-ghost sag-icon-btn" type="button" aria-label="Close"><svg class="sag-icon"><use href="#i-x"/></svg></button></div>
+            <div class="sag-modal-body">
+              <input class="sag-modal-title" value="PERTEK — B3 waste storage expansion" aria-label="Filing name">
+              <textarea class="sag-modal-desc" placeholder="Scope, prerequisites, notes for the next person…" aria-label="Description"></textarea>
+            </div>
+            <div class="sag-pills">
+              <button class="sag-pill" type="button"><svg class="sag-st sag-st-idle"><use href="#st-idle"/></svg>Not started</button>
+              <button class="sag-pill" type="button"><svg class="sag-icon"><use href="#i-landmark"/></svg>KLHK · PSLB3</button>
+              <button class="sag-pill" type="button"><span class="sag-avatar" style="width:18px;height:18px;font-size:8px">AK</span>Ahmed K.</button>
+              <button class="sag-pill" type="button"><svg class="sag-icon"><use href="#i-calendar"/></svg>Target date</button>
+              <button class="sag-pill" type="button"><span class="sag-crit">Critical path</span></button>
+            </div>
+            <div class="sag-modal-foot">
+              <button class="sag-btn sag-btn-ghost sag-icon-btn" type="button" aria-label="Attach"><svg class="sag-icon"><use href="#i-clip"/></svg></button>
+              <span class="sag-spacer"></span>
+              <span class="sag-switch" role="switch" aria-checked="false" aria-label="Create more"></span>Create more
+              <button class="sag-btn sag-btn-primary" type="button">Create filing<span class="sag-kbd">⌘↵</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="shot">
+        <div class="sag-backdrop">
+          <div class="sag-palette" role="dialog" aria-label="Command palette">
+            <div class="sag-palette-input"><svg class="sag-icon"><use href="#i-search"/></svg><input value="pertek" aria-label="Search"><span class="sag-kbd">esc</span></div>
+            <div class="sag-palette-list">
+              <div class="sag-palette-group">Filings</div>
+              <div class="sag-palette-item" aria-selected="true"><svg class="sag-st sag-st-risk"><use href="#st-risk"/></svg>PERTEK B3 — hazardous waste storage<span class="sag-hint sag-num">SAG-014</span></div>
+              <div class="sag-palette-item"><svg class="sag-st sag-st-wait"><use href="#st-wait"/></svg>PERTEK — wastewater discharge<span class="sag-hint sag-num">SAG-012</span></div>
+              <div class="sag-palette-item"><svg class="sag-st sag-st-wait"><use href="#st-wait"/></svg>PERTEK — air emissions<span class="sag-hint sag-num">SAG-015</span></div>
+              <div class="sag-palette-group">Actions</div>
+              <div class="sag-palette-item"><svg class="sag-icon"><use href="#i-plus"/></svg>New filing<span class="sag-hint"><span class="sag-kbd">C</span></span></div>
+              <div class="sag-palette-item"><svg class="sag-icon"><use href="#i-gantt"/></svg>Go to timeline<span class="sag-hint"><span class="sag-kbd">G</span><span class="sag-kbd">T</span></span></div>
+              <div class="sag-palette-item"><svg class="sag-icon"><use href="#i-download"/></svg>Export roadmap as PDF</div>
+            </div>
+            <div class="sag-palette-foot"><span><span class="sag-kbd">↑</span><span class="sag-kbd">↓</span>navigate</span><span><span class="sag-kbd">↵</span>open</span><span><span class="sag-kbd">esc</span>close</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 Sign-in ============================================================= -->
+  <section class="ref-sec">
+    <header><b>04</b><h2>Sign-in</h2><p>The one screen that carries the Complexity Line, as a slate strip along the foot.</p></header>
+    <div class="shot signin-shot">
+      <div class="sag-signin">
+        <div class="sag-signin-body">
+          <div class="sag-signin-card">
+            <div class="brandline">
+              <img class="sag-on-light" src="../assets/logo/sag-logo.png" alt=""><img class="sag-on-dark" src="../assets/logo/sag-logo-plated.png" alt="">
+              <b>Stratcon Agara Global</b>
+            </div>
+            <h1 style="margin:0;font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--sag-text)">Sign in to Permit Tracker</h1>
+            <p style="margin:6px 0 24px;font-size:14px;color:var(--sag-text-3)">Use your Stratcon Agara Global account.</p>
+            <button class="sag-btn sag-btn-secondary sag-btn-lg" style="width:100%" type="button">Continue with Google</button>
+            <div class="or">or</div>
+            <div class="sag-field"><label class="sag-label" for="em">Work email</label><input class="sag-input" id="em" placeholder="name@stratconagaraglobal.com"></div>
+            <button class="sag-btn sag-btn-primary sag-btn-lg" style="width:100%;margin-top:14px" type="button">Continue with email</button>
+            <p style="margin:20px 0 0;font-size:12px;color:var(--sag-text-3)">Internal tool. Ask IT for access.</p>
+          </div>
+        </div>
+        <div class="sag-signin-band" style="background-image:url('../assets/graphics/deck_band_blue.png')" role="img" aria-label="Navigating complexity, delivering simplicity"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  var btn = document.getElementById('theme');
+  btn.addEventListener('click', function () {
+    var r = document.documentElement, dark = r.dataset.theme !== 'dark';
+    if (dark) r.dataset.theme = 'dark'; else delete r.dataset.theme;
+    btn.querySelector('span').textContent = dark ? 'Light theme' : 'Dark theme';
+  });
+</script>
+</body>
+</html>

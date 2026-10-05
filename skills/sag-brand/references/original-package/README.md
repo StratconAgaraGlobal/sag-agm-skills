@@ -1,4 +1,6 @@
 > **Archived.** This is the original design package as delivered, before it was bundled into this skill. Its paths are out of date: code is now in `scripts/` and reference files are in `assets/reference/`. Follow `SKILL.md` instead.
+>
+> Also archived here: `SAG_Identity_System_v2.html` and `SAG_Template_Pack_v2_Graphite.html` (7–8 Sep 2026), the earlier identity pages. What survived from them is in `references/BRAND_SYSTEM.md`, whose §9 lists what the agreed system replaced.
 
 # SAG Design Package — Graphite & Slate
 

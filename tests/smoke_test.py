@@ -6,7 +6,9 @@
 Needs python-docx, python-pptx and Pillow. Fonts are not required to build
 (they are embedded / only matter for rendering).
 """
+import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -83,8 +85,31 @@ print("ok")
 """
 
 
-def main():
+def check_repo():
+    """The plugin manifest lists every skill, and the app files reference only what exists."""
     fails = 0
+    m = json.load(open(os.path.join(ROOT, ".claude-plugin", "marketplace.json"), encoding="utf-8"))
+    listed = {os.path.normpath(p) for e in m["plugins"] for p in e.get("skills", [])}
+    on_disk = {os.path.normpath("./skills/" + d) for d in os.listdir(SK)
+               if os.path.isfile(os.path.join(SK, d, "SKILL.md"))}
+    ok = listed == on_disk and all("version" not in e for e in m["plugins"])
+    print("%-4s %s" % ("ok" if ok else "FAIL", "marketplace.json lists every skill, no pinned version"))
+    if not ok:
+        fails += 1
+        print("  missing:", sorted(on_disk - listed), " extra:", sorted(listed - on_disk))
+    ex = os.path.join(SK, "sag-brand", "examples", "sag-app-example.html")
+    refs = re.findall(r"""(?:href|src)="(\.\./[^"]+)"|url\('(\.\./[^']+)'\)""", open(ex, encoding="utf-8").read())
+    missing = [p for pair in refs for p in pair
+               if p and not os.path.exists(os.path.normpath(os.path.join(os.path.dirname(ex), p)))]
+    print("%-4s %s" % ("FAIL" if missing else "ok", "sag-app-example.html local references"))
+    if missing:
+        fails += 1
+        print("  missing:", missing)
+    return fails
+
+
+def main():
+    fails = check_repo()
     with tempfile.TemporaryDirectory() as t:
         for skill, args in JOBS:
             args = [a.replace("{t}", t) for a in args]

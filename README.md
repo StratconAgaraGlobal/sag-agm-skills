@@ -38,7 +38,9 @@ claude plugin install sag@sag-agm-skills
 
 To install only some skills, install them one by one instead of the `sag` bundle, e.g. `claude plugin install sag-brand@sag-agm-skills`. The plugins are `sag-brand`, `agm-brand`, `meeting-minutes-mom` and `sag-graphify`. Don't install the bundle and a single skill in the same profile, or that skill loads twice.
 
-Then turn on auto-update: in a session run `/plugin` → **Marketplaces** → `sag-agm-skills` → **Enable auto-update**. Claude Code then pulls new commits in the background after each start. Without it, `claude plugin update sag@sag-agm-skills` updates by hand. Skills show up as `sag:sag-brand`, `sag:agm-brand` and so on, and trigger on their own as before.
+Every SAG plugin carries an update hook (`hooks/`). It checks GitHub when a session starts and, at most every 5 minutes, when you send a message. When `main` has moved, it updates the plugin on disk and shows *"SAG skills updated … Run /reload-plugins"*. Pushes made while a session is open therefore reach it within minutes, instead of waiting for the next session.
+
+Also turn on Claude Code's own auto-update as a backstop: in a session run `/plugin` → **Marketplaces** → `sag-agm-skills` → **Enable auto-update**. Claude Code then pulls new commits in the background after each start. Without it, `claude plugin update sag@sag-agm-skills` updates by hand. Skills show up as `sag:sag-brand`, `sag:agm-brand` and so on, and trigger on their own as before.
 
 No GitHub SSH key? Set `CLAUDE_CODE_PLUGIN_PREFER_HTTPS=1` to skip the SSH attempt and clone over HTTPS.
 
@@ -103,6 +105,7 @@ skills/
   meeting-minutes-mom/  SKILL.md
   sag-graphify/         SKILL.md, graph/ (shared graph.json, report, html, curated facts)
 tools/package_skills.py zips each skill to dist/<name>.skill
+hooks/                  update hook shipped with every plugin (hooks.json + sag_update.py)
 tests/smoke_test.py     builds every document, deck and example for both brands
 .github/workflows/      smoke test on every push; release-skills publishes .skill files on every push to main
 ```

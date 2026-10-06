@@ -1,0 +1,29 @@
+{
+  "description": "Keep the SAG skills in step with GitHub main: check at session start and, at most every 5 minutes, on each message; update on disk and ask for /reload-plugins when main has moved.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/sag_update.py\" --event SessionStart --every 15 2>/dev/null || python \"${CLAUDE_PLUGIN_ROOT}/hooks/sag_update.py\" --event SessionStart --every 15",
+            "timeout": 240,
+            "statusMessage": "Checking GitHub for SAG skill updates..."
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/sag_update.py\" --event UserPromptSubmit --every 300 2>/dev/null || python \"${CLAUDE_PLUGIN_ROOT}/hooks/sag_update.py\" --event UserPromptSubmit --every 300",
+            "timeout": 240
+          }
+        ]
+      }
+    ]
+  }
+}

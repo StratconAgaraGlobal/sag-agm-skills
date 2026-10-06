@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-10-06
+- **Update hook in every plugin** (`hooks/hooks.json`, `hooks/sag_update.py`). Claude Code's own auto-update runs once per session, so a push made while a session was open never reached it. Found when the green-palette revert didn't reach an open session. The hook checks GitHub at session start and, at most every 5 minutes, on each message. It updates the installed SAG plugins on disk and tells the user to run `/reload-plugins`. It runs once even with several SAG plugins installed, acts only on the session's own profile, and exits quietly when offline or without repo access. If the CLI can't install the update, it says how to update from `/plugin` instead.
+
 ## 2026-10-06 (back to slate)
 - **sag-brand: palette back to slate blue.** Reverts the 2026-10-05 green test: palette, app CSS, docs, examples and banner graphics are the slate originals again. The auto-update test is done.
 

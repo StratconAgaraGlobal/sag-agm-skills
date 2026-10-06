@@ -111,6 +111,13 @@ def check_repo():
     ok = len(ids) > 500 and all(e["source"] in ids and e["target"] in ids for e in g["links"])         and any(n["label"].startswith("Andi Prasetyo (Chairman") for n in g["nodes"])
     print("%-4s %s" % ("ok" if ok else "FAIL", "sag-graphify bundled graph loads, edges resolve, titles current"))
     fails += 0 if ok else 1
+    hj = json.load(open(os.path.join(ROOT, "hooks", "hooks.json"), encoding="utf-8"))
+    cmds = [h["command"] for ev in hj["hooks"].values() for g in ev for h in g["hooks"]]
+    src = open(os.path.join(ROOT, "hooks", "sag_update.py"), encoding="utf-8").read()
+    compile(src, "sag_update.py", "exec")
+    ok = set(hj["hooks"]) == {"SessionStart", "UserPromptSubmit"} and all("${CLAUDE_PLUGIN_ROOT}/hooks/sag_update.py" in c for c in cmds)
+    print("%-4s %s" % ("ok" if ok else "FAIL", "update hook: hooks.json wired, sag_update.py compiles"))
+    fails += 0 if ok else 1
     return fails
 
 

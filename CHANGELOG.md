@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-10-06 (graph)
+- **sag-graphify: Endress+Hauser / ASI thread and more Kadin detail.** New `graph/curated/endress_hauser_asi.md` covers the E+H aluminium emission and water deck (24 Jul 2026), the SAG–E+H discussion (31 Jul), Ahmed Khalifa's ASI Measurement Parameter Review V2 for PT Endress+Hauser Indonesia (10 Aug), SPARING, and the E+H bunkering deck (2020, reference only). `current_activity.md`, `aliases.md` and `source_authority.md` gained the Kadin details (the CECEP 25–300 MW offer, Runjian's FDE advice, the waste-to-energy barrier), the transcript mishearings (Runjen, Aman trust, SEG, Munzir, CRTL …) and two rulings: auto-generated action items are unreliable, and the "three-year-old company" remark does not conflict with 20+ years of practice. 27 nodes and 48 edges were added to the bundled graph inside the existing 54 communities, without re-clustering. The section 15 checks and the smoke test pass. SKILL.md sections 2, 3c, 4, 7, 10 and 17 are updated.
+
 ## 2026-10-05 (plugins)
 - Each skill is now also its own plugin (`sag-brand`, `agm-brand`, `meeting-minutes-mom`, `sag-graphify`), so a profile can install just one. The `sag` bundle is unchanged.
 

@@ -1,80 +1,76 @@
-# Graph Report - .  (2026-10-05)
+# Graph Report - .  (2026-10-06)
 
 ## Corpus Check
 - cluster-only mode — file stats not available
 
 ## Summary
-- 1030 nodes · 2391 edges · 54 communities (46 shown, 8 thin omitted)
-- Extraction: 92% EXTRACTED · 7% INFERRED · 1% AMBIGUOUS · INFERRED: 177 edges (avg confidence: 0.85)
+- 1057 nodes · 2439 edges · 54 communities (43 shown, 11 thin omitted)
+- Extraction: 92% EXTRACTED · 7% INFERRED · 1% AMBIGUOUS · INFERRED: 182 edges (avg confidence: 0.84)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
-- Import & Trade Compliance
 - Advisory Principles & Positioning
-- Certification & Growth Pipeline
-- Biomass & Agri-Energy Cooperative
-- Bintan Galang Batang KEK Programme
-- Diplomatic Network & North Africa
+- China-Indonesia Market Entry
+- Battery Recycling, CATL & Rekind
+- Social & Governance Case Studies
+- Chairman & SEECON Pilot
+- Deputy Chairman Network
+- Import & Export Desk
+- Economic Impact Metrics
 - Legal, Banking & Institutional Access
 - Industry 4.0 & Industrial IoT
 - Tax, Accounting & Finance Practice
-- Investment Licensing & Fiscal Corridor
+- Import & Trade Compliance
 - Toll-Road Digital Infrastructure
-- China-Indonesia Market Entry
 - Battery Recycling & Critical Minerals
-- Battery Recycling, CATL & Rekind
 - JAPFA & Social Licence
 - Risk Reduction Playbook
 - Riau Islands Environmental Practice
 - Circular Economy & Transboundary Waste
-- Social & Governance Case Studies
 - Peer Consultancy Profile (MI)
+- Certification & Growth Pipeline
 - Papua Forestry & Carbon
 - KAEI Cooperative & Agri Partners
 - Engineering & Infrastructure Bench
 - Agri-Energy Feasibility & Business Case
 - Manpower, Security & Immigration Corridor
-- Chairman & SEECON Pilot
 - Technical Service Disciplines
 - Peer Company Profile Benchmarks
 - Spatial & Environmental Corridor
-- Social Licence & Risk Governance
+- Biomass & Agri-Energy Cooperative
 - ESG Frameworks & Reporting Standards
 - Nutrition & Education Philanthropy
 - Market Entry Advisory Arc
 - Social & Urban Planning Bench
 - US Consulting & BAT Governance
-- Deputy Chairman Network
 - Downstreaming & Investment Facilitation
 - Environmental Bench & MI Overlap
-- Core Delivery Methodology
-- Import & Export Desk
+- Bintan Galang Batang KEK Programme
 - ANTAM-IBC-CBL Nickel Joint Venture
-- Economic Impact Metrics
 - Nickel-to-Battery Value Chain
-- Operational Excellence & Aftercare
 - Trade & Energy Ministries
+- Diplomatic Network & North Africa
 - Legal Due Diligence & Litigation
 - Pharmaceutical Clients
-- Open-Door Turnkey System
 - Brasali Property Group
 - Ritz Carlton Hospitality
 - Beijing
 - London
 - Shanghai
 - SHGB Land Title
+- Investment Licensing & Fiscal Corridor
 
 ## God Nodes (most connected - your core abstractions)
-1. `PT Stratcon Agara Global (SAG)` - 484 edges
+1. `PT Stratcon Agara Global (SAG)` - 489 edges
 2. `Indonesia` - 59 edges
 3. `Koperasi Agri Energi Indonesia (KAEI)` - 34 edges
-4. `Dr. Ir. Jamal Mukaddas, M.Si., IPM., ASEAN Eng. (Environmental, GIS & Forestry Expert; AMDAL Team Leader)` - 30 edges
-5. `Ahmed Khalifa - Ahmed Yousef Saheed Khalifa (Technical Manager, SAG)` - 30 edges
+4. `Ahmed Khalifa - Ahmed Yousef Saheed Khalifa (Technical Manager, SAG)` - 32 edges
+5. `Dr. Ir. Jamal Mukaddas, M.Si., IPM., ASEAN Eng. (Environmental, GIS & Forestry Expert; AMDAL Team Leader)` - 30 edges
 6. `PERTEK - Technical Approval (steel import; wastewater; emissions; B3)` - 29 edges
 7. `Andi Prasetyo (Chairman, SAG)` - 27 edges
-8. `BRUNP Recycling (Guangdong BRUNP Recycling Technology)` - 26 edges
-9. `Monzer Tarig - Monzer Tarig Abdalla Mohamedahmed (Strategic Project Manager, SAG)` - 26 edges
-10. `Contemporary Amperex Technology Limited (CATL)` - 25 edges
+8. `Monzer Tarig - Monzer Tarig Abdalla Mohamedahmed (Strategic Project Manager, SAG)` - 27 edges
+9. `BRUNP Recycling (Guangdong BRUNP Recycling Technology)` - 26 edges
+10. `Contemporary Amperex Technology Limited (CATL)` - 26 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `ESG Principles` --semantically_similar_to--> `UN Sustainable Development Goals (SDG)`  [INFERRED] [semantically similar]
@@ -116,111 +112,103 @@
 - **Indonesia EV-Battery Downstreaming Cluster (CATL / BRUNP / Antam / Puqing)** — entity_catl, entity_brunp_recycling, entity_pt_indonesia_puqing_recycling_technology, entity_antam, entity_cbl_ibc_antam_joint_venture, concept_downstreaming_policy, concept_critical_minerals_and_ev_battery_supply_chain [INFERRED 0.85]
 - **Indonesian investment establishment & permitting chain** — entity_ministry_of_investment_bkpm, entity_oss_rba_system, entity_ministry_of_law_and_human_rights, entity_ministry_of_environment_klh, entity_directorate_general_of_taxes [INFERRED 0.85]
 
-## Communities (54 total, 8 thin omitted)
-
-### Community 0 - "Import & Trade Compliance"
-Cohesion: 0.05
-Nodes (99): Compliance Risk (penalties), Import Facilitation, Client Capability Building over Indefinite Dependency, Permitting Risk (rejection), Trade & Customs Risk (seizure), AMDALNET Screening System, B3 Hazardous-Waste Regime (Indonesia), BPOM - National Agency of Drug and Food Control (+91 more)
+## Communities (54 total, 11 thin omitted)
 
 ### Community 1 - "Advisory Principles & Positioning"
 Cohesion: 0.03
-Nodes (65): Accountable Ownership, Adaptive Management, Specialist bench: Quality, Safety and Procurement, Compliance as a Strategic Asset, Critical Minerals, Government-First Sequencing, Industrial Manufacturing, Proprietary Knowledge Advantage (+57 more)
-
-### Community 2 - "Certification & Growth Pipeline"
-Cohesion: 0.06
-Nodes (60): 07 Capacity Building and Community Development - responsible mining, conflict resolution, Certification Readiness Advisory (gap analysis, SOP build, audit support), Community Development, 05 Contributing to the Green Economy - solar, waste-to-energy, floating solar farms, 08 Driving Global ESG Leadership - thought leadership and advisory rigor, 01 Empowering Sustainable Development - ESG-integrated consultancy for energy, mining, industrial clients, ESG Principles, 06 Commitment to Ethical Business Practices - integrity, transparency, regulatory compliance (+52 more)
-
-### Community 3 - "Biomass & Agri-Energy Cooperative"
-Cohesion: 0.18
-Nodes (15): Case Study 13: Koperasi Agri Energi Indonesia (KAEI) Corn-to-Feed & Biomass Energy, 55,000-Hectare Agri-Energy Cooperative Model, Bio-coal and stover-pellet calorific upgrading, Renewable Biomass Fuel for 250 MW Power Co-Firing, Corn grain as animal-feed commodity, Corn stover (cob, stalk, leaf) as biomass feedstock, Renewable Energy Development, Stakeholder Coordination & Engagement (+7 more)
-
-### Community 4 - "Bintan Galang Batang KEK Programme"
-Cohesion: 0.07
-Nodes (61): Government Insights, Industry Knowledge, Market Intelligence, Regulatory Understanding, Risk Assessment, Special Economic Zone (KEK) Regulatory Regime, Bintan Island, Riau Islands Province, Ministry of Investment (BKPM) (+53 more)
-
-### Community 5 - "Diplomatic Network & North Africa"
-Cohesion: 0.06
-Nodes (45): Bilateral Diplomatic Network (16 Senior Contacts), Oil & gas sector engagement - Libya; direct connection as the country rebuilds energy infrastructure, Reconstruction & development - Sudan; early-stage, Water & infrastructure development - Morocco & Tunisia; pipeline identified, Oil and Gas Sector Rebuilding, SAG Diplomatic Network - 16 senior diplomatic contacts, Water-Treatment & Water-Security Advisory, Water-Treatment Projects (+37 more)
-
-### Community 6 - "Legal, Banking & Institutional Access"
-Cohesion: 0.05
-Nodes (44): Talitha Mediva (alias of Talita Mediva), Import and Trade Approvals, Institutional Access (SAG Core Strength), Legal & Regulatory Affairs Practice, PT Bank Tabungan Negara (Persero) Tbk (Bank BTN), Bank BTPN Jenius, PT Bank OCBC NISP Tbk, CV Seven Royale Holiday (+36 more)
-
-### Community 7 - "Industry 4.0 & Industrial IoT"
-Cohesion: 0.05
-Nodes (59): Ahmed Youssef / Ahmed Yousef / Ahmed Y. S. Khalifa (alias of Ahmed Khalifa), Dio / Dio Basheera Putra / DBP (alias of Diovandi Basheera Putra), Monza / Monza Tarig / Monzer T. M. Ahmed (alias of Monzer Tarig), Condition monitoring & automatic threshold alerting, Condition Monitoring & Automatic Alerting, Enterprise Digital Transformation, Industrial Automation and IoT, Industrial IoT (IIoT) (+51 more)
-
-### Community 8 - "Tax, Accounting & Finance Practice"
-Cohesion: 0.09
-Nodes (33): Uncle Rahmat (alias of Rahmatullah Aba), Accounting Services, Big-4 Accounting Firm Experience, Budgeting and Forecasting, Finance Administration Services, Financial Statement Preparation, Internal Control Evaluation, Investment Advisory (+25 more)
-
-### Community 9 - "Investment Licensing & Fiscal Corridor"
-Cohesion: 0.09
-Nodes (29): Business Licensing, Corridor 01: Investment, Legal & Fiscal Foundations, Indonesian critical-minerals downstreaming agenda, Danantara (Indonesian sovereign wealth fund), Directorate General of Immigration (Indonesia), Directorate General of Taxes (DJP), Directorate General of Customs and Excise (DJBC / Bea Cukai), Ministry of Finance of Indonesia (+21 more)
-
-### Community 10 - "Toll-Road Digital Infrastructure"
-Cohesion: 0.09
-Nodes (24): Eight Sectors of Expertise, Electronic toll payment ecosystem integration, Fibre-Optic Right-of-Way Digital Infrastructure Commercialisation, Fibre-Optic Network Utilisation, Toll-road fibre-optic network utilisation, Smart mobility / intelligent transportation systems, Stakeholder Engagement & Coordination, WiFi/WIMAX highway broadband concept (+16 more)
+Nodes (53): Eka Trisny Edyanti N (Consulting Partner, SAG) - Senior Advisor, PT Contemporary Brump Indonesia, Henry Thenoch (Consulting Partner, SAG) - hazardous-waste, e-waste and EV-battery recycling, Radityo Adi Nugroho (Consulting Partner, SAG) - ex-Presidential Protocol Bureau; ex-LPS, Specialist bench: Quality, Safety and Procurement, Critical Minerals, Industrial Manufacturing, Navigating Complexity, Delivering Simplicity (SAG Tagline), Integrated Student-Support Platform (40% Efficiency Gain) (+45 more)
 
 ### Community 11 - "China-Indonesia Market Entry"
-Cohesion: 0.14
-Nodes (24): CCP (transcript form of CECEP), Bilingual Indonesian-Chinese Practice, The China-Indonesia Corridor, Chinese Investor Market Entry Practice, Entity Structure Advisory (PT PMA Formation), Entry Execution Phase, Five Languages of Delivery (EN, ID, ZH, AR, DE), PMA Foreign-Invested Company Structure (+16 more)
-
-### Community 12 - "Battery Recycling & Critical Minerals"
-Cohesion: 0.20
-Nodes (15): FDI / PMA structuring and licensing, Hydrometallurgical spent-battery metal recovery, NCM hydroxide & lithium carbonate recovered output, GEM (battery-materials shareholder, 15%), Guangdong BRUNP, PT Indonesia Morowali Industrial Park (IMIP), Morowali, Central Sulawesi, PMA foreign-investment structure (+7 more)
+Cohesion: 0.13
+Nodes (20): CCP (transcript form of CECEP), Five Languages of Delivery (EN, ID, ZH, AR, DE), PMA Foreign-Invested Company Structure, CECEP - China Energy Conservation and Environmental Protection Group, China (Chinese Battery and Energy Investors), JD.ID, Ministry of Law and Human Rights (Kemenkumham), Nanshan Group (+12 more)
 
 ### Community 13 - "Battery Recycling, CATL & Rekind"
-Cohesion: 0.18
-Nodes (19): Brump / Brunp (alias of BRUNP Recycling), SAG Case Studies Compendium (ESG-organised, 14 engagements), EV battery & critical-mineral supply chain, Case Study Theme: Environmental, Critical minerals & EV batteries - downstream nickel & battery supply chain, Halmahera, BRUNP Recycling (Guangdong BRUNP Recycling Technology), Buli, East Halmahera, Contemporary Amperex Technology Limited (CATL) (+11 more)
-
-### Community 14 - "JAPFA & Social Licence"
-Cohesion: 0.15
-Nodes (19): Case Study Theme: Social, National child-nutrition campaign in primary schools, CSR and Philanthropy Advisory, Nucleus-and-plasma farming structure, Public-Private Partnership (PPP) model, Scholarship Philanthropy Program (25,000+ Scholarships), Social Licence to Operate, Case Study 11: National Child-Nutrition Campaign & School Support Programmes (+11 more)
-
-### Community 15 - "Risk Reduction Playbook"
-Cohesion: 0.09
-Nodes (23): Find the weak points before they break - pinpoint where a permitting timeline is most likely to fail and design the mitigation first, Give numbers clients can defend - realistic timeline and full cost picture under normal and contingency scenarios, Map the whole path first - identify every licence a client's activity requires by KBLI, investment status, sector and location, Milestone fee-at-risk model - SAG paid as approvals are actually issued, Multilingual delivery - EN, ID, ZH, AR, DE, Blocked imports / seizure risk - goods stuck, sales lost; mitigated by the full PERTEK+PI+API+SIINas/INSW+SNI chain, Cross-border waste risk - Basel breach, cargo seizure; mitigated by Basel Convention compliance, Environmental breach risk - fines, shutdown, revoked licence; mitigated by full AMDAL and PERTEK coverage (+15 more)
-
-### Community 16 - "Riau Islands Environmental Practice"
-Cohesion: 0.15
-Nodes (19): Atum Power Bintan, Bintan Exotica Resort, Bintan Inti Industrial Estate (Lobam), BOMC, CCI Bintan, Green Infinity Indo, Jelita Sejuba Resort, PT Iwoi Lasolo Medale (ILM) - technical/engineering subcontractor, director Ir. Jamal Mukaddas (+11 more)
-
-### Community 17 - "Circular Economy & Transboundary Waste"
 Cohesion: 0.17
-Nodes (16): Bintan Circular-Economy Recycling Park (5M Tonnes/Year), Circular Economy & Decarbonization, Hazardous Waste & Transboundary Movement Rules, Upstream & Downstream Integration Analysis, Australia, Europe, European Union, Kinetik/SWEEF Entrepreneurs' Programme (+8 more)
+Nodes (19): Brump / Brunp (alias of BRUNP Recycling), EV battery & critical-mineral supply chain, Critical minerals & EV batteries - downstream nickel & battery supply chain, Halmahera, BRUNP Recycling (Guangdong BRUNP Recycling Technology), Buli, East Halmahera, Contemporary Amperex Technology Limited (CATL), PT Rekayasa Industri (Rekind), PT Rekind Daya Mamuju (RDM) (+11 more)
 
 ### Community 18 - "Social & Governance Case Studies"
 Cohesion: 0.05
-Nodes (57): Corporate Affairs, Digital transformation & process optimisation, SAG Environmental Impact - permitting as the primary environmental control, Global code vs host-country law alignment, Carbon markets, CCS & climate finance - net-zero 2060 capital flows; practice in development, Industrial Licensing & Permit Strategy, Investment Facilitation / FDI Facilitation, Pictorial Health Warning (PHW) framework for cigarette packaging (+49 more)
+Nodes (54): Director / Managing Director & Principal Consultant, SAG - superseded title of Radka Andafa Prasetyo (SAG BOOK, June 2026), Director, SAG - current title of Radka Andafa Prasetyo (business card, 30 Sep 2026), Corporate Affairs, Digital transformation & process optimisation, SAG Environmental Impact - permitting as the primary environmental control, Carbon markets, CCS & climate finance - net-zero 2060 capital flows; practice in development, Pictorial Health Warning (PHW) framework for cigarette packaging, Policy Advocacy & Public-Private Dialogue (+46 more)
+
+### Community 25 - "Chairman & SEECON Pilot"
+Cohesion: 0.36
+Nodes (8): Mr. Andi / Pak Andi / Om Andi / Mas Andi (alias of Andi Prasetyo), si con / Seecons (alias of SEECON), SAG x SEECON pilot meeting, 30 Sep 2026 - AI agentic tools for a highway-construction consultancy (MoM SAG-SEE-MOM-001), Mr. Handoko (SEECON), President Director, SAG - superseded title of Andi Prasetyo (SAG BOOK, June 2026), Chairman, SAG - current title of Andi Prasetyo (business card, 30 Sep 2026), SEECON (Seecons Engineering), Andi Prasetyo (Chairman, SAG)
+
+### Community 35 - "Deputy Chairman Network"
+Cohesion: 0.25
+Nodes (8): Uncle Johnson / Om Johnson (alias of Jhonshan Jusli), Deputy Chairman, SAG - current title of Jhonshan Jusli (business card, 30 Sep 2026), CV Sokaria (A-1 Soft Shell Crab), KKB Home Design, PT Mega Giat Mas, Jhonshan Jusli (Deputy Chairman, SAG), CV Mega Motor, KKB ART TVC
+
+### Community 43 - "Economic Impact Metrics"
+Cohesion: 0.33
+Nodes (7): 46 client engagements across 12+ sectors (Company Overview, Sep 2026; agreed figure), SAG Economic Impact - IDR 1.5T+ client investment facilitated across 47 engagements, 700,000+ sq m industrial plant permitted - 105 buildings, 5 facilities, IDR 1.5T+ client investment facilitated across 47 engagements, IDR 200-600B client savings generated (risk avoided + revenue unlocked), Rp10 billion government retribution flowing to the public purse via the Bintan programme, USD ~33B estimated strategic project value advised (CATL, BRUNP, Antam)
+
+### Community 6 - "Legal, Banking & Institutional Access"
+Cohesion: 0.05
+Nodes (43): Talitha Mediva (alias of Talita Mediva), Senior Legal Counsel / Head of Legal & Regulatory Affairs, SAG - superseded title of Talita Mediva (SAG BOOK, June 2026), Legal Specialist, SAG - current title of Talita Mediva (business card, 30 Sep 2026), Import and Trade Approvals, Institutional Access (SAG Core Strength), Bank BTPN Jenius, Disnaker - Department of Manpower, Eurokars Mazda Indonesia (+35 more)
+
+### Community 7 - "Industry 4.0 & Industrial IoT"
+Cohesion: 0.04
+Nodes (68): Ahmed Youssef / Ahmed Yousef / Ahmed Y. S. Khalifa (alias of Ahmed Khalifa), Dio / Dio Basheera Putra / DBP (alias of Diovandi Basheera Putra), Monza / Monza Tarig / Monzer T. M. Ahmed (alias of Monzer Tarig), AMANTRA - advisory platform for foreign investors (data centres, energy, cold storage, AI, ERP), Bitera Data Center - ~20 MW scaling to 32 MW; second Jakarta site up to ~60 MW; site 8,200 m2, Runjian International (GPU and AI infrastructure), SAG x Bitera Data Center call, 15 Sep 2026 - first deployment of the SAG system in Indonesia (MoM SAG-BDC-MOM-001), SAG x Kadin meeting, 30 Sep 2026 - foreign-investor guidance, AI data-centre ecosystem, FDE positioning (+60 more)
+
+### Community 8 - "Tax, Accounting & Finance Practice"
+Cohesion: 0.09
+Nodes (30): Uncle Rahmat (alias of Rahmatullah Aba), Accounting Services, Big-4 Accounting Firm Experience, Budgeting and Forecasting, Finance Administration Services, Financial Statement Preparation, Internal Control Evaluation, Investment Advisory (+22 more)
+
+### Community 0 - "Import & Trade Compliance"
+Cohesion: 0.05
+Nodes (97): Compliance Risk (penalties), Import Facilitation, Permitting Risk (rejection), Trade & Customs Risk (seizure), AMDALNET Screening System, B3 Hazardous-Waste Regime (Indonesia), BPOM - National Agency of Drug and Food Control, National Standardization Agency (BSN) (+89 more)
+
+### Community 10 - "Toll-Road Digital Infrastructure"
+Cohesion: 0.09
+Nodes (23): Eight Sectors of Expertise, Electronic toll payment ecosystem integration, Fibre-Optic Network Utilisation, Toll-road fibre-optic network utilisation, Smart mobility / intelligent transportation systems, Stakeholder Engagement & Coordination, WiFi/WIMAX highway broadband concept, WiFi/WIMAX Broadband Service Concept (+15 more)
+
+### Community 12 - "Battery Recycling & Critical Minerals"
+Cohesion: 0.20
+Nodes (15): FDI / PMA structuring and licensing, Hydrometallurgical spent-battery metal recovery, NCM hydroxide & lithium carbonate recovered output, GEM (battery-materials shareholder, 15%), PT Indonesia Morowali Industrial Park (IMIP), Morowali, Central Sulawesi, PMA foreign-investment structure, PT Indonesia Puqing Recycling Technology (+7 more)
+
+### Community 14 - "JAPFA & Social Licence"
+Cohesion: 0.15
+Nodes (15): National child-nutrition campaign in primary schools, CSR and Philanthropy Advisory, Public-Private Partnership (PPP) model, Scholarship Philanthropy Program (25,000+ Scholarships), JAPFA (PT Japfa Comfeed Indonesia Tbk / JAPFA Ltd), JAPFA Foundation, JAPFA CSR Strategy Redesign (SDG-aligned education, nutrition, vocational training), Agriculture (+7 more)
+
+### Community 15 - "Risk Reduction Playbook"
+Cohesion: 0.09
+Nodes (7): Multilingual delivery - EN, ID, ZH, AR, DE, SAG Risk Reduction - closing the gap between the rules on paper and practice, 08 Compliance & Admin - SIINas production reporting, OSS/CoreTax administration, BPOM compliance, PIC appointment, weekly reporting, 07 Strategic Advisory - government relations, stakeholder mapping, regulatory pathway & risk analysis, carbon readiness, PPP, FDI structuring, 100% of prerequisites verified before any building-permit filing, 5 rounds of Ministry of Industry corrections cleared without rejection (PT Gaoshi steel-import PERTEK), 7+ authorities navigated - ministries, agencies and KEK administrators
+
+### Community 16 - "Riau Islands Environmental Practice"
+Cohesion: 0.15
+Nodes (19): Bintan Inti Industrial Estate (Lobam), PT Iwoi Lasolo Medale (ILM) - technical/engineering subcontractor, director Ir. Jamal Mukaddas, Dr. Ir. Jamal Mukaddas, M.Si., IPM., ASEAN Eng. (Environmental, GIS & Forestry Expert; AMDAL Team Leader), DELH / DPLH Environmental Documents, Rintek LB3 (Hazardous-Waste Technical Registration), ASEAN Engineer (ASEAN Eng.), IPM (Insinyur Profesional Madya), KTPA / ATPA AMDAL Team Leader Certification (+11 more)
+
+### Community 17 - "Circular Economy & Transboundary Waste"
+Cohesion: 0.17
+Nodes (15): Bintan Circular-Economy Recycling Park (5M Tonnes/Year), Circular Economy & Decarbonization, Hazardous Waste & Transboundary Movement Rules, Europe, Nanshan / Huazhang Recycling Park, Bintan (planned) - 5,000,000 t/yr scrap, e-waste and batteries, PMA (foreign direct investment company structure), Seattle, Washington, USA, South Korea (+7 more)
 
 ### Community 19 - "Peer Consultancy Profile (MI)"
 Cohesion: 0.10
 Nodes (23): DPLH/DELH Environmental Management Documents, LPJP AMDAL Provider Registration, Naskah Akademis (Academic Manuscript for Draft Regional Regulation), PBG and SLF Building Permit Services, Persetujuan Teknis (Technical Approval: Wastewater, Emissions, B3 Waste), SBU (Sertifikat Badan Usaha) Business Entity Certification, CV. Masagena Ininnawa Konsultan, Ikatan Ahli Perencanaan (IAP) (+15 more)
 
+### Community 2 - "Certification & Growth Pipeline"
+Cohesion: 0.05
+Nodes (63): Certification Readiness Advisory (gap analysis, SOP build, audit support), Community Development, ESG Principles, Global Standards Certification Readiness Programs, ASI certification for Bintan alumina - global/EU market access, Nanshan/Huazhang recycling park - 5M t/yr scrap & e-waste; permitting & quota in scoping, ISPS Code certification for KEK ports - turnkey package ready, Renewable energy facilitation via CECEP - solar, geothermal, hydro, wind, biomass (+55 more)
+
 ### Community 20 - "Papua Forestry & Carbon"
 Cohesion: 0.08
-Nodes (38): Carbon Accounting & Carbon Economy Compliance, Natural Carbon Capture & Sequestration, Carbon Capture and Storage (CCS) Advisory, Carbon Capture & Sustainability Knowledge, Carbon Markets & Climate Finance Practice, National Carbon Trading and Voluntary Carbon Markets, Climate Finance and Net-Zero Transition Advisory, Community Engagement (+30 more)
+Nodes (30): Natural Carbon Capture & Sequestration, Carbon Capture and Storage (CCS) Advisory, Carbon Markets & Climate Finance Practice, National Carbon Trading and Voluntary Carbon Markets, Climate Finance and Net-Zero Transition Advisory, Community Engagement, Electric Vehicles (EV) Transition, Nature-based solutions & natural carbon sequestration (+22 more)
 
 ### Community 21 - "KAEI Cooperative & Agri Partners"
 Cohesion: 0.15
-Nodes (13): Cooperative & Social Enterprise Structuring, Delivery over grant-making (foundation runs its own programmes), Independent Power Producer (IPP) Projects, Sharia-based 92.5/7.5 fair profit-sharing and audited transparency, Sharia-Principled Profit Sharing (92.5% members / 7.5% management), Cargill, Charoen Pokphand, CJ Indonesia (+5 more)
+Nodes (9): Cooperative & Social Enterprise Structuring, Cargill, Charoen Pokphand, CJ Indonesia, Indonesia 23%-by-2025 Renewable Energy Target, Koperasi Agri Energi Indonesia (KAEI), Malindo, New Hope (+1 more)
 
 ### Community 22 - "Engineering & Infrastructure Bench"
 Cohesion: 0.24
-Nodes (12): Specialist bench: Engineering and Infrastructure, Discipline 01: Engineering & Infrastructure, Abu Daud Nur Syafii, S.T. - Structural Expert, Aswan, S.T. - Transportation Civil Engineering Expert, Hasni, S.T. - Water Resource Engineering Expert, M. Faisal, S.T. (Structural Expert), Maulana Idris (Surveyor), Muh. Aidil Saputra (Surveyor) (+4 more)
+Nodes (11): Specialist bench: Engineering and Infrastructure, Abu Daud Nur Syafii, S.T. - Structural Expert, Aswan, S.T. - Transportation Civil Engineering Expert, Hasni, S.T. - Water Resource Engineering Expert, Muhammad Yusuf, S.T. - Sanitation and Wastewater Expert, Ar. Muhammada Jufrizal, S.T. - Architect, Ir. Nursyamsi Suleman, S.T. - Civil Engineering Expert / AMDAL Team Leader, M. Faisal, S.T. (Structural Expert) (+3 more)
 
 ### Community 23 - "Agri-Energy Feasibility & Business Case"
 Cohesion: 0.29
-Nodes (11): Biomass Resource Mapping, Feasibility Study & Business Case, Financial Modelling & Investment Structuring, Renewable Energy Advisory & Facilitation, Rural Development, Social Return on Investment (SROI) framework, Triple Value model (community empowerment + farmer income + renewable energy), Value-Chain Analysis (+3 more)
+Nodes (10): Biomass Resource Mapping, Feasibility Study & Business Case, Financial Modelling & Investment Structuring, Renewable Energy Advisory & Facilitation, Rural Development, Social Return on Investment (SROI) framework, Value-Chain Analysis, Case Study 12: Community Agri-Energy Cooperative for Biomass Co-Firing (+2 more)
 
 ### Community 24 - "Manpower, Security & Immigration Corridor"
 Cohesion: 0.22
-Nodes (9): Corridor 04: Human Capital, Security & Strategic Oversight, Presidential Staff Office (KSP), Ministry of Manpower (Indonesia), Indonesian National Military (TNI), Agus Subijanto (Chief of TNI), Cris Kuntadi (Secretary General, Ministry of Manpower), Dudung Abdurahman (Chief of Presidential Staff Office (KSP)), Maruli Simanjuntak (Chief of Army) (+1 more)
-
-### Community 25 - "Chairman & SEECON Pilot"
-Cohesion: 0.36
-Nodes (8): Mr. Andi / Pak Andi / Om Andi / Mas Andi (alias of Andi Prasetyo), si con / Seecons (alias of SEECON), SEECON (Seecons Engineering), SAG x SEECON pilot meeting, 30 Sep 2026 - AI agentic tools for a highway-construction consultancy (MoM SAG-SEE-MOM-001), Andi Prasetyo (Chairman, SAG), Mr. Handoko (SEECON), President Director, SAG - superseded title of Andi Prasetyo (SAG BOOK, June 2026), Chairman, SAG - current title of Andi Prasetyo (business card, 30 Sep 2026)
+Nodes (8): Presidential Staff Office (KSP), Ministry of Manpower (Indonesia), Indonesian National Military (TNI), Agus Subijanto (Chief of TNI), Cris Kuntadi (Secretary General, Ministry of Manpower), Dudung Abdurahman (Chief of Presidential Staff Office (KSP)), Maruli Simanjuntak (Chief of Army), Seno Yusuf (Vice Chief of Military Intelligence)
 
 ### Community 26 - "Technical Service Disciplines"
 Cohesion: 0.12
@@ -232,67 +220,59 @@ Nodes (10): Company Profile Document Structure, Dinas Perhubungan Provinsi Kepul
 
 ### Community 28 - "Spatial & Environmental Corridor"
 Cohesion: 0.20
-Nodes (11): Corridor 03: Spatial, Environmental & Structural Infrastructure, The Four Institutional Corridors, Institutional Connectivity & Strategic Access, Ministry of ATR/BPN (land and spatial planning), Ministry of Environment (KLH), Ministry of Environment / KLH, Amsor (Ministry of Environment contact), Djumhur Hidayat (Minister of Environment) (+3 more)
+Nodes (8): Ministry of ATR/BPN (land and spatial planning), Ministry of Environment / KLH, Djumhur Hidayat (Minister of Environment), Nusron Wahid (Minister of ATR/BPN), Sigit Reliantono (Director General of AMDAL), Ministry of Environment (KLH), Amsor (Ministry of Environment contact), Sigit (Special Advisor, Ministry of Industry)
 
-### Community 29 - "Social Licence & Risk Governance"
+### Community 3 - "Biomass & Agri-Energy Cooperative"
 Cohesion: 0.18
-Nodes (11): Environmental Governance, Government Alignment, Operational Risk, Regulatory Risk, Reputational Risk, Risk Mitigation Practice, Social Governance, Social License to Operate (+3 more)
+Nodes (15): 55,000-Hectare Agri-Energy Cooperative Model, Bio-coal and stover-pellet calorific upgrading, Renewable Biomass Fuel for 250 MW Power Co-Firing, Corn grain as animal-feed commodity, Corn stover (cob, stalk, leaf) as biomass feedstock, Renewable Energy Development, Stakeholder Coordination & Engagement, Indonesia 23%-by-2025 clean-energy mix target (+7 more)
 
 ### Community 30 - "ESG Frameworks & Reporting Standards"
 Cohesion: 0.33
-Nodes (7): ESG Advisory & Sustainability Strategy, Four-Phase ESG Advisory Methodology (Assessment, Alignment, Action Plan, Execution), Sustainability Goal 2 - ESG Integration at Highest International Standards, Nickel Mining, Global Reporting Initiative (GRI), ISO 14001:2015 (Environmental Management System), Sustainability Accounting Standards Board (SASB)
+Nodes (5): ESG Advisory & Sustainability Strategy, Nickel Mining, Global Reporting Initiative (GRI), ISO 14001:2015 (Environmental Management System), Sustainability Accounting Standards Board (SASB)
 
 ### Community 31 - "Nutrition & Education Philanthropy"
 Cohesion: 0.15
-Nodes (20): Adherence governance: HQ guidelines, self-declaration, spot checks, Agricultural Development, CSR Strategy & Delivery, Governance & Accountability, Independent tiered governance (patron / supervisory / professional team), Nutrition & Food Security, Public-Private Partnership (PPP) Facilitation, Scholarship programme (25,000+ scholarships) (+12 more)
+Nodes (18): Agricultural Development, CSR Strategy & Delivery, Governance & Accountability, Nutrition & Food Security, Public-Private Partnership (PPP) Facilitation, Scholarship programme (25,000+ scholarships), Scholarship Programmes, Teacher development & schools-improvement programme (+10 more)
 
 ### Community 32 - "Market Entry Advisory Arc"
 Cohesion: 0.20
-Nodes (10): The Advisory Arc - Five Stages of Market Engagement, Critical-Path Sequencing & Parallel Filing, Regulatory Pathway Mapping, One Firm, The Whole Journey (Single Point of Contact), Strategic Analysis, Timeline Risk (project delay), Bentoel Group, Sampoerna (+2 more)
+Nodes (5): Timeline Risk (project delay), Bentoel Group, Sampoerna, Market Entry & Strategic Consulting, Transaction Consulting (M&A, JV, Restructuring)
 
 ### Community 33 - "Social & Urban Planning Bench"
 Cohesion: 0.36
-Nodes (8): Specialist bench: Social and Urban Planning, Discipline 04: Quality, Safety & Procurement, Discipline 02: Social & Urban Planning, Specialist Bench (Four Disciplines), Andi Abdul Gatpur, S.Ikom., M.Ling - Socio-Economic Expert, Jumriah, S.Km., M.Kes - Public Health Expert, Muh. Randi P, S.Sos - Socio-Cultural Expert, Muh. Ridwan Muis, S.I.P - Social Expert
+Nodes (5): Specialist bench: Social and Urban Planning, Andi Abdul Gatpur, S.Ikom., M.Ling - Socio-Economic Expert, Jumriah, S.Km., M.Kes - Public Health Expert, Muh. Randi P, S.Sos - Socio-Cultural Expert, Muh. Ridwan Muis, S.I.P - Social Expert
 
 ### Community 34 - "US Consulting & BAT Governance"
 Cohesion: 0.20
-Nodes (10): Case Study Theme: Governance, British American Tobacco (BAT), California, Inner City (California), Inner City, CA, USA, Strategy Source (California), Strategy Source, CA, USA, British American Tobacco (BAT) - SAG scope: Regulatory affairs lead for the Indonesian market portfolio; policy alignment and compliance defence (+2 more)
-
-### Community 35 - "Deputy Chairman Network"
-Cohesion: 0.25
-Nodes (8): Uncle Johnson / Om Johnson (alias of Jhonshan Jusli), CV Mega Motor, CV Sokaria (A-1 Soft Shell Crab), KKB ART TVC, KKB Home Design, PT Mega Giat Mas, Jhonshan Jusli (Deputy Chairman, SAG), Deputy Chairman, SAG - current title of Jhonshan Jusli (business card, 30 Sep 2026)
+Nodes (9): British American Tobacco (BAT), Inner City, CA, USA, Strategy Source, CA, USA, Consumer Packaged Goods, Strategic Consulting, California, Inner City (California), Strategy Source (California) (+1 more)
 
 ### Community 36 - "Downstreaming & Investment Facilitation"
 Cohesion: 0.40
-Nodes (6): Critical Minerals & EV Battery Supply Chain Advisory, Indonesian Hulu-ke-Hilir (Downstreaming) Policy Alignment, Industrial Investment Facilitation, Regulatory Affairs & Compliance, Predictive Risk Mitigation & Regulatory Foresight, CATL & BRUNP Battery-Materials and Recycling Facilities, Buli
+Nodes (5): Critical Minerals & EV Battery Supply Chain Advisory, Indonesian Hulu-ke-Hilir (Downstreaming) Policy Alignment, Industrial Investment Facilitation, Regulatory Affairs & Compliance, CATL & BRUNP Battery-Materials and Recycling Facilities, Buli
 
 ### Community 37 - "Environmental Bench & MI Overlap"
 Cohesion: 0.26
-Nodes (12): Specialist bench: Environmental Studies, Discipline 03: Environmental Studies, Adil Waraney - Environmental Biology Expert, Hanif Kharisma Trashasri Amiseno, S.T. - Environmental Engineering Expert, Hanif Kharisma Trashasri Amiseno, S.T. (Environmental Engineering Expert), Muhammad Ramdhan Amir, S.T. - Hazardous Waste (B3) Management Expert, Nur Syamsi Suleman, S.T., Ir. Sulbi, S.T., M.Sc., M.Ag., IPM - Environmental Expert / AMDAL Team Leader (+4 more)
+Nodes (11): Specialist bench: Environmental Studies, Adil Waraney - Environmental Biology Expert, Hanif Kharisma Trashasri Amiseno, S.T. - Environmental Engineering Expert, Muhammad Ramdhan Amir, S.T. - Hazardous Waste (B3) Management Expert, Nur Syamsi Suleman, S.T., Ir. Sulbi, S.T., M.Sc., M.Ag., IPM - Environmental Expert / AMDAL Team Leader, Sutran, M.Ling. - Physical Environmental Expert / AMDAL Team Leader, Tulus Sumarno, S.T. - Plumbing Expert (+3 more)
 
-### Community 38 - "Core Delivery Methodology"
-Cohesion: 0.29
-Nodes (8): Systematic Compliance Architecture, Continuous Calibration, Deep Diagnosis, The Delivery Sequence (Map, Sequence, Stress-test, Cost, Track), ESG Four-Stage Framework (Assessment, Alignment, Action Plan, Execution), Precision Execution, SAG Core Methodology (Four Integrated Phases), Strategic Design
+### Community 4 - "Bintan Galang Batang KEK Programme"
+Cohesion: 0.06
+Nodes (56): Bintan Island, Riau Islands Province, Ministry of Investment (BKPM), DPMPTSP - Regional one-stop investment and licensing office, Galang Batang, Galang Batang Special Economic Zone (KEK), Bintan, KEK Administrator and BUPP Verification Authority, KEK Galang Batang (GBKEK) Special Economic Zone, Ministry of Public Works (Indonesia) (+48 more)
 
 ### Community 40 - "ANTAM-IBC-CBL Nickel Joint Venture"
 Cohesion: 0.32
-Nodes (8): ANTAM (Aneka Tambang), ANTAM - IBC - CBL joint venture (CATL, Brunp & Lygend), CBL-IBC-Antam Joint Venture, Halmahera, IBC (Indonesia Battery Corporation), Lygend, ANTAM - IBC - CBL joint venture (CATL, Brunp & Lygend) - SAG scope: Strategic advisor and risk-mitigation partner; on-the-ground Halmahera risk assessment across upstream and downstream, Metals & Mining
-
-### Community 43 - "Economic Impact Metrics"
-Cohesion: 0.33
-Nodes (7): SAG Economic Impact - IDR 1.5T+ client investment facilitated across 47 engagements, 46 client engagements across 12+ sectors (Company Overview, Sep 2026; agreed figure), 700,000+ sq m industrial plant permitted - 105 buildings, 5 facilities, IDR 1.5T+ client investment facilitated across 47 engagements, IDR 200-600B client savings generated (risk avoided + revenue unlocked), Rp10 billion government retribution flowing to the public purse via the Bintan programme, USD ~33B estimated strategic project value advised (CATL, BRUNP, Antam)
+Nodes (8): ANTAM - IBC - CBL joint venture (CATL, Brunp & Lygend), Metals & Mining, ANTAM (Aneka Tambang), CBL-IBC-Antam Joint Venture, Halmahera, IBC (Indonesia Battery Corporation), Lygend, ANTAM - IBC - CBL joint venture (CATL, Brunp & Lygend) - SAG scope: Strategic advisor and risk-mitigation partner; on-the-ground Halmahera risk assessment across upstream and downstream
 
 ### Community 45 - "Nickel-to-Battery Value Chain"
 Cohesion: 0.40
 Nodes (5): Battery and EV Supply Chain, US$71M EV Battery Recycling Facility, Smelting and Cathode Production, Nickel (Indonesia's Reserves), SAG Achievements Spread
 
-### Community 46 - "Operational Excellence & Aftercare"
-Cohesion: 0.40
-Nodes (5): Continuous Improvement, Institutional Memory, Operational Excellence, Post-Entry Stabilization (90-Day Advisory Programme), Quality Management
-
 ### Community 48 - "Trade & Energy Ministries"
 Cohesion: 0.22
-Nodes (10): Corridor 02: Trade, Industrial & Energy Sovereignty, Ministry of Energy and Mineral Resources (ESDM), Ministry of Trade (Indonesia), PLN (Indonesian national electricity utility), Budi (Minister of Trade), Darmawan Prasodjo (Chief Executive Officer of PLN), Iman (Director of Import, Ministry of Trade), Moga (Director General of Trade Competition) (+2 more)
+Nodes (9): Ministry of Energy and Mineral Resources (ESDM), Ministry of Trade (Indonesia), PLN (Indonesian national electricity utility), Darmawan Prasodjo (Chief Executive Officer of PLN), Yuliot (Vice Minister of ESDM), Budi (Minister of Trade), Iman (Director of Import, Ministry of Trade), Moga (Director General of Trade Competition) (+1 more)
+
+### Community 5 - "Diplomatic Network & North Africa"
+Cohesion: 0.06
+Nodes (44): Oil & gas sector engagement - Libya; direct connection as the country rebuilds energy infrastructure, Reconstruction & development - Sudan; early-stage, Water & infrastructure development - Morocco & Tunisia; pipeline identified, Oil and Gas Sector Rebuilding, SAG Diplomatic Network - 16 senior diplomatic contacts, Water-Treatment & Water-Security Advisory, Water-Treatment Projects, Brazil (+36 more)
 
 ### Community 51 - "Legal Due Diligence & Litigation"
 Cohesion: 0.67
@@ -301,6 +281,10 @@ Nodes (3): Legal and Tax Practice, Legal Due Diligence and Litigation Support, I
 ### Community 52 - "Pharmaceutical Clients"
 Cohesion: 0.67
 Nodes (3): Boehringer Ingelheim, Galenium Pharmacia, Pharmaceuticals
+
+### Community 9 - "Investment Licensing & Fiscal Corridor"
+Cohesion: 0.09
+Nodes (28): Business Licensing, Indonesian critical-minerals downstreaming agenda, Danantara (Indonesian sovereign wealth fund), Directorate General of Immigration (Indonesia), Directorate General of Taxes (DJP), Directorate General of Customs and Excise (DJBC / Bea Cukai), Ministry of Finance of Indonesia, Ministry of Investment / BKPM (+20 more)
 
 ## Ambiguous Edges - Review These
 - `Nanshan Group` → `Nanshan / Huazhang Recycling Park`  [AMBIGUOUS]
@@ -335,9 +319,9 @@ Nodes (3): Boehringer Ingelheim, Galenium Pharmacia, Pharmaceuticals
   graphify-out/converted/20260806 Stakeholders AP_Basic_1c977775.md · relation: references
 
 ## Knowledge Gaps
-- **243 isolated node(s):** `Eka Trisny Edyanti N (Consulting Partner, SAG) - Senior Advisor, PT Contemporary Brump Indonesia`, `Henry Thenoch (Consulting Partner, SAG) - hazardous-waste, e-waste and EV-battery recycling`, `Radityo Adi Nugroho (Consulting Partner, SAG) - ex-Presidential Protocol Bureau; ex-LPS`, `CCP (transcript form of CECEP)`, `Brump / Brunp (alias of BRUNP Recycling)` (+238 more)
-  These have ≤1 connection - possible missing edges or undocumented components.
-- **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **254 isolated node(s):** `Eka Trisny Edyanti N (Consulting Partner, SAG) - Senior Advisor, PT Contemporary Brump Indonesia`, `Henry Thenoch (Consulting Partner, SAG) - hazardous-waste, e-waste and EV-battery recycling`, `Radityo Adi Nugroho (Consulting Partner, SAG) - ex-Presidential Protocol Bureau; ex-LPS`, `CCP (transcript form of CECEP)`, `Brump / Brunp (alias of BRUNP Recycling)` (+249 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 286 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_

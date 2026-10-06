@@ -13,3 +13,9 @@ Rulings:
 - CECEP, Tongkun Group, Xinfengming, Nanshan Group, YTO Group and Bentoel are clients named in the narrative but are not among the numbered 46.
 - Jobs enabled: 10,000+.
 - Bitera site area: 8,200 m² per the 15 Sep 2026 MoM (8.2 ha is superseded).
+
+Added 5 Oct 2026:
+- The auto-generated action items in the Kadin notes (30 Sep 2026) mix up who said what. They list "Mas Andi (from Amantra)" and give SAG's own FDE work to Andrew. Mas Andi is Andi Prasetyo of SAG. Use the notes' discussion summary, not their action items.
+- Andi Prasetyo called SAG "a three-year-old company" at the Kadin meeting. The "20+ years" figure is the team's years of practice, not the company's age. Keep "20+ years of practice" in external material.
+- Vendor documents (Endress+Hauser decks) are rank 2 for what was presented and when, never for SAG facts. Their product claims are the vendor's own.
+- Ahmed Khalifa's "Strategic Project Engineer" on the ASI review (10 Aug 2026) predates the business cards; the current title is Technical Manager.

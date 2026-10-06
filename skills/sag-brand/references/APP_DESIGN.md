@@ -123,12 +123,14 @@ Use [Lucide](https://lucide.dev), outline, 16 px (14 px in pills and breadcrumbs
 
 ## 9. Brand moments
 
-- **Sign-in:** `app` ground, a centred white card with `shadow-2` (shield + wordmark, "Sign in to <app>", Google as secondary, an "or" divider, email, primary Continue), and the Complexity Line band (`deck_band_blue.png`) as a 150 px slate strip along the foot. This is the only screen that carries the Complexity Line.
+- **Sign-in:** `app` ground, a centred white card with `shadow-2` (shield + wordmark, "Sign in to <app>", Google as secondary, an "or" divider, email, primary Continue), and the Complexity Line band (`deck_band_blue.png`) as a 150 px slate strip along the foot. This is the only screen that carries the Complexity Line. The card's 12 px `text-3` foot line ends with a link to *stratconagaraglobal.com* (`https://stratconagaraglobal.com`).
 - **Favicon:** the shield on a solid `#F9C939` tile at 16/32/48 px.
 - **PWA icon:** the plated logo on `PANEL`, 20 % safe padding, maskable. **Manifest:** `theme_color` and `background_color` `#F3F5F5`.
+- **Footer** (apps that have one, and HTML emails): *Navigating complexity, delivering simplicity* left; *PT Stratcon Agara Global · stratconagaraglobal.com* right, 12 px `text-3`, with the website linked.
 
 ## 10. Words on screen
 
+- The company website is **stratconagaraglobal.com**: lowercase, no `https://` or `www.` in the visible text, and always a link to `https://stratconagaraglobal.com`. It belongs in the app footer, the sign-in screen, "About" or help menus, email signatures and HTML emails.
 - *Stratcon Agara Global* in the workspace switcher and on anything a client sees. "SAG" is fine in refs and internal labels; "PT" only in legal text.
 - Buttons are verbs ("New filing", "Create filing", "Export"). Sentence case everywhere, except refs.
 - Bahasa Indonesia and English share the layout; allow 30 % growth.

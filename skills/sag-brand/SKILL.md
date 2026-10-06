@@ -60,6 +60,7 @@ Then look at `examples/sag-brand-example.html` (open it in a browser or the buil
 8. **No decoration:** no stripes, shadows, gradients, icons or clip art, and no borders other than the named hairlines.
 9. **Logo builds and clear space:** never `sag-logo.png` on a colour; keep half the shield's height clear; minimum 14 mm print, 28 px screen. Never stretch, recolour, redraw or merge it with a partner mark (`references/BRAND_SYSTEM.md` §1).
 10. **Name:** spell *Stratcon Agara Global* for clients and ministries; "SAG" is internal; "PT" only in footers, signatures, contracts and the stamp.
+11. **Website:** **stratconagaraglobal.com**. Print it exactly like that, lowercase, with no `https://` and no `www.`; link it to `https://stratconagaraglobal.com` in anything digital (HTML, PDF links, email signatures, apps). It is `Brand.web` / `Brand.url` in `scripts/brands.py`. It goes on every contact panel (documents, minutes) after email and phone, on its own line on the closing slide, on letterheads, business cards and email signatures, and in app footers. Unlike a named contact, it needs no confirmation.
 
 ## 3. Building Word documents
 Two routes, both in `scripts/` (imports resolve when you run from that folder or put it on `sys.path`):
@@ -112,7 +113,7 @@ Then convert and check: `soffice --headless --convert-to pdf out.docx`. Fonts ar
   - logo wall: a 6-column grid of TINT tiles with logos contained; a client with no logo file gets its name as an ExtraBold INK tile. When the count doesn't fill the rows, use flex-wrap with centred rows of 224 px tiles (e.g. 7 + 6) rather than leaving an orphan
   - grids of 4 or more cards drop the yellow card rule so yellow stays to a few marks
 - Section dividers must carry real content; a bare number and title reads as empty to SAG. Otherwise drop them and let the eyebrows carry the section.
-- Put a named contact on the contact panel only when the user confirms it.
+- Put a named contact on the contact panel only when the user confirms it. The website (non-negotiable 11) always goes on, after email and phone.
 
 ## 5. Apps and web UI
 For any app, internal tool, dashboard, admin page or PWA, read `references/APP_DESIGN.md` first and start from `assets/app/sag-app.css` (copy it in, or inline it in single-file apps). `examples/sag-app-example.html` shows the result.

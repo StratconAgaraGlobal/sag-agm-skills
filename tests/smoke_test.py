@@ -134,6 +134,18 @@ def main():
             if not ok:
                 fails += 1
                 print(r.stdout[-500:], r.stderr[-1500:])
+        # The company website must reach every SAG contact block (doc, MoM, deck).
+        import zipfile
+        for name, part in (("sag_doc.docx", "word/document.xml"), ("sag_mom.docx", "word/document.xml"),
+                           ("sag_deck.pptx", None)):
+            try:
+                with zipfile.ZipFile(os.path.join(t, name)) as z:
+                    parts = [part] if part else [n for n in z.namelist() if n.startswith("ppt/slides/slide")]
+                    ok = any(">stratconagaraglobal.com<" in z.read(p).decode("utf-8") for p in parts)
+            except Exception:
+                ok = False
+            print("%-4s %s" % ("ok" if ok else "FAIL", "website on the contact block: " + name))
+            fails += 0 if ok else 1
         r = subprocess.run([sys.executable, "-c", SAG_LAYOUTS, t],
                            cwd=os.path.join(SK, "sag-brand", "scripts"),
                            capture_output=True, text=True)

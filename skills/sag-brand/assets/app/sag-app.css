@@ -12,42 +12,42 @@
 
 :root {
   /* Brand constants (identical to scripts/palette.py) */
-  --sag-paper:  #EFF4F1;
-  --sag-panel:  #1B382A;
-  --sag-ink:    #161A19;
-  --sag-body:   #2C5040;
-  --sag-meta:   #3A604E;
-  --sag-muted:  #636C68;
-  --sag-tint:   #E2E7E4;
-  --sag-rule:   #8FAB9E;
-  --sag-pale:   #B8CCC3;
+  --sag-paper:  #EFF3F4;
+  --sag-panel:  #1B3038;
+  --sag-ink:    #16181A;
+  --sag-body:   #2C4550;
+  --sag-meta:   #3A5560;
+  --sag-muted:  #63696C;
+  --sag-tint:   #E2E6E7;
+  --sag-rule:   #8FA3AB;
+  --sag-pale:   #B8C6CC;
   --sag-accent: #F9C939;   /* SAG Yellow: critical path + one mark. Never text on light, never a button */
   --sag-gold:   #C9A227;
 
   /* Screen roles — light (default) */
-  --sag-app:         #F3F5F3;            /* app ground: sidebar and around the panel */
+  --sag-app:         #F3F5F5;            /* app ground: sidebar and around the panel */
   --sag-surface:     #FFFFFF;            /* the work panel, cards, menus, inputs */
-  --sag-hover:       #F5F7F6;            /* row and item hover */
-  --sag-selected:    #EDF2EF;            /* selected row, active nav, pressed segment */
+  --sag-hover:       #F5F7F7;            /* row and item hover */
+  --sag-selected:    #EDF1F2;            /* selected row, active nav, pressed segment */
   --sag-text:        var(--sag-ink);
   --sag-text-2:      var(--sag-body);
   --sag-text-3:      var(--sag-muted);   /* the lightest grey allowed for text (5.6:1) */
-  --sag-icon:        #8A9692;            /* icons only, never text (3.2:1) */
-  --sag-line:        #E5EAE7;            /* hairlines */
-  --sag-line-strong: #849E92;            /* input borders (3.1:1) */
+  --sag-icon:        #8A9196;            /* icons only, never text (3.2:1) */
+  --sag-line:        #E5E9EA;            /* hairlines */
+  --sag-line-strong: #84969E;            /* input borders (3.1:1) */
   --sag-focus:       var(--sag-panel);
   --sag-primary:     var(--sag-panel);
   --sag-on-primary:  #FFFFFF;
-  --sag-scrim:       rgba(22, 26, 25, .32);
+  --sag-scrim:       rgba(22, 24, 26, .32);
 
-  --sag-shadow-1: 0 1px 2px rgba(22, 26, 25, .05), 0 0 0 1px rgba(22, 26, 25, .06);           /* panel, cards */
-  --sag-shadow-2: 0 12px 32px -8px rgba(22, 26, 25, .18), 0 0 0 1px rgba(22, 26, 25, .07);   /* menus, modals, palette */
+  --sag-shadow-1: 0 1px 2px rgba(22, 24, 26, .05), 0 0 0 1px rgba(22, 24, 26, .06);           /* panel, cards */
+  --sag-shadow-2: 0 12px 32px -8px rgba(22, 24, 26, .18), 0 0 0 1px rgba(22, 24, 26, .07);   /* menus, modals, palette */
 
   /* Status — outside the brand palette */
   --sag-ok:   #1F7A53;  --sag-ok-fg:   #14563B; --sag-ok-bg:   #E7F3ED;
   --sag-wait: #B7861B;  --sag-wait-fg: #6B510C; --sag-wait-bg: #FDF3D3;
   --sag-risk: #B4472A;  --sag-risk-fg: #8A331C; --sag-risk-bg: #F9E7E1;
-  --sag-idle: #8A9692;  --sag-idle-fg: #5C6662; --sag-idle-bg: #EEF0EE;
+  --sag-idle: #8A9196;  --sag-idle-fg: #5C6366; --sag-idle-bg: #EEF0F0;
 
   --sag-font: "Plus Jakarta Sans", Aptos, "Segoe UI", system-ui, sans-serif;
   --sag-r-lg: 12px;  --sag-r: 8px;  --sag-r-sm: 6px;
@@ -55,26 +55,26 @@
 }
 
 :root[data-theme="dark"] {
-  --sag-app:         #0E1B15;
-  --sag-surface:     #14271f;
-  --sag-hover:       #182E25;
-  --sag-selected:    #1E392D;
-  --sag-text:        #F1F5F3;
+  --sag-app:         #0E171B;
+  --sag-surface:     #142127;
+  --sag-hover:       #18272E;
+  --sag-selected:    #1E3139;
+  --sag-text:        #F1F4F5;
   --sag-text-2:      var(--sag-pale);
   --sag-text-3:      var(--sag-rule);
-  --sag-icon:        #6F8E80;
-  --sag-line:        #223B2F;
-  --sag-line-strong: #5B7F6F;
+  --sag-icon:        #6F858E;
+  --sag-line:        #22343B;
+  --sag-line-strong: #5B747F;
   --sag-focus:       var(--sag-accent);
-  --sag-primary:     #F1F5F3;
+  --sag-primary:     #F1F4F5;
   --sag-on-primary:  var(--sag-ink);
   --sag-scrim:       rgba(0, 0, 0, .5);
-  --sag-shadow-1: 0 0 0 1px #223B2F;
-  --sag-shadow-2: 0 16px 40px -8px rgba(0, 0, 0, .6), 0 0 0 1px #2A4739;
+  --sag-shadow-1: 0 0 0 1px #22343B;
+  --sag-shadow-2: 0 16px 40px -8px rgba(0, 0, 0, .6), 0 0 0 1px #2A3F47;
   --sag-ok:   #4FB585;  --sag-ok-fg:   #8FD3B0; --sag-ok-bg:   #173A2E;
   --sag-wait: #E0B23F;  --sag-wait-fg: #F2CF6B; --sag-wait-bg: #3B3214;
   --sag-risk: #E07A5C;  --sag-risk-fg: #F0A58E; --sag-risk-bg: #4A2219;
-  --sag-idle: #6F8E80;  --sag-idle-fg: #B8CCC3; --sag-idle-bg: #263B31;
+  --sag-idle: #6F858E;  --sag-idle-fg: #B8C6CC; --sag-idle-bg: #26353B;
 }
 
 /* ---------------------------------------------------------------- base -- */
@@ -105,7 +105,7 @@ button { font: inherit; color: inherit; }
 .sag-workspace:hover { background: var(--sag-selected); }
 .sag-workspace img { width: 20px; height: auto; }
 .sag-workspace b { font-size: 13.5px; font-weight: 700; color: var(--sag-text); letter-spacing: -.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.sag-side-search { display: flex; align-items: center; gap: 8px; height: 32px; padding: 0 8px; margin-bottom: 10px; border: 1px solid var(--sag-line); background: var(--sag-surface); border-radius: var(--sag-r); color: var(--sag-text-3); font-size: 13px; cursor: pointer; box-shadow: 0 1px 1px rgba(22, 26, 25,.03); }
+.sag-side-search { display: flex; align-items: center; gap: 8px; height: 32px; padding: 0 8px; margin-bottom: 10px; border: 1px solid var(--sag-line); background: var(--sag-surface); border-radius: var(--sag-r); color: var(--sag-text-3); font-size: 13px; cursor: pointer; box-shadow: 0 1px 1px rgba(22,24,26,.03); }
 .sag-side-search .sag-kbd { margin-left: auto; }
 .sag-nav-label { font-size: 11.5px; font-weight: 600; color: var(--sag-text-3); padding: 0 8px; margin: 14px 0 4px; }
 .sag-nav a { display: flex; align-items: center; gap: 9px; height: 30px; padding: 0 8px; border-radius: var(--sag-r-sm); color: var(--sag-text-2); font-size: 13.5px; font-weight: 500; text-decoration: none; transition: background .12s var(--sag-ease); }
@@ -137,8 +137,8 @@ button { font: inherit; color: inherit; }
 /* --------------------------------------------------------------- buttons -- */
 .sag-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 32px; padding: 0 12px; border-radius: var(--sag-r); border: 0; font: 600 13px/1 var(--sag-font); white-space: nowrap; cursor: pointer; text-decoration: none; transition: background .12s var(--sag-ease), box-shadow .12s var(--sag-ease); }
 .sag-btn .sag-icon { width: 15px; height: 15px; }
-.sag-btn-primary { background: var(--sag-primary); color: var(--sag-on-primary); box-shadow: 0 1px 2px rgba(22, 26, 25,.18), inset 0 1px 0 rgba(255,255,255,.08); }
-.sag-btn-primary:hover { background: #244A38; }
+.sag-btn-primary { background: var(--sag-primary); color: var(--sag-on-primary); box-shadow: 0 1px 2px rgba(22,24,26,.18), inset 0 1px 0 rgba(255,255,255,.08); }
+.sag-btn-primary:hover { background: #24404A; }
 :root[data-theme="dark"] .sag-btn-primary:hover { background: #FFFFFF; }
 .sag-btn-primary .sag-kbd { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.18); color: rgba(255,255,255,.85); height: 18px; min-width: 18px; }
 :root[data-theme="dark"] .sag-btn-primary .sag-kbd { background: rgba(0,0,0,.06); border-color: rgba(0,0,0,.12); color: var(--sag-muted); }
@@ -168,8 +168,8 @@ button { font: inherit; color: inherit; }
 .sag-crit { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; color: var(--sag-text-2); white-space: nowrap; }
 .sag-crit::before { content: ""; width: 8px; height: 8px; background: var(--sag-accent); transform: rotate(45deg); border-radius: 1.5px; box-shadow: 0 0 0 1px rgba(122, 92, 14, .25); }
 .sag-avatar { width: 22px; height: 22px; border-radius: 50%; display: inline-grid; place-items: center; flex: none; font-size: 9.5px; font-weight: 700; color: var(--sag-text); background: var(--sag-tint); }
-.sag-avatar-b { background: #D3E2DB; } .sag-avatar-c { background: #E8E1CC; } .sag-avatar-d { background: #DCE5DF; }
-:root[data-theme="dark"] .sag-avatar { background: #2C5040; color: var(--sag-paper); }
+.sag-avatar-b { background: #D3DEE2; } .sag-avatar-c { background: #E8E1CC; } .sag-avatar-d { background: #DCE5DF; }
+:root[data-theme="dark"] .sag-avatar { background: #2C4550; color: var(--sag-paper); }
 .sag-avatar-lg { width: 30px; height: 30px; font-size: 11px; }
 
 /* ----------------------------------------------------------- summary -- */
@@ -236,9 +236,9 @@ button { font: inherit; color: inherit; }
 .sag-gbar .sag-icon { width: 13px; height: 13px; stroke-width: 2.25; }
 .sag-gbar-crit { background: var(--sag-accent); color: var(--sag-ink); box-shadow: inset 0 0 0 1px rgba(122, 92, 14, .18); }
 .sag-gbar-par  { background: var(--sag-panel); color: #FFFFFF; }
-:root[data-theme="dark"] .sag-gbar-par { background: #3A604E; }
+:root[data-theme="dark"] .sag-gbar-par { background: #3A5560; }
 .sag-gbar-mon  { top: 17px; height: 6px; padding: 0; background: var(--sag-tint); }
-:root[data-theme="dark"] .sag-gbar-mon { background: #2C5040; }
+:root[data-theme="dark"] .sag-gbar-mon { background: #2C4550; }
 .sag-gbar-done { opacity: .62; }
 .sag-gbar-risk { box-shadow: 0 0 0 2px var(--sag-surface), 0 0 0 3.5px var(--sag-risk); }
 .sag-today { position: absolute; top: 34px; bottom: 0; left: calc(var(--label) + (100% - var(--label)) * var(--t) / var(--n)); width: 0; border-left: 1px solid var(--sag-ink); z-index: 2; pointer-events: none; }
@@ -284,7 +284,7 @@ button { font: inherit; color: inherit; }
 .sag-hint-text { font-size: 12px; color: var(--sag-text-3); }
 .sag-input { width: 100%; height: 40px; padding: 0 12px; background: var(--sag-surface); color: var(--sag-text); border: 1px solid var(--sag-line-strong); border-radius: var(--sag-r); font: 400 14px var(--sag-font); transition: border-color .12s var(--sag-ease), box-shadow .12s var(--sag-ease); }
 .sag-input::placeholder { color: var(--sag-text-3); }
-.sag-input:focus-visible { outline: none; border-color: var(--sag-focus); box-shadow: 0 0 0 3px rgba(27, 56, 42, .12); }
+.sag-input:focus-visible { outline: none; border-color: var(--sag-focus); box-shadow: 0 0 0 3px rgba(27, 48, 56, .12); }
 :root[data-theme="dark"] .sag-input:focus-visible { box-shadow: 0 0 0 3px rgba(249, 201, 57, .22); }
 
 /* ----------------------------------------------------------- sign-in -- */

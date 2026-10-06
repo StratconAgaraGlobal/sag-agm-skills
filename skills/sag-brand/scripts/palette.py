@@ -7,15 +7,15 @@ Line tagline and short rules (three-bar rule, slide accent rules), nothing else.
 """
 
 BLUE = {
-    "PAPER":  "EFF4F1",   # page ground
-    "PANEL":  "1B382A",   # dark panels: masthead, section bands, contact
-    "INK":    "161A19",   # document title, question text
-    "BODY":   "2C5040",   # body copy
-    "META":   "3A604E",   # eyebrows, item numbers, page number
-    "MUTED":  "636C68",   # small labels, counts
-    "TINT":   "E2E7E4",   # fill for response boxes and the callout
-    "RULE":   "8FAB9E",   # hairline on TINT
-    "PALE":   "B8CCC3",   # text on PANEL, header hairline
+    "PAPER":  "EFF3F4",   # page ground
+    "PANEL":  "1B3038",   # dark panels: masthead, section bands, contact
+    "INK":    "16181A",   # document title, question text
+    "BODY":   "2C4550",   # body copy
+    "META":   "3A5560",   # eyebrows, item numbers, page number
+    "MUTED":  "63696C",   # small labels, counts
+    "TINT":   "E2E6E7",   # fill for response boxes and the callout
+    "RULE":   "8FA3AB",   # hairline on TINT
+    "PALE":   "B8C6CC",   # text on PANEL, header hairline
     "ACCENT": "F9C939",   # SAG Yellow -- tagline and single accents only
     "GOLD":   "C9A227",   # deep gold, sparing
 }

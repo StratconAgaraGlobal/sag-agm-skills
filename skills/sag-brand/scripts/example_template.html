@@ -7,9 +7,9 @@
 <style>
 /*__FONT_FACES__*/
 :root{
-  --paper:#EFF4F1; --panel:#1B382A; --ink:#161A19; --body:#2C5040; --meta:#3A604E;
-  --muted:#636C68; --tint:#E2E7E4; --rule:#8FAB9E; --pale:#B8CCC3; --accent:#F9C939; --gold:#C9A227;
-  --lbl:#3A604E; --ondark:#F9C939;
+  --paper:#EFF3F4; --panel:#1B3038; --ink:#16181A; --body:#2C4550; --meta:#3A5560;
+  --muted:#63696C; --tint:#E2E6E7; --rule:#8FA3AB; --pale:#B8C6CC; --accent:#F9C939; --gold:#C9A227;
+  --lbl:#3A5560; --ondark:#F9C939;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -22,7 +22,7 @@ header.top img{height:88px;width:auto}
 header.top .eyebrow{color:var(--pale)}
 h1{font-weight:800;font-size:40px;letter-spacing:-.022em;line-height:1.1}
 header.top p{color:var(--pale);font-weight:500;margin-top:8px;max-width:640px}
-nav{position:sticky;top:0;z-index:5;background:rgba(239, 244, 241,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--tint)}
+nav{position:sticky;top:0;z-index:5;background:rgba(239,243,244,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--tint)}
 nav .wrap{display:flex;gap:6px 22px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
 nav a{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--meta);text-decoration:none}
 nav a:hover{color:var(--ink)}
@@ -60,7 +60,7 @@ table.spec td:first-child{color:var(--ink)}
 .gfx{display:block;width:100%;height:auto}
 .gfx-doc{border-radius:2.5mm}
 /* scaled stages */
-.stage{position:relative;width:100%;overflow:hidden;border-radius:8px;box-shadow:0 0 0 1px rgba(22, 26, 25,.10)}
+.stage{position:relative;width:100%;overflow:hidden;border-radius:8px;box-shadow:0 0 0 1px rgba(22,24,26,.10)}
 .stage .inner{position:absolute;left:0;top:0;transform-origin:0 0}
 .slide{width:1920px;height:1080px;position:relative;overflow:hidden;font-family:'Plus Jakarta Sans',Arial,sans-serif}
 .slide.light{background:var(--paper)}.slide.dark{background:var(--panel)}
@@ -386,11 +386,11 @@ footer.end .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:w
 </div>
 
 <script>
-var ROLES=[["PAPER","#EFF4F1","Page ground; text on dark panels"],["PANEL","#1B382A","Dark panels: masthead, section bands, contact, dark slides"],["INK","#161A19","Document title, item text, slide headlines"],["BODY","#2C5040","Body copy"],["META","#3A604E","Eyebrows, item numbers, page number"],["MUTED","#636C68","Small labels, counts, slide footers"],["TINT","#E2E7E4","Response boxes, callout, slide cards"],["RULE","#8FAB9E","Hairline on TINT; bullet dashes"],["PALE","#B8CCC3","Text on PANEL; header hairline"],["ACCENT","#F9C939","SAG Yellow: tagline and short accent rules only"],["GOLD","#C9A227","Deep gold, sparing"]];
+var ROLES=[["PAPER","#EFF3F4","Page ground; text on dark panels"],["PANEL","#1B3038","Dark panels: masthead, section bands, contact, dark slides"],["INK","#16181A","Document title, item text, slide headlines"],["BODY","#2C4550","Body copy"],["META","#3A5560","Eyebrows, item numbers, page number"],["MUTED","#63696C","Small labels, counts, slide footers"],["TINT","#E2E6E7","Response boxes, callout, slide cards"],["RULE","#8FA3AB","Hairline on TINT; bullet dashes"],["PALE","#B8C6CC","Text on PANEL; header hairline"],["ACCENT","#F9C939","SAG Yellow: tagline and short accent rules only"],["GOLD","#C9A227","Deep gold, sparing"]];
 var LIGHT={PAPER:1,TINT:1,RULE:1,PALE:1,ACCENT:1,GOLD:1};
 var sw=document.getElementById('swatches');
 ROLES.forEach(function(r){var d=document.createElement('div');d.className='sw';
- d.innerHTML='<div class="c" style="background:'+r[1]+';color:'+(LIGHT[r[0]]?'#161A19':'#EFF4F1')+';'+(r[0]==='PAPER'?'box-shadow:inset 0 -1px 0 #E2E7E4':'')+'">'+r[0]+'</div><div class="t"><b>'+r[1].toUpperCase()+'</b>'+r[2]+'</div>';
+ d.innerHTML='<div class="c" style="background:'+r[1]+';color:'+(LIGHT[r[0]]?'#16181A':'#EFF3F4')+';'+(r[0]==='PAPER'?'box-shadow:inset 0 -1px 0 #E2E6E7':'')+'">'+r[0]+'</div><div class="t"><b>'+r[1].toUpperCase()+'</b>'+r[2]+'</div>';
  sw.appendChild(d);});
 function fit(stage,w){var s=stage.clientWidth/w;var i=stage.querySelector('.inner');i.style.transform='scale('+s+')';stage.style.height=(i.offsetHeight*s)+'px';}
 function layout(){

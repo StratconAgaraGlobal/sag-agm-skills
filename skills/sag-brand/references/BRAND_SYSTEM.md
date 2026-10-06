@@ -58,7 +58,7 @@ The 11 roles in `DESIGN_SPEC.md` §1 are the palette. Adopted from v2:
 
 - **Proportion.** Roughly 50 % paper/white, 30 % slate, 17 % graphite, 3 % yellow. If a page reads as a yellow page, something has gone wrong.
 - **Yellow never carries text on a light ground and never sits under white text** (1.6:1 either way). The only text pairing with yellow is `INK` on `ACCENT` (11.4:1), which is reserved for small marks such as a tag on a dark slide.
-- **Print values** for `ACCENT #F9C939`: RGB 249·201·57, CMYK 0·20·85·0, ≈ Pantone 116 C. `INK #161A19`: CMYK 70·60·55·80, ≈ Black 6 C. `PANEL #1B382A` (green, 5 Oct 2026): no CMYK or Pantone match chosen yet; the old slate match (CMYK 85·62·50·45, ≈ Pantone 5463 C) no longer applies. These are nearest coated matches; confirm on a wet proof, since yellows shift on press more than any other hue.
+- **Print values** for `ACCENT #F9C939`: RGB 249·201·57, CMYK 0·20·85·0, ≈ Pantone 116 C. `INK #16181A`: CMYK 70·60·55·80, ≈ Black 6 C. `PANEL #1B3038`: CMYK 85·62·50·45, ≈ Pantone 5463 C. These are nearest coated matches; confirm on a wet proof, since yellows shift on press more than any other hue.
 - **Status colours** for permit trackers, in documents as well as apps, sit deliberately outside the palette: see `APP_DESIGN.md` §3.
 
 ## 4. Typography notes
@@ -77,18 +77,18 @@ Set once under *Design → Colors → Customize Colors* in Word and PowerPoint, 
 
 | Theme slot | Role | Hex |
 |---|---|---|
-| Text/Background — Dark 1 | INK | `161A19` |
+| Text/Background — Dark 1 | INK | `16181A` |
 | Text/Background — Light 1 | White | `FFFFFF` |
-| Text/Background — Dark 2 | PANEL | `1B382A` |
-| Text/Background — Light 2 | PAPER | `EFF4F1` |
-| Accent 1 | PANEL | `1B382A` |
-| Accent 2 | RULE | `8FAB9E` |
+| Text/Background — Dark 2 | PANEL | `1B3038` |
+| Text/Background — Light 2 | PAPER | `EFF3F4` |
+| Accent 1 | PANEL | `1B3038` |
+| Accent 2 | RULE | `8FA3AB` |
 | Accent 3 | GOLD | `C9A227` |
-| Accent 4 | META | `3A604E` |
-| Accent 5 | PALE | `B8CCC3` |
+| Accent 4 | META | `3A5560` |
+| Accent 5 | PALE | `B8C6CC` |
 | Accent 6 | ACCENT | `F9C939` |
-| Hyperlink | META | `3A604E` |
-| Followed hyperlink | MUTED | `636C68` |
+| Hyperlink | META | `3A5560` |
+| Followed hyperlink | MUTED | `63696C` |
 
 ## 6. Schedules and trackers
 
@@ -131,7 +131,7 @@ Don't reintroduce these; they are recorded so nobody mistakes the archive for cu
 
 | v2 value | Agreed value |
 |---|---|
-| Paper `#F3F3F1` | `PAPER #EFF4F1` |
+| Paper `#F3F3F1` | `PAPER #EFF3F4` |
 | Bronze `#7A5C0E` for eyebrows on white; Amber `#E9A227` second plane | Not in the palette. Eyebrows are `META`; charts use §5 |
 | Weights 200 / 300 (ExtraLight, Light ledes) | 400–800 only (the five bundled weights) |
 | A4 margins 25 / 22 / 20 mm, 150 mm measure | 20 / 20 / 14 / 16 mm, **170 mm** measure |

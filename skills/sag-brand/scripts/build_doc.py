@@ -76,6 +76,7 @@ CONTENT = dict(
     contact_org="PT Stratcon Agara Global",
     contact_mail="ahmed.khalifa@stratconagaraglobal.com",
     contact_tel="+62 812 10020646",
+    contact_web="stratconagaraglobal.com",
     running_left="Information Request",
     running_right="Document Title Goes Here",
     tagline="Navigating complexity, delivering simplicity",
@@ -243,7 +244,9 @@ def build(out, embed=True, C=CONTENT):
                xrun(C["contact_org"], F500, 8.8, P["PALE"])], after=3.5),
         xpara([xrun(C["contact_mail"], F600, 8.8, P["TINT"]),
                xrun("   ·   ", F400, 8.8, P["PALE"]),
-               xrun(C["contact_tel"], F400, 8.8, P["PALE"])]),
+               xrun(C["contact_tel"], F400, 8.8, P["PALE"])] +
+              ([xrun("   ·   ", F400, 8.8, P["PALE"]),
+                xrun(C["contact_web"], F400, 8.8, P["PALE"])] if C.get("contact_web") else [])),
     ]
     emit(doc, [shape(W, 38.5, P["PANEL"], "".join(cbody), RADIUS,
                      pad=(7, 6.5, 7, 7))])

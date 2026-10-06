@@ -79,6 +79,7 @@ a point: `val = round(size_pt × em × 20)`.
 | Contact — org | 500 | 8.8 | `PALE` | 0 | — |
 | Contact — email | 600 | 8.8 | `TINT` | 0 | — |
 | Contact — phone | 400 | 8.8 | `PALE` | 0 | — |
+| Contact — website | 400 | 8.8 | `PALE` | 0 | — |
 | Header — wordmark | 800 | 6.8 | `INK` | +0.14 | — |
 | Header — doc kind | 600 | 7.2 | `META` | 0 | — |
 | Header — doc title | 500 | 7.2 | `MUTED` | 0 | — |
@@ -111,6 +112,8 @@ point: `spc = round(pt × 100)`).
 | Card — body | 400 | 11 | `BODY` | 0 |
 | Closing — label | 800 | 9 | `PALE` | +1.8 |
 | Closing — name | 800 | 26 | `PAPER` | −0.5 |
+| Closing — role, email, phone | 600 / 400 | 12.5 | `TINT` / `PALE` | 0 |
+| Closing — website (own line) | 500 | 12.5 | `PALE` | 0 |
 | Slide footer | 500 / 600 | 8 | `MUTED` | 0 |
 
 Content bullets: line spacing 1.35, 11pt space before each after the first.

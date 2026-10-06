@@ -20,8 +20,12 @@ class Brand:
     # light grounds. SAG Yellow must never be used as text on light, so META.
     LBL = BLUE["META"]
     header_logo = os.path.join(ASSETS, "logo", "sag-logo.png")
+    # Company website: print it as `web` (no https://, no www.); link to `url`.
+    web = "stratconagaraglobal.com"
+    url = "https://stratconagaraglobal.com"
     contact = dict(email="ahmed.khalifa@stratconagaraglobal.com",
-                   phone="+62 812 10020646", org="PT Stratcon Agara Global")
+                   phone="+62 812 10020646", org="PT Stratcon Agara Global",
+                   web=web)
 
     def masthead(self, out, date):
         return graphics.masthead(out, date=date)

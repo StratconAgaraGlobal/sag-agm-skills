@@ -50,6 +50,7 @@ The single mistake worth guarding against is Build A on a colour.
 - **"PT" stays off the mark.** The legal form belongs in footers, signature blocks, contracts and the stamp.
 - **"SAG" is internal:** file names, reference codes, internal decks and internal tools. In front of a ministry or a new client, spell the name.
 - **Descriptor** (where one is needed): *Regulatory · Government Relations · ESG*.
+- **Website:** **stratconagaraglobal.com**, printed lowercase with no `https://` or `www.`, and linked to `https://stratconagaraglobal.com` wherever the medium allows. Corporate mail: corporate@stratconagaraglobal.com.
 - **Co-branding:** partner marks sit to the right, separated by a hairline and optically matched on cap height. SAG leads on SAG-issued documents. Partner names follow the content rules in `SKILL.md` §6 (none on service pages; fine in case studies).
 
 ## 3. Colour notes
@@ -113,7 +114,7 @@ Permit trackers use `data_table` with a PANEL header row, tabular figures, and s
 
 - **Front:** flat `PANEL` ground (no gradient). Plated logo (Build B) 10 mm high with the two-line wordmark in PAPER at top-left; name in 800 PAPER and role in 600 PALE at the foot; one `ACCENT` edge bleeding off the right. The yellow edge must bleed, or a 0.5 mm mis-cut shows white. The name and role are the only things that change between staff.
 - **Back:** the Complexity Line with the tagline (`cline.py`) on `PANEL`. No contact details, no second logo.
-- **Contact face** (when the back must carry details): `PAPER` stock, Build A logo, a short `GOLD` rule, email in 600 `INK`, phone and address in 400 `BODY`. Never set the email in gold or yellow.
+- **Contact face** (when the back must carry details): `PAPER` stock, Build A logo, a short `GOLD` rule, email in 600 `INK`, phone, stratconagaraglobal.com and address in 400 `BODY`. Never set the email in gold or yellow.
 - Titles come from the person's business card as confirmed (see `sag-graphify`). No academic titles in names.
 - If gold foil is used, it replaces the rule only. Never foil the shield, which already carries its own yellow.
 
@@ -121,7 +122,7 @@ The 2026 printed batch (Playfair serif, navy) predates this system; reprint to t
 
 ## 8. Letterhead and stamp
 
-- **Letterhead (A4):** Build A logo + lockup top-left; address, website and phone top-right in 400 `MUTED`; a reference block (Ref / Date / Attn) in tabular 500; one short `ACCENT` rule as the whole brand statement. Everything below it is `INK` on white so a ministry reads the letter, not the letterhead. Margins and measure follow `DESIGN_SPEC.md` §3 (20 / 20 mm, 170 mm). The footer reads *PT Stratcon Agara Global · Jakarta, Indonesia* with page *n of m*.
+- **Letterhead (A4):** Build A logo + lockup top-left; address, website (stratconagaraglobal.com) and phone top-right in 400 `MUTED`; a reference block (Ref / Date / Attn) in tabular 500; one short `ACCENT` rule as the whole brand statement. Everything below it is `INK` on white so a ministry reads the letter, not the letterhead. Margins and measure follow `DESIGN_SPEC.md` §3 (20 / 20 mm, 170 mm). The footer reads *PT Stratcon Agara Global · Jakarta, Indonesia* with page *n of m*.
 - **Reference codes:** `SAG/<type>/<year>-<nnnn>`, e.g. `SAG/RR/2026-0011` (RR = regulatory roadmap, RA = regulatory affairs letter).
 - **Company stamp (cap perusahaan):** 38 mm, the shield inside the ring at 45 % scale with *STRATCON AGARA GLOBAL* and *Jakarta · Indonesia*. It is one ink, so hand the maker Build B as single-colour SVG and ask for a proof impression before the batch. It is used on signed letters, powers of attorney and OSS submissions.
 

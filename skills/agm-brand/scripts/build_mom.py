@@ -172,7 +172,7 @@ def build(out, brand_key=DEFAULT, C=CONTENT):
     c = BRANDS[brand_key].contact
     d.contact_panel(p["label"], p["name"],
                     line2=[BRANDS[brand_key].name] + ([c["address"]] if c.get("address") else []),
-                    line3=[c["email"], c["phone"]])
+                    line3=[c["email"], c["phone"]] + ([c["web"]] if c.get("web") else []))
     d.closing()
     return d.save(out)
 

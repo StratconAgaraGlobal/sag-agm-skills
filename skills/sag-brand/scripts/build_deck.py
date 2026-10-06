@@ -298,7 +298,7 @@ def case_study(prs, eyebrow, title, client, meta, challenge, did, outcome,
     return s
 
 
-def closing(prs, name, role, mail, tel, prefix=""):
+def closing(prs, name, role, mail, tel, prefix="", web="stratconagaraglobal.com"):
     s = prs.slides.add_slide(prs.slide_layouts[6])
     bg(s, P["PANEL"])
     s.shapes.add_picture(os.path.join(ASSETS, "graphics", "deck_band_blue.png"),
@@ -321,6 +321,9 @@ def closing(prs, name, role, mail, tel, prefix=""):
     txt(p, mail, F600, 12.5, P["TINT"])
     txt(p, "   ·   ", F400, 12.5, P["PALE"])
     txt(p, tel, F400, 12.5, P["PALE"])
+    if web:
+        p = line(tf, space_before=4)
+        txt(p, web, F500, 12.5, P["PALE"])
     return s
 
 

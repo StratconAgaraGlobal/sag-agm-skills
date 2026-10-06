@@ -13,15 +13,15 @@ Complexity Line tagline and on a handful of short rules, nowhere else.
 
 | Role | Hex | Used for |
 |---|---|---|
-| `PAPER` | `#EFF3F4` | Page ground; text on dark panels |
-| `PANEL` | `#1B3038` | Dark panels: masthead, section bands, contact, dark slides |
-| `INK` | `#16181A` | Document title, item text, slide headlines |
-| `BODY` | `#2C4550` | Body copy |
-| `META` | `#3A5560` | Eyebrows, item numbers, page number |
-| `MUTED` | `#63696C` | Small labels, counts, slide footers |
-| `TINT` | `#E2E6E7` | Fill for response boxes, the callout, slide cards |
-| `RULE` | `#8FA3AB` | Hairline on `TINT`; bullet dashes |
-| `PALE` | `#B8C6CC` | Text on `PANEL`; header hairline |
+| `PAPER` | `#EFF4F1` | Page ground; text on dark panels |
+| `PANEL` | `#1B382A` | Dark panels: masthead, section bands, contact, dark slides |
+| `INK` | `#161A19` | Document title, item text, slide headlines |
+| `BODY` | `#2C5040` | Body copy |
+| `META` | `#3A604E` | Eyebrows, item numbers, page number |
+| `MUTED` | `#636C68` | Small labels, counts, slide footers |
+| `TINT` | `#E2E7E4` | Fill for response boxes, the callout, slide cards |
+| `RULE` | `#8FAB9E` | Hairline on `TINT`; bullet dashes |
+| `PALE` | `#B8CCC3` | Text on `PANEL`; header hairline |
 | `ACCENT` | `#F9C939` | SAG Yellow — tagline, short accent rules only |
 | `GOLD` | `#C9A227` | Deep gold, sparing |
 

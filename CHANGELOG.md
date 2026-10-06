@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-10-05 (green test)
+- **sag-brand: palette switched from slate blue to green** to test auto-update. Every slate role (PANEL, PAPER, BODY, META, RULE, PALE, TINT, MUTED, INK and the app tokens) was shifted to green at the same lightness and saturation; yellow, gold and the status colours are unchanged. Banner graphics and the HTML example were rebuilt. File and variable names still say `blue`. The reference PDF/PPTX/DOCX files are still the slate builds. To undo, revert this commit.
+
 ## 2026-10-05 (plugins)
 - Each skill is now also its own plugin (`sag-brand`, `agm-brand`, `meeting-minutes-mom`, `sag-graphify`), so a profile can install just one. The `sag` bundle is unchanged.
 

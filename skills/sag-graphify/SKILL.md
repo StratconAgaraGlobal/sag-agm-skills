@@ -10,7 +10,7 @@ A Graphify (github.com/Graphify-Labs/graphify) workflow for PT Stratcon Agara Gl
 1. **Answer** questions about SAG. Query the **bundled graph** first (below). If a local `graphify-out/` is newer, use that. If neither answers it, use sections 3 to 12 below and say which source each fact came from.
 2. **Build or update the graph** over SAG's documents (section 14 onward), using the authority rules in section 2 so stale titles and numbers never win.
 
-Facts were compiled on 1 Oct 2026 from the SAG BOOK (June 2026), the Business Cards zip (30 Sep 2026), the Company Overview and FDE Team one-pager (Sep 2026), meeting records of 15 and 30 Sep 2026, the other Business-Docs files (old company profile PDF, Thryve deck, whiteboard photo, Taikai reference list) and the working notes in the SAG project. Re-verify anything that looks old.
+Facts were compiled on 1 Oct 2026 (extended 6 Oct 2026 with the Endress+Hauser / ASI documents and more detail from the 30 Sep Kadin meeting) from the SAG BOOK (June 2026), the Business Cards zip (30 Sep 2026), the Company Overview and FDE Team one-pager (Sep 2026), meeting records of 15 and 30 Sep 2026, the other Business-Docs files (old company profile PDF, Thryve deck, whiteboard photo, Taikai reference list) and the working notes in the SAG project. Re-verify anything that looks old.
 
 The graph is a navigation aid, not proof that a claim is true. Check consequential claims against the original source.
 
@@ -20,7 +20,7 @@ The graph is a navigation aid, not proof that a claim is true. Check consequenti
 
 | File | What it is |
 |---|---|
-| `graph/graph.json` | 1,030 nodes, 2,391 edges, 54 named communities |
+| `graph/graph.json` | 1,057 nodes, 2,439 edges, 54 named communities |
 | `graph/GRAPH_REPORT.md` | God nodes, communities, surprising links |
 | `graph/graph.html` | Interactive view (open in a browser) |
 | `graph/curated/` | This skill's sections 2, 3, 4 and 10 as corpus files: the facts that outrank the SAG BOOK |
@@ -30,6 +30,7 @@ It merges two pieces of work (5 Oct 2026):
 - **This skill's curated facts** (Diovandi, compiled 1 Oct 2026):
   - current card titles, with the book titles kept as `held_title` and `supersedes` edges
   - the alias table, the 46-engagement ruling, the FDE team, and the Sep 2026 SEECON, Kadin and Bitera meetings
+- **Added 6 Oct 2026** (`curated/endress_hauser_asi.md` plus additions to the other curated files): the Endress+Hauser / ASI thread (Jul–Aug 2026), more Kadin detail, and the transcript mishearings in section 4. The new nodes were placed into the existing communities without re-clustering, so the 54 community names are unchanged.
 
 Every curated node and edge is EXTRACTED and sourced to `SAG-Curated/<file>.md`. The post-build checks in section 15 all pass on it.
 
@@ -62,14 +63,15 @@ Newest and most official wins. Tag the older claim as superseded; do not average
 | 3 | SAG BOOK (Corporate Profile, Complete Edition, 2026; also in project as `SAG BOOK.pdf` and `Pre-Company profile.docx`) | compiled June 2026 | History, services, track record, case studies, bios, methodology | Current titles; headline stats where the Overview differs |
 | 4 | SAG working files (`sag/PROJECT.md`, `README.md`, `docs/`, older SAG-app docs; `PROJECT.md`, `docs/` and `meeting-mind/` are in the local `sag` folder, not in the diovandi/sag Git repo) | Feb to Mar 2026 | How the internal operating model and Document Control were first designed | Names and roles (several differ from today) |
 | 4a | Current SAG-app Document Control docs (`SAG-app/docs/document-control/PRODUCT_OBJECTIVES.md` for the current target; `SHARED_WORKSPACE_SETUP.md` for the dated implementation status, 15 Sep 2026, local-tested, not cloud-accepted) | Sep 2026 | What Document Control should do now and what has been built | Older SAG OS plans are historical designs only |
-| 5 | Raw transcripts (Fireflies, Otter) | per meeting | Raw material for MoMs | Names or terms until corrected (section 4) |
+| 5 | Raw transcripts (Fireflies, Otter) and auto-generated meeting notes | per meeting | Raw material for MoMs | Names or terms until corrected (section 4); auto-generated action items (they mis-assign who said what) |
+| — | Vendor material (e.g. Endress+Hauser decks) | as dated | What a vendor presented and when | SAG facts; vendor product claims are the vendor's own |
 
 Known conflicts and the ruling:
 
 | Item | Says | Ruling |
 |---|---|---|
 | Andi Prasetyo's title | Card: Chairman. Book: President Director (and "founder"). PROJECT.md: Managing Director ("Om Andi"). Overview: Consulting Partner | Chairman. The legal board title (director vs commissioner) is a separate question and is unresolved. No source document has been located: the RUPS deed of 28 Apr 2026 in Downloads/Business-Docs belongs to PT Andalan Travel Nusantara, a client, not to SAG, and does not establish SAG's board titles. The user will look for SAG's own deed of establishment or latest amendment later. Do not guess a legal title; ask before using one in a legal document |
-| Ahmed Khalifa's title | Card: Technical Manager. Book: Strategic Project Engineer (earlier: International Business Consultant). First Infrastructure & Transport deck draft: Project Engineer | Technical Manager |
+| Ahmed Khalifa's title | Card: Technical Manager. Book: Strategic Project Engineer (earlier: International Business Consultant). First Infrastructure & Transport deck draft: Project Engineer. ASI review for Endress+Hauser (10 Aug 2026): Strategic Project Engineer | Technical Manager |
 | Monzer Tarig's title | Card: Strategic Project Manager. Book: Corporate Development Specialist. First Infrastructure & Transport deck draft: Strategic Corporate Development Specialist | Strategic Project Manager (the 15 Sep Bitera MoM already uses this) |
 | Radka Prasetyo | Card: Director. Book: "Director" and "Managing Director / Principal Consultant" | Director |
 | Diovandi's title | Card: Strategic Technical Advisor. An earlier evidence index (24 Sep) said the post-internship title was open | Strategic Technical Advisor |
@@ -78,6 +80,8 @@ Known conflicts and the ruling:
 | Leadership | Overview shows "five consulting partners"; the cards show eight staff with different titles | Cards for titles; the other three Consulting Partners (section 3b) have no card in the zip; the user confirmed their title is simply "Consulting Partner" |
 | Bitera site area | The 15 Sep MoM records 8,200 m²; the user earlier believed 8.2 hectares | 8,200 m², per the MoM (confirmed by the user, 2 Oct 2026). Keep 8.2 ha only as a superseded node |
 | Service lines | Five taxonomies exist (section 6) | Keep all as separate nodes; link equivalents; never merge |
+| Company age | Andi Prasetyo at the Kadin meeting (30 Sep): SAG is "a three-year-old company". Overview: 20+ years | Not a conflict: 20+ years is the team's practice. Keep "20+ years of practice" in external material |
+| Kadin notes, action items | The auto-generated notes list "Mas Andi (from Amantra)" and give SAG's FDE work to Andrew Soetanto | Wrong: Mas Andi is Andi Prasetyo of SAG. Use the notes' discussion summary, not the action items |
 
 ## 3. People
 
@@ -123,6 +127,10 @@ Do not include HR records (probation, contracts, BPJS, internship paperwork) in 
 | Mr. Putra | Kadin | Kadin side, 30 Sep; has worked closely with Mr. Andi, including on CATL. Not Diovandi Basheera Putra |
 | Mr. Andrew Soetanto | AMANTRA / Kadin | Advisory Board member at AMANTRA; wore a Kadin uniform at the 30 Sep meeting |
 | Andrew Pradipta | Bitera Data Center | Business development manager, 15 Sep call |
+| Aspar Anggoro Wibowo | Endress+Hauser | Industry Manager, Marketing; introduced in the 24 Jul 2026 aluminium deck. "AAW" on the 2020 bunkering deck is probably him (not confirmed) |
+| Jack Cheng; Beatrice Jahja | Endress+Hauser | Presenters of the aluminium sections and the KLHK SPARING sections, 24 Jul 2026 |
+| Pak Toto (Toto Nugroho) | DCI | Named with DCI, a data-centre space provider, in the 30 Sep Kadin transcript |
+| "Jodi" | unknown | On a government digitalisation committee (Kadin transcript). Do **not** link to Michael Jordy Lorenzo without confirmation |
 
 ## 4. Aliases and transcript mishearings (use these to merge nodes)
 
@@ -143,6 +151,15 @@ Do not include HR records (probation, contracts, BPJS, internship paperwork) in 
 | Galang Batang, Bintan KEK | Galang Batang Special Economic Zone, Bintan, Riau Islands |
 | RDM, Rekind Daya Mamuju | PT Rekind Daya Mamuju, Mamuju power station |
 | AGM | PT Agara Global Maritim, a separate company in the SAG Group; see section 11 |
+| Runjen, Rinjan, Rujen | Runjian International (Kadin transcript, 30 Sep 2026) |
+| Aman trust, Aman trend | AMANTRA |
+| SEG, Stratkonegara Global | SAG |
+| Munzir | Monzer |
+| Ratka | Radka Andafa Prasetyo |
+| CRTL, CRTL Group | CATL |
+| Nansyang Group | Nanshan Group |
+| Dru | Andrew Soetanto |
+| Viterra, "di Terra" | Probably Bitera Data Center (inferred, not confirmed) |
 
 ## 5. Company facts
 
@@ -217,7 +234,7 @@ The Thryve ESG deck re-uses seven of these as its Case Studies 1 to 7 (Papua for
 
 **Flagship programmes.** Galang Batang KEK, Bintan: 105 building permits, 5 facilities, 700,000+ m², managed concurrently; the shift of building-permit authority from the regional government to the KEK administrator was tracked and managed. DPSI coal terminal at the Nanshan Chemical Industrial Park. CATL, BRUNP and Antam, Halmahera. JAPFA CSR redesign. Planned Nanshan/Huazhang recycling park, Bintan: five million tonnes a year of scrap and e-waste, permitting and quota in scoping.
 
-**Pipeline and growth (book ch. 9).** Water-treatment opportunities in Morocco and Tunisia; oil and gas connection in Libya; early-stage Sudan; ISPS certification as a turnkey package; ASI certification for Bintan alumina; carbon markets, CCS and climate finance (practice in development); CECEP renewable facilitation (active relationship). Climate anchor: Indonesia net-zero 2060.
+**Pipeline and growth (book ch. 9).** Water-treatment opportunities in Morocco and Tunisia; oil and gas connection in Libya; early-stage Sudan; ISPS certification as a turnkey package; ASI certification for Bintan alumina (now active as the Endress+Hauser measurement thread, section 10); carbon markets, CCS and climate finance (practice in development); CECEP renewable facilitation (active relationship). Climate anchor: Indonesia net-zero 2060.
 
 ## 8. Expert bench and network (SAG BOOK, June 2026)
 
@@ -247,6 +264,8 @@ Four SAG engineers (Diovandi, Radka, Ahmed, Monzer) who work on client projects:
 | SAG x Thryve | ESG & Sustainability deck (`SAGxThryve.pdf`, 20 pages) | Precedent for a sector-specific deck; its closing pages hold the "Our ESG Clients" logo set (Rekind Daya Mamuju, JAPFA, a forestry-company logo, BRUNP Recycling, PLN, an institutional crest, CATL, BAT, Jasa Marga). Contact on the cover is Ahmed Khalifa. Seven case studies, five "Why choose us" points |
 | Taikai feasibility study | AI-assisted sales department for Shandong Taikai Transformer's Indonesian operation, WCT Jakarta, Sep 2026 | Versions v1 to v3 plus a critique in `sag/docs`. Taikai's own overseas reference list (Indonesian nickel, aluminium and industrial-park transformer projects since 2019) is staged and extracted |
 | China-Indonesia fisheries matchmaking | Online exchange and project matchmaking session (banner in Business-Docs) | Hosts: Indonesia's Ministry of Trade and the Yuanhong Functional Area administrative committee, Fuzhou New Area; executive organisers include the China-Indonesia Two-Way Investment Cooperation Service Center; co-organiser China ASEAN Marine Product Exchange. Related to the AGM seafood thread |
+| SAG x Kadin, more detail | From the notes and transcript of 30 Sep | AMANTRA asks SAG for hands-on permits and labour work (KITAS); its live cases include a Bekasi data centre and a large Kalimantan power plant. CECEP would fund power and cooling from 25 to 300 MW (gas turbine plus lithium-bromide absorption cooling; about IDR 8 trillion, still being calculated) but has no GPU offer in Indonesia. Runjian met CECEP in Beijing and advised SAG to start with FDE rather than compete in AI data centres. SAG's stated offer: FDE first, the CECEP connection second. SAG contact person: Ahmed Khalifa. Waste-to-energy: about 15 investors introduced since 2024, none committed (tipping fee, purchase price). Pargata works on AGM's boatbuilding side |
+| Endress+Hauser / ASI | Instrumentation for ASI evidence at an aluminium site in Bintan / Galang Batang | E+H deck "Aluminum – Emission Monitoring and Water Treatment Solutions" (24 Jul 2026; Jack Cheng, Beatrice Jahja, Aspar Anggoro Wibowo); SAG–E+H discussion 31 Jul 2026; "ASI Certification – Measurement Parameter Review V2" by Ahmed Khalifa for PT Endress+Hauser Indonesia (10 Aug 2026). It maps E+H instruments to ASI PS V3.1 criteria (criterion 5.2: below 11 t CO2e/t Al or 10% reduction over three periods), lists 14 evidence gaps (electricity, production tonnes, PFC, anodes, water balance, bauxite residue, SPL, dross, audit trail and more), asks E+H about the current SPARING connectivity approval (the one shown dates from 7 Oct 2021, valid three years) and proposes a joint site survey. The client is not named; it is most likely PT Bintan Alumina Indonesia (inferred). Also received: E+H "Marine Solutions – Bunkering System" deck (11/2020), reference material only. Detail in `graph/curated/endress_hauser_asi.md` |
 | Data-centre pipeline | CECEP data-centre group (Future Clients-Projects); Bitera; Amantra | See above |
 | Seafood and AGM | Sea-cucumber export (Maluku to China) | See section 11 |
 
@@ -363,4 +382,4 @@ Re-clustering renames communities after their hub node when the membership chang
 
 
 - When a new card batch, MoM or profile arrives, update sections 3, 10 and 2 (conflicts), then propose the full updated SKILL.md so the saved skill replaces the old one.
-- Open items to resolve: the legal board titles for Andi Prasetyo and Jhonshan Jusli (no source located; the RUPS deed in Downloads/Business-Docs is PT Andalan Travel Nusantara's, not SAG's; the user will look for SAG's own deed later). Resolved 2 Oct 2026: Parga = Pargata; Bitera site area = 8,200 m² (per the MoM); cable partner = PT Damai Cable Indonesia (internal only); the ship logo is AGM's. Resolved 1 Oct 2026: Seecons Engineering = SEECON; Jordy = Corporate Development Manager; other Consulting Partners keep the title Consulting Partner; Uncle Johnson = Jhonshan Jusli.
+- Open items to resolve (added 6 Oct 2026): who "Jodi" in the Kadin transcript is; whether "Viterra" means Bitera; whether "AAW" is Aspar Anggoro Wibowo; which client the ASI review's Bintan / Galang Batang site is (probably PT Bintan Alumina Indonesia); whether E+H's SPARING connectivity approval has been renewed. Older open items: the legal board titles for Andi Prasetyo and Jhonshan Jusli (no source located; the RUPS deed in Downloads/Business-Docs is PT Andalan Travel Nusantara's, not SAG's; the user will look for SAG's own deed later). Resolved 2 Oct 2026: Parga = Pargata; Bitera site area = 8,200 m² (per the MoM); cable partner = PT Damai Cable Indonesia (internal only); the ship logo is AGM's. Resolved 1 Oct 2026: Seecons Engineering = SEECON; Jordy = Corporate Development Manager; other Consulting Partners keep the title Consulting Partner; Uncle Johnson = Jhonshan Jusli.

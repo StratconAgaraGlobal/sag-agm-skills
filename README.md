@@ -88,7 +88,7 @@ Requirements for building files: Python 3.9+, `python-docx`, `python-pptx`, `Pil
 
 `sag-graphify` holds the facts and the rules for resolving conflicts (business cards beat the SAG BOOK for titles, and so on); Graphify turns SAG's and AGM's documents into a graph that Claude queries before answering.
 
-The graph ships inside the skill at `skills/sag-graphify/graph/`, so everyone queries the same one and receives updates with the plugin. It holds 1,030 nodes and 2,391 edges and merges Ahmed's company-profile graph with Diovandi's curated facts (current titles, aliases, rulings, Sep 2026 meetings). Install Graphify (`pip install graphifyy`) to query it; see the skill's "The bundled graph" section. To extend it, follow sections 15 and 17 of `sag-graphify/SKILL.md` and open a PR with the new `graph/` files.
+The graph ships inside the skill at `skills/sag-graphify/graph/`, so everyone queries the same one and receives updates with the plugin. It holds 1,057 nodes and 2,439 edges and merges Ahmed's company-profile graph with Diovandi's curated facts (current titles, aliases, rulings, Sep 2026 meetings, the Endress+Hauser / ASI thread). Install Graphify (`pip install graphifyy`) to query it; see the skill's "The bundled graph" section. To extend it, follow sections 15 and 17 of `sag-graphify/SKILL.md` and open a PR with the new `graph/` files.
 
 **Keep this repository private.** `sag-graphify` contains staff phone numbers and emails, unresolved board-title questions and client details that are not for the public, and a built graph will contain more.
 

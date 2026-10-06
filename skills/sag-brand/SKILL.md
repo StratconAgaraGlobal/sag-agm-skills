@@ -7,6 +7,8 @@ description: "Apply the PT Stratcon Agara Global (SAG) Graphite & Slate brand to
 
 For PT Stratcon Agara Global (SAG), an Indonesian strategic advisory, regulatory affairs and ESG consultancy. Everything needed is inside this skill folder; nothing else has to be downloaded or attached. Every number in `references/DESIGN_SPEC.md` is exact.
 
+**Palette is green (5 Oct 2026).** The slate-blue roles were shifted to green at the same lightness and saturation; yellow, gold and the status colours are unchanged. File and variable names still say `blue` (`masthead_blue.png`, `palette.BLUE`) so existing scripts keep working. The PDFs, PPTX and DOCX under `assets/reference/` are still the old slate builds until they are regenerated, so take colours from the roles below, not from those files.
+
 ## 0. Set up (once per session, about ten seconds)
 Run from this skill's folder (the folder containing this SKILL.md):
 
@@ -41,15 +43,15 @@ Then look at `examples/sag-brand-example.html` (open it in a browser or the buil
 ## 2. Non-negotiables
 1. **Plus Jakarta Sans only.** Select the weight by family name; only 700 uses the bold flag. Never set bold on ExtraBold.
 2. **Colour roles only:**
-   - PAPER EFF3F4
-   - PANEL 1B3038
-   - INK 16181A
-   - BODY 2C4550
-   - META 3A5560
-   - MUTED 63696C
-   - TINT E2E6E7
-   - RULE 8FA3AB
-   - PALE B8C6CC
+   - PAPER EFF4F1
+   - PANEL 1B382A
+   - INK 161A19
+   - BODY 2C5040
+   - META 3A604E
+   - MUTED 636C68
+   - TINT E2E7E4
+   - RULE 8FAB9E
+   - PALE B8CCC3
    - ACCENT F9C939
    - GOLD C9A227
 3. **SAG Yellow is an accent only:** the tagline and short rules. Never set it as text on light (1.7:1), never use it as a large fill, and keep it to a few marks per page.
@@ -116,7 +118,7 @@ Then convert and check: `soffice --headless --convert-to pdf out.docx`. Fonts ar
 
 ## 5. Apps and web UI
 For any app, internal tool, dashboard, admin page or PWA, read `references/APP_DESIGN.md` first and start from `assets/app/sag-app.css` (copy it in, or inline it in single-file apps). `examples/sag-app-example.html` shows the result.
-- The bar is modern product software (Linear, Stripe): crisp, dense, keyboard-friendly. A light grey app ground (`#F3F5F5`) with the work on one inset white panel; a sidebar with the shield in the workspace switcher; 52 px header bars with breadcrumb, view switcher and one primary action; 42 px rows grouped by status; a detail panel with properties and an activity history; a ⌘K palette; a create dialog with property pills.
+- The bar is modern product software (Linear, Stripe): crisp, dense, keyboard-friendly. A light grey app ground (`#F3F5F3`) with the work on one inset white panel; a sidebar with the shield in the workspace switcher; 52 px header bars with breadcrumb, view switcher and one primary action; 42 px rows grouped by status; a detail panel with properties and an activity history; a ⌘K palette; a create dialog with property pills.
 - SAG yellow means **critical path**: the ◆ marker on rows and the bars on the timeline. Never a button, never text on light, never a status, never chrome decoration.
 - Status uses its own glyphs and colours (not started ◌, in process ◐, issued ✓, at risk !), always with a word somewhere.
 - Plus Jakarta Sans 400–800, 13–14 px UI type, tabular figures. Lucide outline icons in grey. Two soft elevation levels, no gradients or emoji. Light by default; dark only as an opt-in theme.
